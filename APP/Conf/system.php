@@ -70,7 +70,7 @@ return array (
   'sms_type' => '2',
   'everyday_rose' => 0,
   'everyday_drop' => 0,
-  'everyday_last_time' => 1579279071,
+  'everyday_last_time' => 2020,
   'recharge_type' => 2,
   'adurl' => '今日上线，注册实名送3台矿机，产币随时出售，市场供不应求，邀请一人送50CHT并享受6代佣金，更有超级矿机赠送，总价值达5万元！！10000台免费矿机先到先得，送完即止！推广好友购买矿机，拿30%以上佣金奖励！！
 注册链接：[adurl]',
@@ -82,7 +82,7 @@ return array (
   'min_cslkb' => 5,
   'tjj_6' => 0.00050000000000000001,
   'jiesuan_time' => 24,
-  'sljc_1' => 0.01,
+  'sljc_1' => 0.10000000000000001,
   'sljc_2' => 0.029999999999999999,
   'sljc_3' => 0.01,
 );

@@ -8,6 +8,7 @@
             $member = M('member');
 			$username = session('username');
 			$minfo = $member->where(array('username'=>$username))->find();
+            $minfo['team_sl']=round( $minfo['team_sl'],2);
             $starttime = strtotime(date("Y-m-d",NOW_TIME));//今日时间戳	
 			$endtime = $starttime + 86400;
 

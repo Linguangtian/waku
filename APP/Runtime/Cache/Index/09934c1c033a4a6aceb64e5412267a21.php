@@ -65,7 +65,7 @@
 
 
 </div>
-	<?php if($minfo["team_sl"] > 0): ?><div style="background: #FFFFFF;padding:0 5px;"><span>团队算力加成总计：<?php echo ($minfo["team_sl"]); ?> </span>
+	<?php if($minfo["team_sl"] > 0): ?><div style="background: #FFFFFF;padding:0 5px;"><span>团队加成总计：<?php echo ($minfo["team_sl"]); ?> </span>
 		<?php if($team_money_yesterday > 0): ?><span style="float: right">昨日加成：<?php echo ($team_money_yesterday); ?></span><?php endif; ?>
 
 	</div><?php endif; ?>
