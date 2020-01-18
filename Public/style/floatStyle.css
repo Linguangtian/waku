@@ -1,0 +1,182 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+body,td,th {
+	font-size: 14px;
+	font-family: "微软雅黑";
+}
+.tb td{
+	line-height: 35px;
+	height: 35px;
+}
+.buttom{
+	font-size: 13px;
+	text-align: center;
+	height: 30px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	color: #FFFFFF;
+	background-color: #009900;/*#FD673C*/
+	font-weight: bold;
+	padding-right: 10px;
+	padding-left: 10px;
+	margin-right: 5px;
+}
+.buttom:hover{
+	font-size: 13px;
+	text-align: center;
+	height: 30px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	/*cursor:hand;*/
+	cursor: pointer;/* 兼容各种浏览器 */
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #00CC00;/*#EE4F22*/
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.buttom1{
+	font-size: 13px;
+	text-align: center;
+	height: 30px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	color: #FFFFFF;
+	background-color: #999999;/*#FD673C*/
+	font-weight: bold;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.buttom1:hover{
+	font-size: 13px;
+	text-align: center;
+	height: 30px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	/*cursor:hand;*/
+	cursor: pointer;/* 兼容各种浏览器 */
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #666666;/*#EE4F22*/
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.rightTips{color:#000000;}
+.wrongTips{ color:#FF0000;}
+.infoTips{ color:#666666;}
+.text {
+	COLOR: #333;
+	FONT-SIZE: 14px;
+	border-radius: 0;
+	box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+	-webkit-appearance: none;
+	border: 1px solid #ccc;
+	background-color: #f8f8f8;
+	padding-left: 8px;
+	height: 26px;
+	line-height: 26px;
+}
+.text:focus {
+	BORDER-BOTTOM-COLOR: #92afed; BORDER-TOP-COLOR: #92afed; OUTLINE-STYLE: none; OUTLINE-COLOR: invert; OUTLINE-WIDTH: medium; BORDER-RIGHT-COLOR: #92afed; BORDER-LEFT-COLOR: #92afed; box-shadow: 0 0 5px #92afec, inset 1px 1px 2px rgba(0, 0, 0, 0.1)
+}
+.msgFont{FONT-SIZE: 18px;color:Red}
+.FKTip{
+	font-size: 16px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #000000;
+}
+/* fieldset */
+.fieldset{
+	width:95%;
+	border: 1px solid #999999;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 5px;
+	padding-bottom: 10px;
+	padding-left: 15px;
+}
+legend
+{
+	color:#333333;
+	font-weight:100;
+	text-align:center;
+	font-size:14px;
+	padding: 5px;
+}
+.fieldset_title{
+	color: #000000;
+	font-size: 13px;
+}
+.stepTitle{
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #F2F2F2;
+	text-indent: 20px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #999999;
+	margin-bottom: 10px;
+	line-height: 24px;
+	height: 24px;
+	margin-top: 10px;
+	color: #0000FF;
+}
+.stepTip{
+	color: #FF0000;
+	text-indent: 10px;
+	height: 40px;
+	margin-bottom: 10px;
+}
+/* 通用表格 */
+.CommonTb {
+	width:98%;
+}
+.CommonTb td {
+	padding:3px;
+	line-height: 18px;
+	height: 18px;
+}
+.CommonTb td.tbtitle{
+	font-size: 13px;
+	font-weight: bold;
+	color: #000000;
+	text-indent: 5px;
+	margin-bottom: 10px;
+	background-color: #D4D0C8;
+}
+.CommonTb .TbText{
+	line-height: 24px;
+	height: 24px;
+	text-align: right;
+}
+.CommonTb .TbContent{}
+.CommonTbBtnBox{
+	line-height: 40px;
+	text-align: center;
+	height: 40px;
+}
+.CommonTbBtnBox span{
+	font-size: 13px;
+}
+.CommonTip{
+	color: #FF0000;
+	padding: 5px;
+}
+/* tenpay */
+.CompanytenPayNo{
+	font-family: Helvetica, sans-serif;
+	font-size: 18px;
+}

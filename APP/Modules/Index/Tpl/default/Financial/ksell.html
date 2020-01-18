@@ -1,0 +1,200 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+<div class="listBoxGen">
+        <div class="listBoxTitleGen"><div class="showTitle">金币卖出</div></div>
+            <div class="listBoxContentGen">
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+    $("#ctl00_ContentPlaceHolder1_txtTXCurrency").blur(function() { checkTXCurrency(); });
+    $("#ctl00_ContentPlaceHolder1_dropUserPayment").blur(function() { checkUserPayment(); });
+    $("#ctl00_ContentPlaceHolder1_txtUserPass2").blur(function() { if(checkUserPass2()){checkUserPass2OK();} });
+
+    $("#ctl00_ContentPlaceHolder1_Button1").click(function() {
+        return checkInput();
+    });
+});
+
+//单击提交按钮
+function checkInput() {
+
+    if (!checkTXCurrency()) { alert("请检查您输入的金额是否正确或是否有足够的余额！");$("#ctl00_ContentPlaceHolder1_txtTXCurrency").focus(); return false; }
+    if (!checkUserPayment()) { alert("请选择一个收款帐号！"); $("#ctl00_ContentPlaceHolder1_dropUserPayment").focus(); return false; }
+
+    if (!checkUserPass2()) {
+        alert("请输入您的二级密码！");
+        $("#ctl00_ContentPlaceHolder1_txtUserPass2").focus();return false;
+    } else {
+        checkUserPass2OK();
+        if (!isUserPass2) {
+            alert("您输入的二级密码不正确！")
+            $("#ctl00_ContentPlaceHolder1_txtUserPass2").focus();
+            hintMessage("lblUserPass2", "error", "您输入的二级密码不正确！");
+            return false;
+        }
+    }
+
+    if (!confirm("确认卖出吗？")) {
+        return false;
+    }
+
+    $("#ctl00_ContentPlaceHolder1_Button1").hide();
+    $("#showText").html('<img src=/Images/loading.gif> 正在提交中…')
+
+    return true;
+}
+function checkTXCurrency() {
+    if ($("#ctl00_ContentPlaceHolder1_txtTXCurrency").val() == "") {
+        hintMessage("lblTXCurrency", "error", "请输入的卖出金额！");
+        return false;
+    }
+    var value = $("#ctl00_ContentPlaceHolder1_txtTXCurrency").val();
+    if(!(/^(\+|-)?\d+$/.test(value)) || value<500 || value%500!=0){
+        hintMessage("lblTXCurrency", "error", "卖出金额最少500元起且必须是500的整数倍！");
+        return false;
+    }
+    if (parseFloat($("#ctl00_ContentPlaceHolder1_txtTXCurrency").val()) > parseFloat($("#ctl00_ContentPlaceHolder1_Price1").text())) {
+        hintMessage("lblTXCurrency", "error", "卖出金币已超出您的金币余额！</a>");
+        return false;
+    }
+    hintMessage("lblTXCurrency", "right", "");
+    return true;
+}
+function checkUserPayment() {
+    if ($("#ctl00_ContentPlaceHolder1_dropUserPayment").val() == "0") {
+        hintMessage("lblBankType", "error", "请选择一个收款帐号！");
+        return false;
+    }
+    hintMessage("lblBankType", "right", "");
+    return true;
+}
+function checkUserPass2() {
+    if ($("#ctl00_ContentPlaceHolder1_txtUserPass2").val() == "") {
+        hintMessage("lblUserPass2", "error", "请输入您的二级密码！");
+        return false;
+    }
+    hintMessage("lblUserPass2", "right", "");
+    return true;
+}
+var isUserPass2 = true;
+//ajax查询二级密码
+function checkUserPass2OK() {
+    $.post("{:U('checkPass')}", { Action: "post", UserPass2: $("#ctl00_ContentPlaceHolder1_txtUserPass2").val() }
+    , function(value, textStatus) {
+
+        if (value.result == "error") {
+            hintMessage("lblUserPass2", "error", "您输入的二级密码不正确！");
+            isUserPass2 = false;
+            return;
+        } else if (value.result == "success") {
+            hintMessage("lblUserPass2", "right", "");
+            isUserPass2 = true;
+            return;
+        }
+    }, "json");
+}
+
+document.onkeydown = mykeydown;
+function mykeydown() {
+    if (event.keyCode == 116)
+    {
+        window.event.keyCode = 0;
+        return false;
+    }
+}
+function ConvertToBJ(obj) {
+    var str = obj.value;
+    var result = "";
+    for (var i = 0; i < str.length; i++) {
+        if (str.charCodeAt(i) == 12288) {
+            result += String.fromCharCode(str.charCodeAt(i) - 12256);
+            continue;
+        }
+        if (str.charCodeAt(i) > 65280 && str.charCodeAt(i) < 65375)
+            result += String.fromCharCode(str.charCodeAt(i) - 65248);
+        else result += String.fromCharCode(str.charCodeAt(i));
+    }
+    obj.value = result;
+}
+</script>
+
+<div class="clear"></div>
+<div style=" color:Red; padding-left:50px;">提示：交易系统24小时开放，玩家可以在任何时侯提交记录，系统处理程序将在每日上午9:00-晚上21:00期间统一自动处理</div>
+<div class="salelc"></div>
+<form action="{:U('ksellHandle')}" method="post">
+<fieldset class="fieldset">
+<legend><span class="fieldset_title">金币卖出</span>！</legend>
+    <table border="0" align="center" cellpadding="3" cellspacing="0" class="CommonTb">
+      <tr>
+        <td style="width:100px;">会员编号：</td>
+        <td><span id="ctl00_ContentPlaceHolder1_UserName" style="color:Red;">{$Think.session.username}</span></td>
+      </tr>
+      <tr>
+        <td>金币余额：</td>
+        <td><span id="ctl00_ContentPlaceHolder1_Price1" class="PriceCss" style="color:Red;">{$balance}</span></td>
+      </tr>
+      <tr>
+        <td> 卖出金额：</td>
+        <td><input name="qty" type="text" maxlength="20" id="ctl00_ContentPlaceHolder1_txtTXCurrency" class="text" onkeyup="value=value.replace(/[^0-9]/g,&#39;&#39;)" style="width:260px;" /> <span id="lblTXCurrency" class="infoTips">
+            500起且必须为500的整数倍</span></td>
+      </tr>
+      <tr>
+        <td> 收款帐号：</td>
+        <td>
+            <select name="receivableid" id="ctl00_ContentPlaceHolder1_dropUserPayment" class="FieldTextF">
+	           <option value="0">请选择</option>
+                <volist name="banklist" id="vo">
+                        <option value="收款方式：{$vo.type} 收款帐号：{$vo.account} 收款姓名：{$vo.name} 开户行：{$vo.address}">收款方式：{$vo.type} 收款帐号：{$vo.account} 收款姓名：{$vo.name} 开户行：{$vo.address}</option>
+                    </volist>
+            </select> <a href="{:U('Index/PersonalSet/userPayment')}">管理收款帐号</a><br />
+            <font color="#999999">此处目前支持财付通及工、农、建、招四大银行帐号</font>
+          </td>
+      </tr>
+      <tr>
+        <td>二级密码：</td>
+        <td><input name="pass2" type="password" maxlength="20" id="ctl00_ContentPlaceHolder1_txtUserPass2" class="text" style="width:260px;" /> <span id="lblUserPass2" class="infoTips"></span></td>
+      </tr>
+    </table>
+    <input type="hidden" name="seller" value="{$Think.session.username}">
+<div class="CommonTbBtnBox">
+    <input type="submit" value="卖 出"  id="ctl00_ContentPlaceHolder1_Button1" class="buttom" />
+    <span id="showText"></span>
+</div>
+</fieldset>
+</form>
+<div class="CommonTip">
+</div>
+<br />
+<p style="line-height:24px;padding-left:20px;">
+说明：<br />
+    1、卖出金币请根据自己情况选择相应收款方式，收款24小时内到帐。收款推荐使用财付通。<br />
+    2、收款方式如果选择中国银行则一定要填写详细的开户行名称（前面包括相应省份）。<br />
+    3、收款方式与收款帐号要对应，且收款姓名要与帐号姓名一致！<br />
+    4、卖出金币交易费5%<br />
+</p>
+
+            </div>
+            <br /><br />
+        </div>
+	</div>
+</div>
+
+<!-- Transparent layer -->
+<div id="divBox" style="filter:alpha(opacity=40);-moz-opacity:0.3;opacity:0.3;background-color:#000;width:100%;height:100%;z-index:1000;position: absolute;left:0;top:0;display:none;overflow: hidden;">
+</div>
+<!-- message layer -->
+<div id="divMsg" style="border:solid 5px #339999;background:#fff;padding:10px;width:780px;z-index:1001; position: absolute; display:none;top:50%; left:50%;margin:-200px 0 0 -400px;">
+    <div style="padding:3px 15px 3px 15px;text-align:left;vertical-align:middle;" >
+        <div class="IndexShowMsg">
+            <div id="divShowMsg"></div>
+
+        </div>
+        <br/>
+        <div id="showbtnCancel" style="text-align:right;">
+            <input id="btnCancel" type="button" class="buttom" value=" 关闭 " onclick="ShowNo()" />
+        </div>
+    </div>
+</div>
+</body>
+</html>

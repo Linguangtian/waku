@@ -1,0 +1,130 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+
+
+<!-- Start: Topbar -->
+<header id="topbar" class="affix">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="crumb-active">
+                <a href="/">Member</a>
+            </li>
+            <li class="crumb-icon">
+                <a href="/">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </li>
+            <li class="crumb-trail">
+                <a href="#">
+                   转账管理
+                </a>
+            </li>
+            <li class="crumb-trail">
+                转账记录
+            </li>
+
+        </ol>
+    </div>
+</header>
+<!-- End: Topbar -->
+
+<!-- Begin: Content -->
+<section id="content" class="table-layout " style="padding-top: 50px;">
+    <div class="row" style="padding: 10px 0px 40px !important;">
+        <div class="col-md-12" style="padding: 0px 8px !important;">
+            <div class="panel panel-visible">
+                <div class="panel-heading br-b-n">
+                    <div class="panel-title hidden-xs">
+                        <span class="glyphicon glyphicon-tasks"></span>转账记录
+                    </div>
+                </div>
+                <div class="panel-body pn">
+                    <div class="dataTables_wrapper form-inline dt-bootstrap no-footer admin-form" id="datatable_wrapper">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+
+							
+							
+                                <table style="width: 100%;" aria-describedby="datatable_info" role="grid"
+                                       class="table table-striped table-bordered table-hover dataTable no-footer text-center"
+                                       id="datatable" cellspacing="0" width="100%">
+                                    <thead>
+                                    <!--<tr>-->
+                                    <!--<td class="w200">类型</td>-->
+                                    <!--<td class="w200">金额</td>-->
+                                    <!--<td>描述</td>-->
+                                    <!--<td class="w175">操作时间</td>-->
+                                    <!--</tr>-->
+                                    <tr>
+                                        <td class="w200">转账时间</td>
+                                        <td class="w200">转账金额</td>
+                                        <td class="w200">转账信息</td>
+                                        <td class="w200">备注</td>
+									
+                                      
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+<if condition="$list"><volist name="list" id="vo">
+                                    <tr>   
+                                            <td><span>{$vo.addtime|date='Y-m-d H:i:s',###}</span></td>
+											<td><span>{$vo.qty}</span></td>
+											<td><span>由 <if condition="$vo.outer eq $_SESSION['username']"><span class=showZZText>{$vo.outer}</span>
+                            <else/>
+                                {$vo.outer}
+                            </if>
+							转入 <if condition="$vo.iner eq $_SESSION['username']">
+                                <span class=showZZText>{$vo.iner}</span>
+                            <else/>
+                                {$vo.iner}
+                            </if>账户</td>
+							<td><span>{$vo.desc}</span> </td>
+                                                                                               
+                                        </tr>
+									 </volist>  
+										
+										
+										
+										    {$page}
+
+<else/>
+      </table>
+								<div align=center style="line-height:100px;">暂无信息</div>
+                            </div>
+                        </div>
+</if>
+
+
+
+
+										
+                                </table>
+                            </div>
+                        </div>
+						
+			
+
+						
+
+
+</div>
+
+		
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- End: Content -->
+
+
+</div>
+
+
+
+
+<include file="./APP/Modules/Index/Tpl/default/Public/footer.html" />
+

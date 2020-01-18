@@ -1,0 +1,110 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+<div class="inner-block">
+    <div class="inbox">
+    		 
+    	 	<div class="col-md-8 compose-right">
+					<div class="inbox-details-default">
+						<div class="inbox-details-heading">
+			转账记录
+						</div>
+						<div class="inbox-details-body">
+						
+
+						
+						
+						
+
+
+
+
+<div class="listBoxGen">
+
+
+            <div class="listBoxContentGen">
+                
+	            
+<div style="padding-top:15px; padding-bottom:15px;">
+    <input type="button" name="btnRedirect" value="全部记录" class="buttom" onclick="window.location='{:U('Index/Financial/kChangeList')}'" />
+    <input type="button" name="btnRedirect" value="转入记录" class="buttom" onclick="window.location='{:U('Index/Financial/kChangeInList')}'" />
+    <input type="button" name="btnRedirect" value="转出记录" class="buttomThis" onclick="window.location='{:U('Index/Financial/kChangeOutList')}'" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">為了提昇系统性能，给所有玩家更好的使用体验，同时方便玩家查看，系统将可保留最近一段时间内的记录明细日志！
+</font><br />
+<br />
+<form action="">
+查询时间：
+<select name="month" class="FieldTextF">
+    	<option <if condition="$_GET['month'] == $date[0]">selected="selected"</if> value="{$date[0]}">{$date[0]}</option>
+    	<option <if condition="$_GET['month'] == $date[1]">selected="selected"</if> value="{$date[1]}">{$date[1]}</option>
+</select>
+<input type="submit" value="查询" class="buttom" />
+</form>
+</div>
+
+<if condition="$list">
+	<div>
+	<table class="GridViewStyle" cellspacing="0" cellpadding="4" align="Center" rules="all" border="1" id="ctl00_ContentPlaceHolder1_GridView1" style="width:100%;border-collapse:collapse;">
+		<tr class="HeaderStyle" style="font-weight:bold;">
+			<th scope="col">转帐时间</th><th scope="col">您转出金币给以下会员</th><th scope="col">转出金币数量</th><th scope="col">留言备注</th>
+		</tr>
+		<volist name="list" id="vo">
+			<tr class="RowStyle">
+				<td align="center"><span>{$vo.addtime|date='Y-m-d H:i:s',###}</span></td>
+				<td align="center"><span>{$vo.iner}</span></td>
+				<td align="center"><span>{$vo.qty}</span></td>
+				<td align="center"><span>{$vo.desc}</span></td>
+			</tr>
+		</volist>
+	</table>
+	<div>
+<div class="ZLPagerCss">
+    {$page}
+</div>
+
+</div>
+</div>
+<else/>
+	<div>
+	<table align="Center" cellspacing="0" cellpadding="4" border="1" style="width:100%;border-collapse:collapse;" id="ctl00_ContentPlaceHolder1_GridView1" rules="all" class="GridViewStyle">
+		<tbody><tr class="EmptyRowStyle">
+			<td colspan="7">
+    <span class="FieldTextM" id="ctl00_ContentPlaceHolder1_GridView1_ctl01_emptyInfo">无相关记录！</span>
+</td>
+		</tr>
+	</tbody>
+	</table>
+</div>
+</if>
+
+
+                
+
+            </div>
+            <br /><br />
+        </div>
+	
+	
+	
+	
+	
+	
+		
+		
+		   	</div>
+					</div>
+				</div>
+    	
+          <div class="clearfix"> </div>     
+   </div>
+</div>
+		
+		
+<include file="./APP/Modules/Index/Tpl/default/Public/footer.html" />
+
+
+
+
+
+
+
+
+

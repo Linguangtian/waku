@@ -1,0 +1,96 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+
+<div class="inner-block">
+    <div class="inbox">
+    		 
+    	 	<div class="col-md-8 compose-right">
+					<div class="inbox-details-default">
+						<div class="inbox-details-heading">
+							推广收益
+						</div>
+						<div class="inbox-details-body">
+						
+						
+	<div class="listBoxGen">
+
+            <div class="listBoxContentGen">
+
+
+<script type="text/javascript" src="/Js/JsCalendar/WdatePicker.js"></script>
+<div class="boxManage">
+您当前奖金概况---推荐奖合计：<span class="f16 red">{$member.tjsum}</span>  市场分红合计：<span class="f16 red">{$member.fhsum}</span> 业绩奖合计：<span class="f16 red">{$member.ldsum}</span>
+</div>
+<br />
+<form action="">
+查询时间：
+<select name="month" class="FieldTextF">
+    	<option <if condition="$_GET['month'] == $date[0]">selected="selected"</if> value="{$date[0]}">{$date[0]}</option>
+    	<option <if condition="$_GET['month'] == $date[1]">selected="selected"</if> value="{$date[1]}">{$date[1]}</option>
+</select>
+<input type="submit" value="查询" class="buttom" />
+</form>
+
+
+<br />
+
+<if condition="$list">
+    <div>
+    <table class="GridViewStyle" cellspacing="0" cellpadding="4" align="Center" rules="all" border="1" id="ctl00_ContentPlaceHolder1_GridView1" style="width:100%;border-collapse:collapse;">
+        <tr class="HeaderStyle">
+            <th scope="col">结算时间</th><th scope="col">奖金分类</th><th scope="col">所属会员</th><th scope="col">增加金币</th><th scope="col">增加金种子</th><th scope="col">累计增加</th><th scope="col">说明</th>
+        </tr>
+        <volist name="list" id="vo">
+        <tr class="RowStyle">
+            <td align="center">
+                <span>{$vo.addtime|date='Y-m-d H:i:s',###}</span>
+            </td><td align="center">
+                <span>{$vo.type}</span>
+            </td><td align="center">
+                <span>{$vo.member}</span>
+            </td><td align="center">
+                <span>￥{$vo.jinbi}</span>
+            </td><td align="center">
+                <span>￥{$vo.jinzhongzi}</span>
+            </td><td align="center">
+                <span>￥{$vo.cumulative}</span>
+            </td><td align="center">
+                <span>{$vo.desc}</span>
+            </td>
+        </tr>
+        </volist>
+    </table>
+    </div>
+    <div id="ctl00_ContentPlaceHolder1_AspNetPager1_ShowZLPager">
+<div class="ZLPagerCss">
+    {$page}
+</div>
+
+</div>
+<else/>
+    <div>
+    <table align="Center" cellspacing="0" cellpadding="4" border="1" style="width:100%;border-collapse:collapse;" id="ctl00_ContentPlaceHolder1_GridView1" rules="all" class="GridViewStyle">
+        <tbody><tr class="EmptyRowStyle">
+            <td colspan="7">
+    <span class="FieldTextM" id="ctl00_ContentPlaceHolder1_GridView1_ctl01_emptyInfo">无相关记录！</span>
+    </td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+</if>
+
+            </div>
+            <br /><br />
+        </div>
+	
+	
+						</div>
+					</div>
+				</div>
+    	
+          <div class="clearfix"> </div>     
+   </div>
+</div>
+
+<include file="./APP/Modules/Index/Tpl/default/Public/footer.html" />
+

@@ -1,0 +1,63 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+<header id="topbar" class="affix">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="crumb-active">
+                <a href="/">Member</a>
+            </li>
+            <li class="crumb-icon">
+                <a href="/">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </li>
+            <li class="crumb-trail">
+                <a href="#">
+                   基金交易
+                </a>
+            </li>
+            <li class="crumb-trail">
+                基金走势
+            </li>
+
+        </ol>
+    </div>
+</header>
+
+<div id="content">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-heading br-b-n">
+                    <div class="panel-title hidden-xs">
+                        <span class="glyphicon glyphicon-tasks"></span>基金走势
+                    </div>
+                </div>
+                <div class="panel-body">
+                                   <div id="chart"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End: Content -->
+
+    </section>
+</div>
+<script type="text/javascript" src="/Public/js/jqplot.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var data = [[{$jijin[6]['money']},{$jijin[5]['money']},{$jijin[4]['money']},{$jijin[3]['money']},{$jijin[2]['money']},{$jijin[1]['money']},{$jijin[0]['money']}],[{$jijin[6]['sellmoney']},{$jijin[5]['sellmoney']},{$jijin[4]['sellmoney']},{$jijin[3]['sellmoney']},{$jijin[2]['sellmoney']},{$jijin[1]['sellmoney']},{$jijin[0]['sellmoney']}]];
+	var data_max = 2; 
+	var line_title = ["买","卖"]; //曲线名称
+	var y_label = ""; //Y轴标题
+	var x_label = ""; //X轴标题
+	var x = ['{$jijin.6.date|date="m/d",###}','{$jijin.5.date|date="m/d",###}','{$jijin.4.date|date="m/d",###}','{$jijin.3.date|date="m/d",###}','{$jijin.2.date|date="m/d",###}','{$jijin.1.date|date="m/d",###}','{$jijin.0.date|date="m/d",###}']; //定义X轴刻度值
+	var title = "基金近一周走势"; //统计图标标题
+	j.jqplot.diagram.base("chart", data, line_title, title, x, x_label, y_label, data_max, 1);
+});
+</script>
+
+<include file="./APP/Modules/Index/Tpl/default/Public/footer.html" />
+

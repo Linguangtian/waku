@@ -1,0 +1,161 @@
+/*********Public*******/
+body {
+	margin:0px;
+	padding:0px;
+	font-size:12px;
+	font-family:宋体;
+	background:url(../images/login_bg.jpg) repeat-x #fff;
+}
+img {
+	border:0px;
+}
+a {
+	text-decoration:none;
+	color:#a8a8a8
+}
+a:hover {
+	text-decoration:none;
+	color:#666
+}
+* {
+	margin:0 auto;
+	padding:0px;
+}
+.clr {
+	clear:both
+}
+/*********top*******/
+.top_link {
+	width:510px;
+	height:74px;
+	text-align:right;
+	margin-top:30px;
+	color:#959595
+}
+.top_bg {
+	width:988px;
+	height:93px;
+	background:url(../images/login_top.jpg) no-repeat;
+}
+.logo a {
+	width:292px;
+	height:93px;
+	float:left;
+	text-indent:-9999px;
+	display:block
+}
+.right_words {
+	width:272px;
+	height:50px;
+	float:right;
+	padding-right:70px;
+	color:#999;
+}
+.center_bg {
+	width:988px;
+	height:180px;
+}
+.ad_bg {
+	width:612px;
+	height:180px;
+	background:url(../images/login_letad.jpg) no-repeat;
+	float:left
+}
+.input_bg {
+	width:273px;
+	height:180px;
+	background:url(../images/login_inputbg.jpg) no-repeat;
+	float:left
+}
+.input_bg p {
+	width:233px;
+	height:40px;
+	color:#9c9e9d;
+}
+.input_bg h1 {
+	width:233px;
+	height:26px;
+	border-bottom:#ccc 1px solid;
+	font-family:"Microsoft YaHei";
+	font-size:18px;
+	color:#333;
+	font-weight:normal
+}
+.input_bg h2 {
+	width:233px;
+	float:left;
+	padding-left:17px;
+	margin-top:18px;
+}
+.user_bg {
+	width:229px;
+	height:32px;
+	background:url(../images/login_userbg.gif) no-repeat;
+	border: none;
+	line-height:32px;
+	color:#333;
+	padding-left:26px;
+}
+.user_pass {
+	width:229px;
+	height:32px;
+	background:url(../images/login_passbg.gif) no-repeat;
+	border: none;
+	line-height:32px;
+	color:#333;
+	padding-left:26px;
+}
+.input_foot {
+	width:988px;
+	height:111px;
+}
+.about {
+	width:612px;
+	height:111px;
+	float:left
+}
+.about h1 {
+	color:#999;
+	width:560px;
+	font-weight:bold;
+	font-size:12px;
+	line-height:40px;
+}
+.about p {
+	color:#999;
+	width:560px;
+	line-height:23px;
+}
+.go {
+	width:273px;
+	height:111px;
+	background:url(../images/login_inputgo.jpg) no-repeat;
+	float:left;
+	color:#a8a8a8;
+}
+.go span {
+	padding-left:26px;
+}
+.sub_go {
+	width:119px;
+	height:28px;
+	background:url(../images/login_go.jpg) no-repeat;
+	border:none;
+}
+.sub_go:hover {
+	width:119px;
+	height:28px;
+	background:url(../images/login_go2.jpg) no-repeat;
+	cursor:pointer;
+}
+.webfoot {
+	display:block;
+	width:480px;
+	height:80px;
+	line-height:80px;
+	font-family:Verdana;
+	font-size:11px;
+	color:#999;
+	text-align:right;
+	margin-top:30px;
+}

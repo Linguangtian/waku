@@ -1,0 +1,126 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+       
+<header id="topbar" class="affix">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="crumb-active">
+                <a href="/">Member</a>
+            </li>
+            <li class="crumb-icon">
+                <a href="/">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </li>
+            <li class="crumb-trail">
+                <a href="#">
+                   转账管理
+                </a>
+            </li>
+            <li class="crumb-trail">
+                我要转账
+            </li>
+
+        </ol>
+    </div>
+</header>
+
+<div id="content">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-heading br-b-n">
+                    <div class="panel-title hidden-xs">
+                        <span class="glyphicon glyphicon-tasks"></span>我要转账
+                    </div>
+                </div>
+                <div class="panel-body">
+                   <form action="" method="post" class="form-horizontal">  
+
+					       <div class="form-group">
+                            <label class="col-lg-3 control-label">用户名</label>
+                            <div class="col-lg-4">
+                                <label class="control-label text-info-light">{$Think.session.username}</label>
+                            </div>
+                            <div class="col-lg-4">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">pv余额</label>
+                            <div class="col-lg-4">
+                                <label class="control-label text-info-light">{$jinbi}</label>
+                            </div>
+                            <div class="col-lg-4">
+                            </div>
+                        </div>
+						
+						
+						
+
+                        <div class="form-group">
+                            <label for="email" class="col-lg-3 control-label">对方账号</label>
+                            <div class="col-lg-4">
+						
+						<input name="inusername" class="form-control" autocomplete="off"   />
+                            </div>
+                          
+                        </div>
+
+						
+						
+				
+						
+                      <div class="form-group">
+                            <label for="telphone" class="col-lg-3 control-label">转账金额</label>
+                            <div class="col-lg-4">
+                           <input name="outmoney"  maxlength="20"  type="text" onkeyup="value=value.replace(/[^0-9]/g,&#39;&#39;)" class="form-control" autocomplete="off" />
+						
+                            </div>
+                         
+                        </div>
+
+						           <div class="form-group">
+                            <label for="telphone" class="col-lg-3 control-label">留言备注</label>
+                            <div class="col-lg-4">
+                         <textarea name="desc" rows="2" cols="20"  class="form-control" style="height:60px;"></textarea>
+							
+                            </div>
+                           
+                        </div>
+						
+
+								
+                        <div class="form-group">
+                            <label for="telphone" class="col-lg-3 control-label">二级密码</label>
+                            <div class="col-lg-4">
+                                <input   name="password2" type="password"  class="form-control" autocomplete="off" /> 
+                            </div>
+                           
+                        </div>
+						
+						
+						<input type="hidden" value="{$Think.session.username}" name="outusername">
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label"></label>
+                            <div class="col-lg-8">
+                                   
+                                <button type="submit" class="btn btn-primary btn-submit">提 交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End: Content -->
+
+    </section>
+</div>
+
+<include file="./APP/Modules/Index/Tpl/default/Public/footer.html" />
+
+
+

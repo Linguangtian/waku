@@ -1,0 +1,83 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+
+
+<!-- Start: Topbar -->
+<header id="topbar" class="affix">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="crumb-active">
+                <a href="/">Member</a>
+            </li>
+            <li class="crumb-icon">
+                <a href="/">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </li>
+            <li class="crumb-trail">
+                <a href="#">
+                   我的团队
+                </a>
+            </li>
+            <li class="crumb-trail">
+                团队树形图
+            </li>
+
+        </ol>
+    </div>
+</header>
+<!-- End: Topbar -->
+
+<!-- Begin: Content -->
+<section id="content" class="table-layout " style="padding-top: 50px;">
+    <div class="row" style="padding: 10px 0px 40px !important;">
+        <div class="col-md-12" style="padding: 0px 8px !important;">
+            <div class="panel panel-visible">
+                <div class="panel-heading br-b-n">
+                    <div class="panel-title hidden-xs">
+                        <span class="glyphicon glyphicon-tasks"></span>团队树形图
+                    </div>
+                </div>
+                <div class="panel-body pn">
+                    <div class="dataTables_wrapper form-inline dt-bootstrap no-footer admin-form" id="datatable_wrapper">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+				
+							<table width="100%" cellspacing="0" id="dnd-example" class="table table-bordered">
+		<tbody>{$categorys}</tbody>
+</table>  
+
+                            </div>
+                        </div>
+
+						
+
+
+</div>
+
+		
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- End: Content -->
+
+
+</div>
+
+
+
+
+<include file="./APP/Modules/Index/Tpl/default/Public/footer.html" />
+
+<link href="/Public/jquery.treeTable.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/jquery.treetable.js"></script>
+<script type="text/javascript">
+		  $(document).ready(function() {
+			$("#dnd-example").treeTable({});
+          });
+</script>	

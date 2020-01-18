@@ -1,0 +1,87 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+	<div class="listBoxGen">
+        <div class="listBoxTitleGen"><div class="showTitle">购买记录</div></div>
+            <div class="listBoxContentGen">
+                
+<div style="padding-top:10px; padding-bottom:10px; line-height:150%;">
+说明：1、成功抢购预定金币后，抢购记录会暂时為您保留，请点击记录后面的<font color="blue">“付款”</font>查看如何付款以及付款后提交付款通知等操作！<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、<font color="red">请按记录要求付款(不要少付或多付)，多条记录请分别付款，</font>这样系统才能核实确认！為了安全，付款时请将随机码填写到付款时的“付款备註”中<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3、切记：付了款后才提交付款通知，未付款则请不要提交！否则系统收到通知后检测到却未付款记录将被取消。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4、交易系统24小时开放，玩家可以随时抢购与付款，系统审核将在每日上午9:00-晚上21:00期间统一处理！</font>
+</div>
+
+<if condition="$list">
+ <div>
+    <table cellspacing="0" cellpadding="4" border="1" align="Center" style="width:100%;border-collapse:collapse;" id="ctl00_ContentPlaceHolder1_GridView1" rules="all" class="GridViewStyle">
+        <tbody>
+        <tr style="font-weight:bold;" class="HeaderStyle">
+            <th scope="col">卖出时间</th>
+            <th scope="col">卖家编号</th>
+            <th scope="col">卖家收款信息</th>
+            <th scope="col">金额 </th>
+            <th scope="col">状态</th>
+            <th scope="col">操作</th>
+        </tr>
+        <volist name="list" id="vo">
+        <tr class="RowStyle">
+            <td align="center">{$vo.addtime|date='Y-m-d H:i:s',###}</td>
+            <td align="center">{$vo.seller}</td>
+            <td align="center">{$vo.receivableid}</td>
+            <td align="center">{$vo.qty}</td>
+            <td align="center"><font color="red">{$vo.status}</font></td>
+            <td align="center">
+                <if condition="$vo.status eq '抢购成功待付款'">
+                    <a style="color:Blue;" href="{:U('kingSellPay',array('id'=>$vo['id']))}" onclick="if(!confirm('确认已经付款吗？')){return false;}" class="CursorLink" >付款</a>
+                </if>                      
+            </td>
+            </tr>
+            </volist>
+            </tbody></table>
+            <div>
+                <div class="ZLPagerCss">
+                    {$page}         
+                </div>
+            </div>
+</div>
+<else/>
+     <div>
+    <table class="GridViewStyle" cellspacing="0" cellpadding="4" align="Center" rules="all" border="1"  style="width:100%;border-collapse:collapse;">
+        <tr class="EmptyRowStyle">
+            <td colspan="13">
+    <span class="FieldTextM">无相关记录！</span>
+</td>
+        </tr>
+    </table>
+</div>
+</if>
+
+
+
+        
+
+            </div>
+            <br /><br />
+        </div>
+	</div>
+</div>
+
+<!-- Transparent layer --> 
+<div id="divBox" style="filter:alpha(opacity=40);-moz-opacity:0.3;opacity:0.3;background-color:#000;width:100%;height:100%;z-index:1000;position: absolute;left:0;top:0;display:none;overflow: hidden;">
+</div>
+<!-- message layer --> 
+<div id="divMsg" style="border:solid 5px #339999;background:#fff;padding:10px;width:780px;z-index:1001; position: absolute; display:none;top:50%; left:50%;margin:-200px 0 0 -400px;"> 
+    <div style="padding:3px 15px 3px 15px;text-align:left;vertical-align:middle;" > 
+        <div class="IndexShowMsg"> 
+            <div id="divShowMsg"></div>
+            
+        </div> 
+        <br/>
+        <div id="showbtnCancel" style="text-align:right;"> 
+            <input id="btnCancel" type="button" class="buttom" value=" 关闭 " onclick="ShowNo()" /> 
+        </div> 
+    </div> 
+</div> 
+
+    </form>
+</body>
+</html>

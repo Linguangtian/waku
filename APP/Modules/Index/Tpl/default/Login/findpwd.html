@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <title>MuQW</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+
+   <link rel="stylesheet" type="text/css" href="/Public/assets/skin/default_skin/css/zip.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/Public/assets/img/favicon.ico">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="external-page sb-l-c sb-r-c">
+
+<!-- Start: Settings Scripts -->
+<script>
+    var boxtest = localStorage.getItem('boxed');
+
+    if (boxtest === 'true') {
+        document.body.className += ' boxed-layout';
+    }
+</script>
+<!-- End: Settings Scripts -->
+
+<!-- Start: Main -->
+<div id="main" class="animated fadeIn">
+
+    <!-- Start: Content -->
+    <section id="content_wrapper">
+
+        <!-- begin canvas animation bg -->
+        <div id="canvas-wrapper">
+            <canvas id="demo-canvas"></canvas>
+        </div>
+
+        <!-- Begin: Content -->
+        <section id="content">
+
+            <div class="admin-form theme-info" id="login1">
+
+                <div class="row mb15 table-layout">
+
+                    <div class="col-xs-6 va-m pln">
+                        <img src="/Public/assets/img/logos/logo_white.png" title="AdminDesigns Logo"
+                             class="img-responsive w250">
+                    </div>
+
+                    <div class="col-xs-6 text-right va-b pr5">
+                        <div class="login-links">
+                            <a href="/index.php" class="active" title="Sign In">登录</a>
+                            <span class="text-white"> | </span>
+                            <a href="/index.php/index/sem/regSem/u/889001" class="" title="Register">注册</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="panel panel-info mt10 br-n">
+
+                    <div class="panel-heading heading-border bg-white">
+                        <div class="section row mn">
+                        </div>
+                    </div>
+
+                    <!-- end .form-header section -->
+                     <form name="form1" method="post" action="" id="form1" class="form-signin">
+
+
+
+                        <div class="panel-body bg-light p30">
+                            <div class="row">
+                                <div class="col-sm-7 pr30">
+
+                                    <div class="section">
+                                        <label for="username" class="field-label text-muted fs18 mb10">会员编号</label>
+                                        <label for="username" class="field prepend-icon">
+										<input name="username" type="text" maxlength="10"   class="gui-input" />
+										
+                                   
+
+
+
+                                            <label for="username" class="field-icon"><i class="fa fa-user"></i>
+                                            </label>
+                                        </label>
+                                    </div>
+                                    <!-- end section -->
+
+                                    <div class="section">
+                                        <label for="password" class="field-label text-muted fs18 mb10">输入验证码</label>
+                                        <label for="password" class="field prepend-icon">
+										<input name="code" type="text" maxlength="5" id="yzm2" class="gui-input" />
+										
+                                       <img id="Image2" src="{:U('Index/Login/verify')}" style="border-width:0px;" align="absmiddle" />
+									
+		   
+                                            <label for="password" class="field-icon"><i class="fa fa-lock"></i>
+                                            </label>
+                                        </label>
+                                    </div>
+
+                                </div>
+                                  <div class="col-sm-5 br-l br-grey pl30">
+                                    <h3 class="mb25"> 您可以在系统中:</h3>
+                                    <p class="mb15">
+                                        <span class="fa fa-check text-success pr5"></span> 管理帐户
+                                    </p>
+                                    <p class="mb15">
+                                        <span class="fa fa-check text-success pr5"></span> 管理收益
+                                        </p>
+                                    <p class="mb15">
+                                        <span class="fa fa-check text-success pr5"></span> 管理团队</p>
+                                    <p class="mb15">
+                                        <span class="fa fa-check text-success pr5"></span> 管理用户</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end .form-body section -->
+                        <div class="panel-footer clearfix p10 ph15">
+                            <button type="submit" class="button btn-primary mr10 pull-right btn-submit">找回密码</button>
+                           
+                        </div>
+                        <!-- end .form-footer section -->
+                    </form>
+                </div>
+            </div>
+
+        </section>
+        <!-- End: Content -->
+
+    </section>
+    <!-- End: Content-Wrapper -->
+
+</div>
+<!-- End: Main -->
+
+
+
+<!-- BEGIN: PAGE SCRIPTS -->
+
+<script type="text/javascript" src="/Public/vendor/jquery/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript" src="/Public/assets/js/zip.js"></script>
+
+
+<!-- Page Javascript -->
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+
+        "use strict";
+        // Init CanvasBG and pass target starting location
+        CanvasBG.init({
+            Loc: {
+                x: window.innerWidth / 2,
+                y: window.innerHeight / 3.3
+            },
+        });
+
+    });
+
+   
+</script>
+
+
+
+</body>
+
+
+</html>

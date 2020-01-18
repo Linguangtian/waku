@@ -1,0 +1,91 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+<div class="inner-block">
+    <div class="inbox">
+    		 
+    	 	<div class="col-md-8 compose-right">
+					<div class="inbox-details-default">
+						<div class="inbox-details-heading">推广收益</div>
+						       <div class="inbox-details-body">
+						         <div class="listBoxGen">
+     
+<div class="listBoxContentGen">
+       <script type="text/javascript" src="/Js/JsCalendar/WdatePicker.js"></script>
+<div>
+<font color="blue">为了提升系统性能，给用户更好的使用体验，同时方便用户查看，系统将可保留最近一段时间内的记录明细日志！</font>
+<br />
+<form action="">
+查询时间：<select name="month" class="FieldTextF">
+        <option <if condition="$_GET['month'] == $date[0]">selected="selected"</if> value="{$date[0]}">{$date[0]}</option>
+        <option <if condition="$_GET['month'] == $date[1]">selected="selected"</if> value="{$date[1]}">{$date[1]}</option>
+</select>
+    
+<input type="submit" value="查询" class="buttom" />  累计收益:{$tjsum},今日收益:{$sx_tj}
+</form>
+    
+
+</div>
+<if condition="$list">
+    <div>
+    <table class="GridViewStyle" cellspacing="0" cellpadding="4" align="Center" rules="all" border="1" id="ctl00_ContentPlaceHolder1_GridView1" style="width:100%;border-collapse:collapse;">
+        <tr class="HeaderStyle" style="height:30px;">
+            <th scope="col">操作时间</th>
+			<th scope="col">增减</th>
+			<th scope="col">余额</th>
+			<th scope="col">说明</th>
+        </tr>
+        <volist name="list" id="vo">
+            <tr class="RowStyle" style="height:22px;">
+                <td align="center"><span>{$vo.addtime|date='Y-m-d H:i',###}</span></td>
+				<td align="center"><span ><if condition="$vo.adds eq 0.00">-{$vo.reduce}<else/>+{$vo.adds}</if></span></td>
+				<td align="center"><span>{$vo.balance}</span></td>
+				<td align="center"><span>{$vo.desc}</span></td>
+            </tr>
+        </volist>
+    </table>
+</div>
+  <div>
+    
+<div class="ZLPagerCss">
+{$page}
+</div>
+
+</div>
+<else/>
+<div>
+    <table align="Center" cellspacing="0" cellpadding="4" border="1" style="width:100%;border-collapse:collapse;" id="ctl00_ContentPlaceHolder1_GridView1" rules="all" class="GridViewStyle">
+        <tbody><tr class="EmptyRowStyle">
+            <td colspan="7">
+    <span class="FieldTextM" id="ctl00_ContentPlaceHolder1_GridView1_ctl01_emptyInfo">无相关记录！</span>
+    </td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+</if>
+            </div>
+            <br /><br />
+        </div>
+	
+	
+	
+	
+	
+		
+		
+		   	</div>
+					</div>
+				</div>
+    	
+          <div class="clearfix"> </div>     
+   </div>
+</div>
+		
+		
+<include file="./APP/Modules/Index/Tpl/default/Public/footer.html" />
+
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><title>
+    担保交易卖家操作
+</title><link href="/Public/Style/floatStyle.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/js/jquery.js"></script>
+<script type="text/javascript" src="/Public/js/ValidateCommon.js"></script>
+</head>
+
+<body>
+    <form name="form1" method="post" action="" id="form1">
+    <div>
+        <b>定向担保交易操作</b>
+        <hr />
+<div class="stepTitle">记录信息----我是卖家</div>
+<table border="0" cellpadding="3" cellspacing="0" class="CommonTb">
+   <tr>
+        <td style="width:120px;" align="right">发起时间：</td>
+        <td>
+            <span id="lblAddTime1">{$info.addtime|date='Y-m-d H:i:s',###}</span>
+        </td>
+    </tr>
+   <tr>
+        <td style="width:120px;" align="right">交易金币：</td>
+        <td><span id="lblSalePayPrice" class="CompanytenPayNo" style="color:Red;">{$info.qty}</span> 【付款金额】</td>
+    </tr>
+   <tr>
+        <td style="width:120px;" align="right">卖家编号：</td>
+        <td><span id="lblSaleUserName">{$info.seller}</span></td>
+    </tr>
+   <tr>
+        <td align="right">卖家收款帐号：</td>
+        <td><span id="lblSaleSkInfo" class="CompanytenPayNo" style="color:Red;">{$info.receivableid}</span> </td>
+    </tr>
+   <tr>
+        <td align="right">卖家留言：</td>
+        <td><span id="lblSaleUserBZ">{$info.sellmsg}</span></td>
+    </tr>
+   <tr>
+        <td align="right">买家编号：</td>
+        <td><span id="lblBuyUserName">{$info.buyer}</span></td>
+    </tr>
+   <tr>
+        <td align="right">买家留言：</td>
+        <td><span id="lblBuyUserBZ">{$info.buymsg}</span></td>
+    </tr>
+   <tr>
+        <td align="right">记录状态：</td>
+        <td><span id="lblKey1">{$info.status}</span></td>
+    </tr>
+    <tr>
+        <td align="right">操作安全码：</td>
+        <td><input name="yzm" type="text" maxlength="5" id="yzm" class="input" style="width:80px;" /> <input type="hidden" name="id" value="{$info.id}" />
+        <img id="Image1" src="{:U('Index/Financial/verify')}" style="border-width:0px;" /></td>
+        
+    </tr>
+</table>
+
+<br />
+<input type="submit" name="Button1" value="取消此交易" <if condition="$info['status'] == '买家已接受交易付款中' || $info['status']=='等待卖家确认收款'">disabled="disabled"</if> onclick="return confirm(&#39;取消记录后金币将返回您的帐户，此功能少用，每次请在达成意向后再发起担保交易！确认取消吗？&#39;);" id="Button1" class="buttom" /> 
+
+    <input type="submit" name="Button2" value="确认收到款" id="Button2" <if condition="$info['status'] == '等待买家接受交易' || $info['status'] == '买家已接受交易付款中'">disabled="disabled"</if> class="buttom" onclick="return confirm(&#39;点击确认后金币将转入对方帐户，同时交易将完成！一定要亲自核实已收到款后才确认！确认已经收到款了吗？&#39;);" />
+    
+<input id="btnClose" type="button" value="关闭" class="buttom" onclick="javascript:parent.ShowNo()" />
+<div class="CommonTip">特别提醒：点击“确认收到款”按钮后交易将完成，同时金币将自动转入对方编号下，因此操作时一定要亲自核实已收到款，否则不要确认！如果未收到款提前确认，由此带来的损失将由玩家自行承担！</div>
+    </div>
+    </form>
+</body>
+</html>

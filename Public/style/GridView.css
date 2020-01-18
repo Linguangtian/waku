@@ -1,0 +1,167 @@
+/* 
+
+<asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
+    AutoGenerateColumns="False" CssClass="GridViewStyle" GridLines="None">
+    <Columns>
+        <!-- Bound field parameters go here -->
+    </Columns>
+    <RowStyle CssClass="RowStyle" />
+    <EmptyDataRowStyle CssClass="EmptyRowStyle" />
+    <PagerStyle CssClass="PagerStyle" />
+    <SelectedRowStyle CssClass="SelectedRowStyle" />
+    <HeaderStyle CssClass="HeaderStyle" />
+    <EditRowStyle CssClass="EditRowStyle" />
+    <AlternatingRowStyle CssClass="AltRowStyle" />
+	<FooterStyle CssClass="FooterStyle" />
+</asp:GridView>
+
+*/
+
+.GridViewStyle
+{
+	border: 1px solid #764C17;
+}
+
+.HeaderStyle th
+{
+	line-height: 22px;
+	color: #000000;
+	height: 22px;
+	border: 1px solid #764C17;
+	text-align: center;
+	font-size: 15px;
+}
+.HeaderStyle
+{
+	color: White;
+}
+
+th.SkHeaderTag
+{
+	background-color: #DB4E0F;
+	color: White;
+}
+td.SkItemTag
+{
+	background-color: #FBE9B6;
+}
+
+
+.RowStyle, AltRowStyle
+{
+	color: #ffffff;
+	border: 1px solid #7CC5DE;
+}
+
+.RowStyle td a{color:#000000}
+.AltRowStyle td a{color:#000000}
+
+.RowStyle td, .AltRowStyle td
+{
+	line-height: 30px;
+	height: 30px;
+	color: #000000;
+	border: 1px solid #764C17;
+}
+
+.FooterStyle td
+{
+	line-height: 30px;
+	height: 30px;
+	color: #000000;
+	background-color: #000000;
+	border: 1px solid #7CC5DE;
+}
+
+
+.SelectedRowStyle
+{
+     background-color: #E2DED6;
+     font-weight: bold;
+     color: #B5D6E6;
+}
+
+.EmptyRowStyle{
+	text-align: center;
+	color: #FF0000;
+}
+
+.PagerStyle
+{
+    background-image: url(Images/HeaderGlassBlack.jpg);
+    background-position:center;
+    background-repeat:repeat-x;
+    background-color:#0099CC;
+}
+.PagerStyle table
+{
+    text-align:center;
+    margin:auto;
+}
+
+.PagerStyle table td
+{
+	line-height: 30px;
+	height: 30px;
+	color: #000000;
+	background-color: #ffffff;
+	border: 1px solid #7CC5DE;
+}
+.PagerStyle td
+{
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.PagerStyle a
+{
+    color:#ffffff;
+    text-decoration:none;
+    padding:2px 10px 2px 10px;
+    border-top:solid 1px #777777;
+    border-right:solid 1px #333333;
+    border-bottom:solid 1px #333333;
+    border-left:solid 1px #777777;
+}
+.PagerStyle span
+{
+    font-weight:bold;
+    color:#FFFFFF;
+    text-decoration:none;
+    padding:2px 10px 2px 10px;
+}
+
+
+.GridViewStyle2
+{
+	border: 1px none #764C17;
+}
+.HeaderStyle2 th
+{
+	line-height: 22px;
+	color: #000000;
+	height: 22px;
+	font-weight: bold;
+	text-align: center;
+	font-size: 14px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+}
+.RowStyle2 td, .AltRowStyle2 td
+{
+	line-height: 35px;
+	height: 35px;
+	color: #000000;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+}
+.EmptyRowStyle2{
+	text-align: center;
+	color: #FF0000;
+}
+.FieldTextM{
+	font-size: 14px;
+}

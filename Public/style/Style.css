@@ -1,0 +1,1049 @@
+* {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+body {
+	font-family:"微软雅黑";
+	font-size:13px;
+	margin: 0px;
+	padding: 0px;
+	background-color: #081201;
+
+	background-repeat: no-repeat;
+	background-position: center top;
+
+}
+a {
+	color:#0066CC;
+	text-decoration:none;
+}
+ul,li{
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+input, select, textarea {
+	font-size:12px;
+	padding:2px;
+}
+span{
+	font-size:12px;
+	
+}
+/*图片垂直居中*/
+img{vertical-align:middle;}
+/* 隐藏列 */
+.hidden{display:none}
+/* 字体颜色 */
+.text01{color: #0000FF;}
+.text02{color: #000000;}
+.text03{color: #FF0000;}
+.text04{color: #FFFF00;}
+.text05{color:#006600}
+.red {color:#F00;}
+/* 清除浮动 */
+.clear {clear:both;}
+/* 帐号安全检测块 */
+.safeDIV{padding-top:20px; padding-bottom:20px;}
+.C1ass{clear:both}
+
+/* 页面框架 */
+#wrap{
+	width: 100%;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 50px;
+	padding-left: 0px;
+}
+#header{
+	height:201px;
+	width:100%;
+	text-align: center;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	padding: 0px;
+}
+#header #top{
+	height: 109px;
+	width: 998px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	background-image: url(../images/headBG.jpg);
+	background-repeat: no-repeat;
+}
+#header #top #logo{
+	width: 499px;
+	float: left;
+}
+#header #top #loginInfo{
+	float: right;
+	width: 400px;
+	text-align: right;
+	color: #F7FAA9;
+	padding-top: 76px;
+}
+#header #top #loginInfo a{
+	color: #F7FAA9;
+}
+#header #top #loginInfo a:hover{
+	color: #ffffff;
+}
+/* 导航菜单 */
+#menu1111{
+	height: 51px;
+	width: 998px;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+}
+#jsddm
+{
+	list-style-type: none;
+	width: 100%;
+	padding: 0px;
+	margin-left: auto;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-right: auto;
+	height: 51px;
+}
+#jsddm li
+{	float: left;
+	list-style: none;
+	font: 14px Tahoma, Arial
+	z-index: 1000;
+}
+#jsddm li a
+{
+	color: #F7FAA9;
+	font-size: 17px;
+	text-align: center;
+	display: block;
+	padding-right: 1px;
+	padding-left: 1px;
+	line-height: 50px;
+	height: 44px;
+	width: 106px;
+}
+#jsddm li a:hover
+{
+	color: #FFFFFF;
+	font-size: 17px;
+	text-align: center;
+	display: block;
+	padding-right: 1px;
+	padding-left: 1px;
+	line-height: 50px;
+	height: 44px;
+	width: 106px;
+	background-color: #3399CC;
+}
+#jsddm li ul
+{
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	visibility: hidden;
+}
+#jsddm li ul li
+{	float: none;
+	display: inline;
+}
+#jsddm li ul li a
+{
+	width: 106px;
+	background: #3399CC;
+	color: #ffffff;
+	line-height: 30px;
+	height: 30px;
+}
+#jsddm li ul li a:hover
+{
+	width: 106px;
+	background: #336699;
+	color: #FFFFFF;
+	line-height: 30px;
+	height: 30px;
+}
+/* 内容区 */
+#mainbody{
+	width: 998px;
+	text-align: left;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	padding: 0px;
+}
+#mainbodyInfo{
+	background-color: #FFFFFF;
+	width: 998px;
+	height: 600px;
+}
+#mainbodyInfo #nav{
+	line-height: 40px;
+	background-image: url(../images/nav.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	text-indent: 30px;
+	height: 43px;
+	width: 998px;
+	color: #FFFFFF;
+}
+#mainbodyInfo #info{
+	width: 980px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+}
+
+/* 文章内容页 */
+.newsico{
+	background-image: url(../images/newsIco.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 15px;
+	height: 15px;
+}
+.newstitle{
+	font-size: 14px;
+	line-height: 60px;
+	font-weight: bold;
+	text-align: center;
+	height: 60px;
+}
+.newscontent{
+	font-size: 14px;
+	line-height: 24px;
+	padding: 5px;
+}
+/* 分页 */
+.ZLPagerCss{
+	line-height: 30px;
+	text-align: center;
+	height: 30px;
+}
+/* 通用表格 */
+.CommonTb {
+	width:98%;
+}
+.CommonTb td {
+	padding:3px;
+	line-height: 18px;
+	height: 18px;
+}
+.CommonTb td.tbtitle{
+	font-size: 13px;
+	font-weight: bold;
+	color: #000000;
+	text-indent: 5px;
+	margin-bottom: 10px;
+	background-color: #D4D0C8;
+}
+.CommonTb .TbText{
+	line-height: 24px;
+	height: 24px;
+	text-align: right;
+}
+.CommonTb .TbContent{}
+.CommonTbBtnBox{
+	line-height: 40px;
+	text-align: center;
+	
+}
+.CommonTbBtnBox span{
+	font-size: 13px;
+}
+.CommonTip{
+	color: #FF0000;
+	padding: 5px;
+}
+/* fieldset */
+.fieldset{
+	width:90%;
+	border: 1px solid #CCCCCC;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 5px;
+	padding-bottom: 10px;
+	padding-left: 15px;
+}
+legend
+{
+	color:#333333;
+	font-weight:100;
+	text-align:center;
+	font-size:14px;
+	padding: 5px;
+}
+.fieldset_title{
+	color: #000000;
+	font-size: 13px;
+}
+/* 金额样式 */
+.PriceCss{
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+.PriceCss2{
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #FF0000;
+}
+.PriceCss3{
+	font-size: 14px;
+	color: #FF0000;
+	font-family: "微软雅黑";
+	font-weight: normal;
+}
+.f16{
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+/*text tip css*/
+.rightTips{color:#000000;}
+.wrongTips{ color:#FF0000;}
+.infoTips{ color:#000000;}
+.infoTipsBig{ font-size: 14px;font-family: "微软雅黑";color:#FF0000;}
+
+
+/* 充值提示块 */
+.czboxtip{
+	font-size: 14px;
+	padding: 10px;
+}
+
+/* 管理块 */
+.boxManage{
+	line-height: 40px;
+	height: 40px;
+}
+/* 购买与出售流程提示 */
+.buylc{
+	background-image: url(../images/buylc.gif);
+	background-repeat: no-repeat;
+	background-position: 40px center;
+	height: 23px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.salelc{
+	background-image: url(../images/salelc.gif);
+	background-repeat: no-repeat;
+	background-position: 40px center;
+	height: 23px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+/* 注册成功页 */
+.regok{
+	height: 280px;
+	width: 600px;
+}
+.regok ul{
+	padding-top: 30px;
+	padding-left: 30px;
+}
+.regok li{
+	font-size: 16px;
+	line-height: 33px;
+	height: 33px;
+	color: #0000FF;
+	font-weight: normal;
+}
+.regok .UText{
+	font-family: "微软雅黑";
+	font-size: 16px;
+}
+/* tenpay */
+.CompanytenPayNo{
+	font-family: "微软雅黑";
+	font-size: 16px;
+}
+/* 注册提示 */
+.regtip{
+	color: #ff0000;
+	border: 1px none #CC6600;
+	padding-bottom: 10px;
+}
+.regtip a{
+	color:#0000ff;
+	font-size: 13px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+/* 通用绿色按钮 */
+.buttom{
+	font-size: 13px;
+	text-align: center;
+	
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	color: #FFFFFF;
+	background-color: #009900;
+	font-weight: bold;
+	padding-right: 10px;
+	padding-left: 10px;
+	margin-right: 5px;
+}
+.buttom:hover{
+	font-size: 13px;
+	text-align: center;
+	
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	/*cursor:hand;*/
+	cursor: pointer;/* 兼容各种浏览器 */
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #00CC00;/*#EE4F22*/
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.buttomThis{
+	font-size: 13px;
+	text-align: center;
+	height: 30px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #00CC00;/*#EE4F22*/
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.buttomBuyJB{
+	font-size: 13px;
+	text-align: center;
+	height: 30px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	color: #FFFFFF;
+	background-color: #009900;
+	font-weight: bold;
+}
+.buttomBuyJB:hover{
+	font-size: 13px;
+	text-align: center;
+	height: 30px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	/*cursor:hand;*/
+	cursor: pointer;/* 兼容各种浏览器 */
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #00CC00;/*#EE4F22*/
+}
+
+/* 文本框样式 */
+.text {
+	color: #333;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	background-color: #f8f8f8;
+	padding-left: 8px;
+	height: 26px;
+	line-height: 26px;
+}
+.text:focus {
+	border-bottom-color: #92afed;
+	border-top-color: #92afed;
+	outline-style: none;
+	outline-color: invert;
+	outline-width: medium;
+	border-right-color: #92afed;
+	border-left-color: #92afed;
+}
+textarea{
+	background: white;
+	color: #333;
+	font-size: 14px;
+	font-weight: bold;
+	border: 1px solid #BBBBBD;
+}
+textarea:focus {
+	border-bottom-color: #92afed;
+	border-top-color: #92afed;
+	outline-style: none;
+	outline-color: invert;
+	outline-width: medium;
+	border-right-color: #92afed;
+	border-left-color: #92afed;
+}
+
+/* 设置与未设置提示小图标 */
+.ok{
+	background-image: url(../images/ok.gif);
+	background-repeat: no-repeat;
+	text-indent: 20px;
+}
+.nook{
+	background-image: url(../images/nook.jpg);
+	background-repeat: no-repeat;
+	text-indent: 20px;
+}
+/* 管理主导航图标 */
+#adminICO{
+	height: 145px;
+	width: 1000px;
+	padding: 0px;
+	text-align: center;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+#adminICO ul{
+	list-style-type: none;
+	width: 1000px;
+	padding-left: 6px;
+	margin: 0px;
+	text-align: center;
+}
+#adminICO li{
+	float: left;
+	margin-right: 60px;
+	height: 120px;
+}
+#adminICO li a{
+	color: #000000;
+	font-size: 13px;
+	text-align: center;
+}
+#adminICO li a.nav1{
+	display: block;
+	width: 97px;
+	height: 120px;
+	background-image: url(../images/ICO1.gif);
+	background-repeat: no-repeat;
+	background-position: center top;
+	/*line-height: 220px;*/
+	margin: 0px;
+	padding: 0px;
+}
+#adminICO li div{
+	text-align:center;
+	padding-top: 101px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+#adminICO li a.nav2{
+	display: block;
+	width: 97px;
+	height: 120px;
+	background-image: url(../images/ICO2.gif);
+	background-repeat: no-repeat;
+	background-position: center top;
+	/*line-height: 220px;*/
+	margin: 0px;
+	padding: 0px;
+}
+#adminICO li a.nav3{
+	display: block;
+	width: 97px;
+	height: 120px;
+	background-image: url(../images/ICO3.gif);
+	background-repeat: no-repeat;
+	background-position: center top;
+	/*line-height: 220px;*/
+	margin: 0px;
+	padding: 0px;
+}
+#adminICO li a.nav4{
+	display: block;
+	width: 97px;
+	height: 120px;
+	background-image: url(../images/ICO4.gif);
+	background-repeat: no-repeat;
+	background-position: center top;
+	/*line-height: 220px;*/
+	margin: 0px;
+	padding: 0px;
+}
+#adminICO li a.nav5{
+	display: block;
+	width: 97px;
+	height: 120px;
+	background-image: url(../images/ICO5.gif);
+	background-repeat: no-repeat;
+	background-position: center top;
+	/*line-height: 220px;*/
+	margin: 0px;
+	padding: 0px;
+}
+#adminICO li a.nav6{
+	display: block;
+	width: 97px;
+	height: 120px;
+	background-image: url(../images/ICO6.gif);
+	background-repeat: no-repeat;
+	background-position: center top;
+	/*line-height: 220px;*/
+	margin: 0px;
+	padding: 0px;
+}
+#adminICO li a.nav7{
+	display: block;
+	width: 97px;
+	height: 120px;
+	background-image: url(../images/ICO7.gif);
+	background-repeat: no-repeat;
+	background-position: center top;
+	/*line-height: 220px;*/
+	margin: 0px;
+	padding: 0px;
+}
+#adminICO li a.nav8{
+	display: block;
+	width: 97px;
+	height: 120px;
+	background-image: url(../images/ICO8.gif);
+	background-repeat: no-repeat;
+	background-position: center top;
+	/*line-height: 220px;*/
+	margin: 0px;
+	padding: 0px;
+}
+#adminICO li a.nav9{
+	display: block;
+	width: 97px;
+	height: 120px;
+	background-image: url(../images/ICO9.gif);
+	background-repeat: no-repeat;
+	background-position: center top;
+	/*line-height: 220px;*/
+	margin: 0px;
+	padding: 0px;
+}
+#adminICO li a:hover{
+	margin-top: 1px;
+}
+/* 登陆成功跳转 */
+.redirect{
+	font-size:16px;
+	margin-left:10px;
+	margin-top:10px;
+	color: #000000;
+}
+.redirect a{
+	color: #0000FF;
+	text-decoration: underline;
+}
+
+/* 帮助内容页 */
+.HelpWrap{
+	padding: 3px;
+}
+.HelpTitle{
+	font-size: 16px;
+	font-weight: bold;
+	color: #000000;
+	padding-top: 15px;
+	padding-left: 15px;
+}
+.HelpContent{
+	font-size: 14px;
+	line-height: 150%;
+	color: #000000;
+	padding-top: 10px;
+	padding-left: 15px;
+}
+/* 转帐列表页会员编号 */
+.showZZText{
+	color: #FF0000;
+}
+/* 帮助小提示 */
+.helpTip{
+	font-family: "微软雅黑";
+	font-size: 13px;
+	float: right;
+	background-image: url(../images/helpMS.gif);
+	background-repeat: no-repeat;
+	line-height: 20px;
+	height: 20px;
+	width: 190px;
+	text-indent: 40px;
+	background-position: 0px center;
+}
+.helpTip:hover{
+	font-family: "微软雅黑";
+	font-size: 13px;
+	float: right;
+	text-decoration: underline;
+}
+
+/* 会员中心内容块1 */
+.listBox1{
+	height: 400px;
+	width: 260px;
+}
+.listBoxTitle1{
+	line-height: 32px;
+	color: #FFFFFF;
+	background-image: url(../images/listBoxTitle1.gif);
+	background-repeat: no-repeat;
+	text-indent: 10px;
+	height: 38px;
+	width: 260px;
+	font-weight: bold;
+	font-size: 14px;
+}
+.listBoxContent1{
+	height: 500px;
+	width: 260px;
+	background-color: #FFFFFF;
+}
+.listBoxContent1 div{
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.listBoxContent1 ul{
+	padding-top: 13px;
+	padding-left: 12px;
+}
+.listBoxContent1 li{
+	font-size: 13px;
+	line-height: 200%;
+	color: #000000;
+}
+/* 会员中心内容块2 */
+.listBox2{
+	height: 290px;
+	width: 400px;
+	margin-bottom: 20px;
+}
+.listBoxTitle2{
+	line-height: 32px;
+	color: #000000;
+	background-image: url(../images/listBoxTitle2.gif);
+	background-repeat: no-repeat;
+	text-indent: 10px;
+	height: 38px;
+	width: 400px;
+	font-weight: bold;
+	font-size: 14px;
+}
+.listBoxContent2{
+	height: 260px;
+	width: 400px;
+	background-color: #FFFFFF;
+	margin: 0px;
+	padding: 0px;
+}
+.listBoxContent2 div{
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.listBoxContent2 ul{
+	margin: 0px;
+	padding: 0px;
+}
+.listBoxContent2 li{
+	line-height: 26px;
+	height: 26px;
+	margin: 0px;
+	padding: 0px;
+	display: block;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #993300;
+	width: 100%;
+}
+.listBoxContent2 li a{
+	display: block;
+	color: #000000;
+}
+.listBoxContent2 li a:hover{
+	display: block;
+	color: #ff0000;
+}
+/* 会员中心内容块3 */
+.listBox3{
+	height: 290px;
+	width: 318px;
+	margin-bottom: 20px;
+}
+.listBoxTitle3{
+	line-height: 32px;
+	color: #000000;
+	background-image: url(../images/listBoxTitle3.gif);
+	background-repeat: no-repeat;
+	text-indent: 10px;
+	height: 38px;
+	width: 318px;
+	font-weight: bold;
+	font-size: 14px;
+}
+.listBoxContent3{
+	height: 260px;
+	width: 318px;
+	background-color: #FFFFFF;
+}
+.listBoxContent3 div{
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.listBoxContent3 ul{
+	margin: 0px;
+	padding: 0px;
+}
+.listBoxContent3 li{
+	line-height: 26px;
+	height: 26px;
+	margin: 0px;
+	padding: 0px;
+	display: block;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #993300;
+}
+.listBoxContent3 li a{
+	display: block;
+	color: #000000;
+}
+.listBoxContent3 li a:hover{
+	display: block;
+	color: #ff0000;
+}
+
+/* 内页共用 */
+.listBoxGen{
+	height: 630px;
+	
+	margin-bottom: 20px;
+}
+.Class{display:none}
+.listBoxTitleGen{
+	line-height: 32px;
+	color: #CC3300;
+	background-image: url(../images/listBoxTitleGen3.gif);
+	background-repeat: no-repeat;
+	text-indent: 20px;
+	height: 38px;
+	width: 998px;
+	font-weight: bold;
+	font-size: 14px;
+}
+.listBoxContentGen{
+	height:auto;
+	min-height:400px;
+	_height:400px;/* 针对ie6不能识别min-height属性的bug */
+	width: 100%;
+	background-color: #FFFFFF;
+	padding-bottom: 50px;
+}
+.listBoxContentGen div{
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+/* 我的消息内容页 */
+.MsgTitle{
+	font-family: "微软雅黑";
+	font-size: 16px;
+	font-weight: bold;
+}
+.MsgContent{
+	font-family: "微软雅黑";
+	font-size: 14px;
+	line-height: 180%;
+}
+/* 注册成功提示 */
+.submitok{
+	color: #006600;
+	font-size: 22px;
+	background-image: url(../images/resultok.png);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	text-indent: 70px;
+	height: 60px;
+	line-height: 60px;
+	font-family: "微软雅黑";
+	margin-bottom: 10px;
+}
+/* 抢购页提示 */
+.BuyJBTip{
+	font-family: "微软雅黑";
+	font-size: 20px;
+	color: #FF6600;
+	border: 1px none #FFCC00;
+	padding: 5px;
+	width: 90%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+/* 弹出浮动 */
+.floatMsg{
+	font-family: "微软雅黑";
+	font-size: 18px;
+	color: #FF0000;
+}
+/* 留言提示 */
+.writeGuestBookTip{
+	font-family: "微软雅黑";
+	font-size: 15px;
+	font-weight: bold;
+	color: #FF0000;
+	background-color: #FFFFFF;
+	width: 96%;
+	margin-right: auto;
+	margin-left: auto;
+	border: 1px solid #CCCCCC;
+	margin-bottom: 20px;
+	background-image: url(../images/shortcut.gif);
+	background-repeat: no-repeat;
+	background-position: 0px center;
+	text-indent: 20px;
+	padding: 5px;
+}
+/* 抢购页样式 */
+.BuyJBHallTitle{
+	font-family: "微软雅黑";
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #F9F9F9;
+	text-indent: 30px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #E4E4E4;
+	line-height: 33px;
+	height: 33px;
+}
+.BuyJBHallTip{
+	font-family: "微软雅黑";
+	font-size: 15px;
+	color: #CC0000;
+	background-color: #FEFFF4;
+	border: 1px solid #FDFBDF;
+	width: 95%;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 10px;
+}
+.JBNum{
+	font-family: "微软雅黑";
+	font-size: 14px;
+	font-weight: bold;
+}
+.BuyJBHallNoInfo{
+	color: #FF0000;
+	text-align: center;
+	width: 100%;
+}
+
+.BuyJBHall{
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+}
+.BuyJBHall .HeaderStyle td
+{
+	line-height: 22px;
+	color: #000000;
+	height: 22px;
+	font-weight: bold;
+	text-align: center;
+	font-size: 14px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+}
+.BuyJBHall .Row td
+{
+	line-height: 35px;
+	height: 35px;
+	color: #000000;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+	text-align: center;
+}
+.BuyJBHall .JBtext{
+	font-family: "微软雅黑";
+	font-size: 16px;
+	font-weight: bold;
+}
+.BuyJBHall li{
+	height: 35px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #F2F1EE;
+	margin-bottom: 5px;
+}
+
+
+.ZZConfirmText{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	color: #0066FF;
+}
+.ZZConfirmText2{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #FF0000;
+}
+
+.JHConfirmText{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #0066FF;
+}
+.JHConfirmText2{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #FF0000;
+}
+.CursorLink{cursor: pointer;/* 兼容各种浏览器手状 */}
+.DBJYstepTitle{
+	color: #FF0000;
+	font-size: 18px;
+}
+
+.btn_block {
+    text-align: center;
+    line-height: 28px;
+    height: 30px;
+    font-family: "Microsoft YaHei";
+    display: block;
+    font-size: 18px;
+	float:left
+}
+.stext {
+    display: block;
+    padding: 0px;
+    cursor: pointer;
+    font-size: 14px;
+    height: 30px;
+    padding: 0 15px;
+    width: 120px;
+    margin-left: 10px;	
+}
+.exa {height: 30px;float:left}

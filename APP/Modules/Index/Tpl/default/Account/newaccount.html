@@ -1,0 +1,88 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+<div class="listBoxGen">
+        <div class="listBoxTitleGen"><div class="showTitle">我的新增帐号</div></div>
+            <div class="listBoxContentGen">
+                
+	            
+ 
+<div style="padding-top:10px; padding-bottom:10px; line-height:150%;">说明：為了安全，系统自动生成新增帐号时密码由系统随机分配一个高强度加密密码，玩家可以点击对应帐号后面的<font color="blue">“重置密码”</font>来重置对应帐号密码！
+<br /><font class="text01">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新增帐号推荐人默认為您的主帐号！新增帐号与普通帐号一样享受市场分红。</font>
+</div>  
+
+<if condition="$list">
+    <div>
+    <table class="GridViewStyle" cellspacing="0" cellpadding="4" align="Center" rules="all" border="1" id="ctl00_ContentPlaceHolder1_GridView1" style="width:100%;border-collapse:collapse;">
+        <tr class="HeaderStyle">
+            <th scope="col">游戏帐号</th><th scope="col">游戏昵称</th><th scope="col">创建时间</th><th scope="col">直属帐号</th><th scope="col">激活状态</th>
+            <th>初始登录密码</th><th>初始二级密码</th>
+            <th scope="col">操作</th>
+        </tr>
+        <volist name="list" id="vo">
+        <tr class="RowStyle">
+            <td align="center"> 
+                        <span>{$vo.username}</span>
+                    </td><td align="center">
+                        <span>{$vo.nickname}</span>
+                    </td><td align="center">
+                        <span>{$vo.regdate|date='Y-m-d',###}</span>
+                    </td><td align="center">{$vo.parentcount}</td><td align="center">
+                        <span>
+                            <if condition="$vo['status']">
+                                <font color=green>已激活</font>
+                            <else/>
+                                <font color=red>未激活</font>
+                            </if>
+                            </span>
+                    </td>
+                    <td align="center">{$vo.showpass1}</td>
+                    <td align="center">{$vo.showpass2}</td>
+                    <td align="center">
+
+                    <a href="{:U('Index/Account/editPassword',array('id'=>$vo['id']))}"><font color=red>修改密码</font></a>        
+
+                        
+                    </td>
+        </tr>
+        </volist>
+    </table>
+</div>
+<else/>
+    <div>
+    <table class="GridViewStyle" cellspacing="0" cellpadding="4" align="Center" rules="all" border="1" id="ctl00_ContentPlaceHolder1_GridView1" style="width:100%;border-collapse:collapse;">
+        <tr class="EmptyRowStyle">
+            <td colspan="7">
+    <span id="ctl00_ContentPlaceHolder1_GridView1_ctl01_emptyInfo" class="FieldTextM">无相关记录！</span>
+</td>
+        </tr>
+    </table>
+</div>
+</if>
+
+                
+
+            </div>
+            <br /><br />
+        </div>
+	</div>
+</div>
+
+<!-- Transparent layer --> 
+<div id="divBox" style="filter:alpha(opacity=40);-moz-opacity:0.3;opacity:0.3;background-color:#000;width:100%;height:100%;z-index:1000;position: absolute;left:0;top:0;display:none;overflow: hidden;">
+</div>
+<!-- message layer --> 
+<div id="divMsg" style="border:solid 5px #339999;background:#fff;padding:10px;width:780px;z-index:1001; position: absolute; display:none;top:50%; left:50%;margin:-200px 0 0 -400px;"> 
+    <div style="padding:3px 15px 3px 15px;text-align:left;vertical-align:middle;" > 
+        <div class="IndexShowMsg"> 
+            <div id="divShowMsg"></div>
+            
+        </div> 
+        <br/>
+        <div id="showbtnCancel" style="text-align:right;"> 
+            <input id="btnCancel" type="button" class="buttom" value=" 关闭 " onclick="ShowNo()" /> 
+        </div> 
+    </div> 
+</div> 
+
+    </form>
+</body>
+</html>

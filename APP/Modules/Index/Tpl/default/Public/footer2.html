@@ -1,0 +1,92 @@
+
+<!-- Panel popup -->
+<div id="mw_modal" class="popup-basic bg-none mfp-with-anim mfp-hide">
+    <div class="panel">
+        <div class="panel-heading">
+                            <span class="panel-icon"><i class="fa fa-pencil"></i>
+                            </span>
+            <span class="panel-title"> 提示信息</span>
+        </div>
+        <div class="panel-body">
+            <h3 class="content"> 信息异常，请稍后重试</h3>
+        </div>
+        <div class="panel-footer text-right">
+            <button class="btn btn-sm btn-info btn_ok" type="button">确认</button>
+            <button class="btn btn-sm btn-info btn_cancel" type="button">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modal-panel" class="popup-basic bg-none mfp-with-anim mfp-hide" style="max-width:70%"></div>
+<!-- End: Main -->
+<script type="text/javascript" src="/Public/assets/js/zip.js"></script>
+
+<script type="text/javascript">
+	
+    jQuery(document).ready(function () {
+
+        "use strict";
+
+        // Init Theme Core
+        Core.init();
+
+
+    });
+
+    $('.MW_confirm').on('click', function () {
+        $(this).MW_modal_confirm();
+    });
+	$("#toggle_sidemenu_l").click(function () {
+		var _width = document.body.offsetWidth;
+		if(_width < 768){
+			$("#sidebar_left").toggle();
+			$(".z-in-dex").toggle();
+		}
+	})
+    $(".btn-submit").on("click", function () {
+        event.preventDefault();
+        var btn_submit = $(this);
+        var form = btn_submit.closest("form");
+        if (form.hasClass("is_submit")) return false;
+        $.ajax({
+            url: this.action,
+            type: "post",
+            data: form.serialize(),
+            beforeSend: function () {
+                form.addClass("is_submit");
+                btn_submit.text("处理中...").addClass("disabled");
+            },
+            success: function (data) {
+			  
+                form.removeClass("is_submit").MW_modal_alert({content: data.info, url: data.url});
+                btn_submit.text("提 交").removeClass('disabled');
+            }
+        });
+    });
+
+    $(".btn-back").on("click",function(){
+
+        history.back();
+
+    })
+
+    $('.show_company').on('click', function () {
+
+        $.ajax({
+            url:"/index.php/Home/Index/get_company.html",
+            type:'post',
+            dataType:"html",
+            success:function(response){
+                $("#modal-panel").html(response);
+                $(this).MW_modal_alert({modal_html:"#modal-panel"});
+            }
+        });
+
+
+    });
+
+</script>
+<!-- END: PAGE SCRIPTS -->
+
+</body>
+
+</html>

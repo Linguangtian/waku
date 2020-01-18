@@ -1,0 +1,72 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+<div class="listBoxGen">
+        <div class="listBoxTitleGen"><div class="showTitle">抢购金币</div></div>
+            <div class="listBoxContentGen">	            
+<div class="BuyJBHallTip" style="padding-top:20px; padding-left:20px;">
+温声提示：购买金币已无须先付款排队，而是可以当有玩家出售金币时直接在下面抢购，抢购成功后再付款即可获得相应金币。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请点击记录后方的链接<font color="blue">“抢购”</font>进行抢购操作。需要金币才抢购，否则请不要抢购，恶意抢购将降低您的信用指数！<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;交易系统24小时开放，玩家可以在任何时侯抢购金币，抢购成功请及时付款，审核将在上午9:00-晚上21:00期间统一处理。
+</div>
+<style>
+    .abutton { padding: 3px 15px; font-size: 12px; text-align: center; text-shadow: #80AD10 0 1px 0; border:1px solid #80AD10; border-radius: 2px; background: #A5D62D; background-image: -webkit-linear-gradient(top, #A5D62D, #9AC827); color:#FFF; cursor: auto; display: inline-block; }  
+</style>
+<div class="BuyJBHallTitle">下面是可抢购金币列表</div>
+<if condition="$list">
+       <div>
+    <table cellspacing="0" cellpadding="4" border="1" align="Center" style="width:100%;border-collapse:collapse;" id="ctl00_ContentPlaceHolder1_GridView1" rules="all" class="GridViewStyle">
+        <tbody><tr style="font-weight:bold;" class="HeaderStyle">
+            <th scope="col">提交时间</th>
+            <th scope="col">金额 </th>
+            <th scope="col">状态</th>
+            <th scope="col">操作</th>
+        </tr>
+        <volist name="list" id="vo">
+        <tr class="RowStyle">
+            <td align="center">{$vo.addtime|date='Y-m-d H:i:s',###}</td>
+            <td align="center">{$vo.qty}</td>
+            <td align="center"><font color="red">{$vo.status}</font></td>
+            <td align="center">
+                <a  class="abutton" href="{:U('kingBuyHandle',array('id'=>$vo['id']))}" onclick="if(!confirm('确认购买金币吗？')){return false;}"><font color="black">抢购</font></a>
+            </td>
+            </tr>
+            </volist>
+            </tbody></table>
+            <div>
+                <div class="ZLPagerCss">
+                    {$page}         
+                </div>
+            </div>
+</div>
+<else/>
+    <div>
+        <div class="BuyJBHallNoInfo">当前暂无金币可抢购！</div>
+    </div>
+</if>
+
+
+            </div>
+            <br /><br />
+        </div>
+	</div>
+</div>
+
+<!-- Transparent layer --> 
+<div id="divBox" style="filter:alpha(opacity=40);-moz-opacity:0.3;opacity:0.3;background-color:#000;width:100%;height:100%;z-index:1000;position: absolute;left:0;top:0;display:none;overflow: hidden;">
+</div>
+<!-- message layer --> 
+<div id="divMsg" style="border:solid 5px #339999;background:#fff;padding:10px;width:780px;z-index:1001; position: absolute; display:none;top:50%; left:50%;margin:-200px 0 0 -400px;"> 
+    <div style="padding:3px 15px 3px 15px;text-align:left;vertical-align:middle;" > 
+        <div class="IndexShowMsg"> 
+            <div id="divShowMsg"></div>
+            
+        </div> 
+        <br/>
+        <div id="showbtnCancel" style="text-align:right;"> 
+            <input id="btnCancel" type="button" class="buttom" value=" 关闭 " onclick="ShowNo()" /> 
+        </div> 
+    </div> 
+</div> 
+
+    </form>
+</body>
+</html>

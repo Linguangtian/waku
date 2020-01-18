@@ -1,0 +1,80 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+		<div class="listBoxGen">
+        <div class="listBoxTitleGen"><div class="showTitle">定向担保交易</div></div>
+            <div class="listBoxContentGen">
+                
+	            
+<div style="padding-top:10px;">
+
+<div style="padding-left:40px;">
+我是卖家 -----------> 
+<input type="button" name="btnRedirect" value="发起担保卖出金币" class="buttom" onclick="window.location='{:U('Index/Financial/guaranteeSell')}'" />
+<input type="button" name="btnRedirect" value="查看担保卖出记录" class="buttom" onclick="window.location='{:U('Index/Financial/guaranteeSellList')}'" />
+<br /><br />
+我是买家 -----------> 
+<input type="button" name="btnRedirect" value="查看担保买入记录" class="buttom" onclick="window.location='{:U('Index/Financial/guaranteeBuyList')}'" />
+<br /><br />
+</div>
+
+<fieldset class="fieldset">
+<legend><span class="fieldset_title">请仔细阅读以下说明了解操作细则</span></legend>
+
+<div style="font-size:16px; color:Red;">
+说明：通过定向担保交易，可以更加方便玩家的同时又能更好保障交易双方利益不受损失！
+      <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一、定向担保可以让玩家将金币卖给指定玩家；
+      <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二、定向担保可以让玩家更好的收集不熟悉其它玩家的金币。
+</div>
+<div style="font-size:14px; color:Blue;">
+操作流程【切记按以下步骤进行】：
+<br />1、<span class="DBJYstepTitle">双方达成意向</span>（玩家之间先沟通，确定卖家有金币要担保出售，确定买家需要担保买入金币）
+<br />2、<span class="DBJYstepTitle">卖家发起担保交易</span>
+<br />（保证卖家确有相应金币，此步骤系统会锁定卖家相应金币，对于卖家来说，如果对方买家未接受交易那麼自己可以撤消记录返回金币，如果对方已接受，那麼自己不能撤消记录，如果对方接受了交易
+又迟迟不付款，可以申请公司介入，公司审核属实将返回金币并降低对方信用指数）
+<br />
+<br />3、<span class="DBJYstepTitle">买家接受交易并付款</span>
+<br />（买家查看担保记录金币数量，如果準确无误，可以点击接受交易，接受交易后将可以查看对方卖家收款帐号，可以根据提示进行付款(<font color=red>切记按记录上付款方式付款给卖家</font>)。如果不接受交易那不要点击接受交易，如果点击了接受交易又不付款，您的信用指数将降低，如果您接受交易并按提示付款了，对方迟迟不确认收款，那麼可以申请公司介入，公司审核属实将强制金币转到您的帐号下并降低对方信用指数）
+<br />
+<br />4、<span class="DBJYstepTitle">卖家确认收款</span>（卖家收到款后需要及时确认收款，确认收款后记录完成，同时金币将转入买家帐户）
+<br />5、<span class="DBJYstepTitle">交易完成</span>
+</div>
+
+<br />
+<span style="color:black; font-size:14px;">
+特别说明：按照以上步骤进行，玩家双方都可以放心，任何一方想进行欺骗都是欺骗不到的，因為卖家只有足够的金币才能发起对应数量的交易，发起交易后双方都不能随意取消记录，
+如果买家不付款，那麼卖家就不要确认那麼买家也得不到金币。如果买家付了款，卖家不确认，那麼卖家也不可能将金币撤回。希望玩家双方做到诚信交易，发生争议时
+，公司将介入处理，核实后将根据情况决定将金币退还给卖家或转到买家帐户，对于违规的一方公司将进行核实处罚降低信用指数，没有信用指数的帐号将被终止。為了安全，买卖双方一定要按照以上步骤进行，不要只看对方截图，
+截图可能经过PS处理造假，要结合看平臺记录提示内容以及系统发送的短消息提示进行。<font color="red">对于买家来说要登陆玩家帐户查看对方是否发起交易，确认无误再付款。对于卖家来说，买家是否付款请查看自己的收款帐号亲自核实到帐后再确认记录。</font>
+</span>
+
+<br /><br />
+
+</fieldset>
+
+</div>
+
+            </div>
+            <br /><br />
+        </div>
+	</div>
+</div>
+
+<!-- Transparent layer --> 
+<div id="divBox" style="filter:alpha(opacity=40);-moz-opacity:0.3;opacity:0.3;background-color:#000;width:100%;height:100%;z-index:1000;position: absolute;left:0;top:0;display:none;overflow: hidden;">
+</div>
+<!-- message layer --> 
+<div id="divMsg" style="border:solid 5px #339999;background:#fff;padding:10px;width:780px;z-index:1001; position: absolute; display:none;top:50%; left:50%;margin:-200px 0 0 -400px;"> 
+    <div style="padding:3px 15px 3px 15px;text-align:left;vertical-align:middle;" > 
+        <div class="IndexShowMsg"> 
+            <div id="divShowMsg"></div>
+            
+        </div> 
+        <br/>
+        <div id="showbtnCancel" style="text-align:right;"> 
+            <input id="btnCancel" type="button" class="buttom" value=" 关闭 " onclick="ShowNo()" /> 
+        </div> 
+    </div> 
+</div> 
+
+    </form>
+</body>
+</html>

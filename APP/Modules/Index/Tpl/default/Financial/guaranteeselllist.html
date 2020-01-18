@@ -1,0 +1,91 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+<div class="listBoxGen">
+        <div class="listBoxTitleGen"><div class="showTitle">定向担保卖出记录</div></div>
+            <div class="listBoxContentGen">
+
+
+<div style="padding-top:15px; padding-bottom:15px;">
+    <input type="button" name="btnRedirect" value="卖出记录" class="buttomThis" onclick="window.location='{:U('Index/Financial/guaranteeSellList')}'" />
+    <input type="button" name="btnRedirect" value="买入记录" class="buttom" onclick="window.location='{:U('Index/Financial/guaranteeBuyList')}'" />
+
+    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:Red; font-size:14px">我是卖家，下面是我定向担保交易卖出的记录！交易未完成可以点击后面的<font color=blue>“操作”</font>进一步处理。</span>
+</div>
+
+<if condition="$list">
+     <div>
+    <table class="GridViewStyle" cellspacing="0" cellpadding="4" align="Center" rules="all" border="1" id="ctl00_ContentPlaceHolder1_GridView1" style="width:100%;border-collapse:collapse;">
+        <tr class="HeaderStyle" style="font-weight:bold;">
+            <th class="hidden" scope="col">ID</th><th scope="col">发起时间</th><th scope="col">卖家编号</th><th scope="col">买家编号</th><th scope="col">交易金币</th><th scope="col">状态</th><th scope="col">操作</th>
+        </tr>
+        <volist name="list" id="vo">
+            <tr class="RowStyle">
+                    <td align="center">
+                            <span id="ctl00_ContentPlaceHolder1_GridView1_ctl02_lblAddTime1">{$vo.addtime|date='Y-m-d H:i:s',###}</span>
+                        </td><td align="center">
+                            <span id="ctl00_ContentPlaceHolder1_GridView1_ctl02_lblSaleUserName">{$vo.seller}</span>
+                        </td><td align="center">
+                            <span id="ctl00_ContentPlaceHolder1_GridView1_ctl02_lblBuyUserName">{$vo.buyer}</span>
+                        </td><td align="center">
+                            <span id="ctl00_ContentPlaceHolder1_GridView1_ctl02_lblSalePrice">{$vo.qty}</span>
+                        </td>
+                        <td align="center">
+                            <span>
+                                <if condition="$vo['status'] eq '交易取消'">
+                                    <font color=#999999><s>交易取消</s></font>
+                                <else/>
+                                    <font color=red>{$vo.status}</font>
+                                </if>
+                            </span>
+                        </td><td align="center">
+                        <if condition="$vo['status'] eq '交易取消' || $vo['status'] eq '交易完成'">
+
+                        <else/>
+                            <a id="ctl00_ContentPlaceHolder1_GridView1_ctl02_lkCZ" class="CursorLink" onclick="javascript:showMsgFloat2(&#39;&lt;iframe frameborder=0 scrolling=no src={:U('Index/Financial/guaranteeInfoForSell',array('id'=>$vo['id']))} width=730 height=550>&lt;/iframe>&#39;);" style="color:Blue;">操作</a>
+                        </if>
+                    </td>
+            </tr>
+        </volist>
+    </table>
+            <div id="ctl00_ContentPlaceHolder1_AspNetPager1_ShowZLPager">
+<div class="ZLPagerCss">
+    {$page}
+</div>
+
+</div>
+</div>
+<else/>
+    <div>
+    <table class="GridViewStyle" cellspacing="0" cellpadding="4" align="Center" rules="all" border="1" id="ctl00_ContentPlaceHolder1_GridView1" style="width:100%;border-collapse:collapse;">
+        <tr class="EmptyRowStyle">
+            <td colspan="7">
+    <span id="ctl00_ContentPlaceHolder1_GridView1_ctl01_emptyInfo" class="FieldTextM">无相关记录！</span>
+</td>
+        </tr>
+    </table>
+</div>
+</if>
+            </div>
+            <br /><br />
+        </div>
+    </div>
+</div>
+
+<!-- Transparent layer -->
+<div id="divBox" style="filter:alpha(opacity=40);-moz-opacity:0.3;opacity:0.3;background-color:#000;width:100%;height:100%;z-index:1000;position: absolute;left:0;top:0;display:none;overflow: hidden;">
+</div>
+<!-- message layer -->
+<div id="divMsg" style="border:solid 5px #339999;background:#fff;padding:10px;width:780px;z-index:1001; position: absolute; display:none;top:50%; left:50%;margin:-200px 0 0 -400px;">
+    <div style="padding:3px 15px 3px 15px;text-align:left;vertical-align:middle;" >
+        <div class="IndexShowMsg">
+            <div id="divShowMsg"></div>
+
+        </div>
+        <br/>
+        <div id="showbtnCancel" style="text-align:right;">
+            <input id="btnCancel" type="button" class="buttom" value=" 关闭 " onclick="ShowNo()" />
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

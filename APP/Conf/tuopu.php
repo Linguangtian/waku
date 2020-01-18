@@ -1,0 +1,21 @@
+<?php
+return array(
+   'px'=>array(
+    1=>array('top'=>'50','left'=>'720','xheight'=>'800','xtop'=>'185','xleft'=>'400'),
+	2=>array('top'=>'220','left'=>'330','xheight'=>'400','xtop'=>'355','xleft'=>'210'),
+	6=>array('top'=>'390','left'=>'131','xheight'=>'230','xtop'=>'525','xleft'=>'90'),
+	24=>array('top'=>'560','left'=>'0'),
+	96=>array('top'=>'560','left'=>'260'),
+	18=>array('top'=>'390','left'=>'530','xheight'=>'200','xtop'=>'525','xleft'=>'500'),
+	72=>array('top'=>'560','left'=>'440'),
+	288=>array('top'=>'560','left'=>'640'),
+	4=>array('top'=>'220','left'=>'1130','xheight'=>'400','xtop'=>'355','xleft'=>'1010'),
+	12=>array('top'=>'390','left'=>'940','xheight'=>'200','xtop'=>'525','xleft'=>'910'),
+	48=>array('top'=>'560','left'=>'850'),
+	192=>array('top'=>'560','left'=>'1050'),
+	36=>array('top'=>'390','left'=>'1330','xheight'=>'210','xtop'=>'525','xleft'=>'1300'),
+	144=>array('top'=>'560','left'=>'1230'),
+	576=>array('top'=>'560','left'=>'1450')
+	)
+);
+?>

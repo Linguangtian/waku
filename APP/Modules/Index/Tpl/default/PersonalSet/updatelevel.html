@@ -1,0 +1,95 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+<header id="topbar" class="affix">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="crumb-active">
+                <a href="/">Member</a>
+            </li>
+            <li class="crumb-icon">
+                <a href="/">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </li>
+            <li class="crumb-trail">
+                <a href="#">
+                   个人信息
+                </a>
+            </li>
+            <li class="crumb-trail">
+                 会员升级
+            </li>
+
+        </ol>
+    </div>
+</header>
+
+<div id="content">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-heading br-b-n">
+                    <div class="panel-title hidden-xs">
+                        <span class="glyphicon glyphicon-tasks"></span>会员升级
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" method="post" action="">
+
+					       <div class="form-group">
+                            <label class="col-lg-3 control-label">会员编号</label>
+                            <div class="col-lg-4">
+                                <label class="control-label text-info-light">{$Think.session.username}</label>
+                            </div>
+                            <div class="col-lg-4">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">电子币余额</label>
+                            <div class="col-lg-4">
+                                <label class="control-label text-info-light">{$info.jinbi}</label>
+                            </div>
+                            <div class="col-lg-4">
+                            </div>
+                        </div>
+						
+
+						 <div class="form-group">
+                            <label for="email" class="col-lg-3 control-label">可升级别</label>
+                            <div class="col-lg-4">
+							 <if condition='empty($list)'>
+				                   <label class="control-label text-info-light">恭喜您!已升至最高级!</label>
+			                 <else/>
+								  <select name="level" id="level" class="form-control">
+										<option value="">选择会员等级</option>
+												  <foreach name="list" item="v">
+													 <option value="{$v.level}">{$v.name} (补差：{$v[cha]})</option>
+												 </foreach>  
+                                 </select>
+                              </if>
+                            </div>
+                            
+                        </div>
+
+					 
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label"></label>
+                            <div class="col-lg-8">
+                                <if condition='!empty($list)'> <button type="submit" class="btn btn-primary btn-submit">提 交</button> </if>
+                            </div>
+                        </div>
+						
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End: Content -->
+
+    </section>
+</div>
+
+<include file="./APP/Modules/Index/Tpl/default/Public/footer.html" />
+

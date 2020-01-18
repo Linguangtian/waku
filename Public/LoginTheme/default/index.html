@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>企业财务管理系统</title>
+<link href="__LOGINTHEME__/css/login.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body id="nv_member" class="pg_logging" onkeydown="if(event.keyCode==27) return false;">
+    <div id="append_parent"></div><div id="ajaxwaitid"></div>
+ <div class="top_link"></div>
+<div class="top_bg">
+    
+</div>
+<form method="post" name="login" class="cl" action="{:U(GROUP_NAME.'/Login/login')}">
+<div class="center_bg">
+    <div class="ad_bg"></div>
+    <div class="input_bg">
+       <p>欢迎使用“企业财务管理系统”！</p>
+       <h1>登录用户中心</h1>
+       <h2><input type="text" name="username" id="username" class="user_bg"/></h2>
+       <h2><input type="password" id="username" name="password" class="user_pass"/></h2>
+    </div>
+</div>
+<div class="input_foot">
+    <div class="about">      
+    </div>
+    <div class="go">       
+      <span><a href="member.php?mod=retrieve">忘记密码？</a>&nbsp;&nbsp;<input type="submit" class="sub_go" value=" " />
+      </span><br /><br/>
+      <span></span>
+      </div>
+</div>
+</form>
+      <div class="c">
+        <div class="alert_right">
+          <div id="messageleft1"></div>
+          <p class="alert_btnleft" id="messageright1"></p>
+        </div>
+      </div>
+  <div id="ksb"></div>
+  <div class="webfoot">Copyright © 2012<a href="http://www.google.com" target="_blank"> www.google.com</a>, All Rights Reserved  <a href="http://www.miitbeian.gov.cn" target="_blank">UICP备10033171号
+  </a></div>
+<script src="__LOGINTHEME__/js/jquery-1.7.2.min.js"></script>
+<script src="__LOGINTHEME__/js/jquery.validate.js"></script>
+<script type="text/javascript">
+  $(function() {
+      $('form[name="login"]').validate({
+        //默认为lable
+        errorElement : 'span',
+        //失败时先移除成功的class
+        validClass : 'success',
+        //指定成功的样式
+        success : function(span){
+          span.addClass('success');
+        },
+        rules:{
+          username:{required : true},
+          password:{required : true}
+        },
+        messages:{
+          username:{required:' '},
+          password:{required:' '}
+        }
+    });
+  });
+</script>
+</body>
+</html>
+

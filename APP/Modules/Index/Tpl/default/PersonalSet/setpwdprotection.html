@@ -1,0 +1,199 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+
+
+<header id="topbar" class="affix">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="crumb-active">
+                <a href="/index.php/Home/Index/main.html">Member</a>
+            </li>
+            <li class="crumb-icon">
+                <a href="/index.php/Home/Index/main.html">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </li>
+            <li class="crumb-trail">
+                <a href="###">
+                   个人信息
+                </a>
+            </li>
+            <li class="crumb-trail">
+                设置密保
+            </li>
+
+        </ol>
+    </div>
+</header>
+
+<div id="content">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-heading br-b-n">
+                    <div class="panel-title hidden-xs">
+                        <span class="glyphicon glyphicon-tasks"></span>设置密保
+                    </div>
+                </div>
+                <div class="panel-body">
+				   <div class="alert alert-info alert-dismissable col-md-12">
+                        <strong>必读：1、设置密保前请注意保密不要让密保信息泄给了任何人 2、为了避免遗忘，请填写真实信息，这将帮助您以后通过回答问题快速找回密码。3、二代密保由三组问题答案组成，确保更加安全！如有多个帐号可以设置相同密保，方便记忆！
+
+                        </strong>
+
+                    </div>
+
+					
+					
+                    <form class="form-horizontal" method="post">
+
+					       <div class="form-group">
+                            <label class="col-lg-3 control-label">会员编号</label>
+                            <div class="col-lg-4">
+                                <label class="control-label text-info-light">{$Think.session.username}</label>
+                            </div>
+                            <div class="col-lg-4">
+                            </div>
+                           </div>
+
+					       <div class="form-group">
+                            <label class="col-lg-3 control-label">设置状态</label>
+                            <div class="col-lg-4">
+                                <label class="control-label text-info-light">{$pp}</label>
+                            </div>
+                            <div class="col-lg-4">
+                            </div>
+                           </div>
+         
+						
+
+						  <div class="form-group">
+                            <label for="email" class="col-lg-3 control-label">问题一</label>
+                            <div class="col-lg-4">
+							  <select name="question1"  class="form-control">
+		<option value="0">-请选择密保问题</option>
+		<option value="我妈妈的名字是什么？">我妈妈的名字是什么？</option>
+		<option value="我爸爸的名字是什么？">我爸爸的名字是什么？</option>
+		<option value="我爱人的名字是什么？">我爱人的名字是什么？</option>
+		<option value="我初中学校的校名是什么？">我初中学校的校名是什么？</option>
+		<option value="我外婆的名字是什么？">我外婆的名字是什么？</option>
+		<option value="我外公的名字是什么？">我外公的名字是什么？</option>
+		<option value="我第一个子女名字是什么？">我第一个子女名字是什么？</option>
+		<option value="我爷爷的名字是什么？">我爷爷的名字是什么？</option>
+		<option value="我奶奶的名字是什么？">我奶奶的名字是什么？</option>
+		<option value="我最喜欢的一部电影片名？">我最喜欢的一部电影片名？</option>
+		<option value="我小学班主任老师的名字是？">我小学班主任老师的名字是？</option>
+		<option value="我最熟悉的童年好友名字是？">我最熟悉的童年好友名字是？</option>
+
+	</select>
+                 
+                            </div>
+                           
+                        </div>
+
+								
+                        <div class="form-group">
+                            <label for="telphone" class="col-lg-3 control-label">答案</label>
+                            <div class="col-lg-4">
+                                <input name="answer1" type="text" class="form-control" autocomplete="off" /> 
+                            </div>
+                          
+                        </div>
+						
+						
+
+                        <div class="form-group">
+                            <label for="email" class="col-lg-3 control-label">问题二</label>
+                            <div class="col-lg-4">
+							<select name="question2"  class="form-control">
+		<option value="0">-请选择密保问题</option>
+        <option value="我妈妈的名字是什么？">我妈妈的名字是什么？</option>
+        <option value="我爸爸的名字是什么？">我爸爸的名字是什么？</option>
+        <option value="我爱人的名字是什么？">我爱人的名字是什么？</option>
+        <option value="我初中学校的校名是什么？">我初中学校的校名是什么？</option>
+        <option value="我外婆的名字是什么？">我外婆的名字是什么？</option>
+        <option value="我外公的名字是什么？">我外公的名字是什么？</option>
+        <option value="我第一个子女名字是什么？">我第一个子女名字是什么？</option>
+        <option value="我爷爷的名字是什么？">我爷爷的名字是什么？</option>
+        <option value="我奶奶的名字是什么？">我奶奶的名字是什么？</option>
+        <option value="我最喜欢的一部电影片名？">我最喜欢的一部电影片名？</option>
+        <option value="我小学班主任老师的名字是？">我小学班主任老师的名字是？</option>
+        <option value="我最熟悉的童年好友名字是？">我最熟悉的童年好友名字是？</option>
+
+	</select>
+                            </div>
+                         
+                        </div>
+
+						
+						
+				
+						
+              <div class="form-group">
+                            <label for="telphone" class="col-lg-3 control-label">答案</label>
+                            <div class="col-lg-4">
+                             <input name="answer2" type="text"  class="form-control" autocomplete="off" />
+                            </div>
+                           
+                        </div>
+
+						           <div class="form-group">
+                            <label for="telphone" class="col-lg-3 control-label">问题三</label>
+                            <div class="col-lg-4">
+                          <select name="question3"   class="form-control">
+		<option value="0">-请选择密保问题</option>
+        <option value="我妈妈的名字是什么？">我妈妈的名字是什么？</option>
+        <option value="我爸爸的名字是什么？">我爸爸的名字是什么？</option>
+        <option value="我爱人的名字是什么？">我爱人的名字是什么？</option>
+        <option value="我初中学校的校名是什么？">我初中学校的校名是什么？</option>
+        <option value="我外婆的名字是什么？">我外婆的名字是什么？</option>
+        <option value="我外公的名字是什么？">我外公的名字是什么？</option>
+        <option value="我第一个子女名字是什么？">我第一个子女名字是什么？</option>
+        <option value="我爷爷的名字是什么？">我爷爷的名字是什么？</option>
+        <option value="我奶奶的名字是什么？">我奶奶的名字是什么？</option>
+        <option value="我最喜欢的一部电影片名？">我最喜欢的一部电影片名？</option>
+        <option value="我小学班主任老师的名字是？">我小学班主任老师的名字是？</option>
+        <option value="我最熟悉的童年好友名字是？">我最熟悉的童年好友名字是？</option>
+
+	</select>
+                            </div>
+                           
+                        </div>
+						
+						       <div class="form-group">
+                            <label for="telphone" class="col-lg-3 control-label">答案</label>
+                            <div class="col-lg-4">
+                             <input name="answer3" type="text"  class="form-control" autocomplete="off" />
+                            </div>
+                           
+                        </div>
+                        <div class="form-group">
+                            <label for="telphone" class="col-lg-3 control-label">二级密码</label>
+                            <div class="col-lg-4">
+                                <input class="form-control"  name="password2" type="password"  class="form-control" autocomplete="off" /> 
+                            </div>
+                           
+                        </div>						
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label"></label>
+                            <div class="col-lg-8">
+                                <button type="submit" class="btn btn-primary btn-submit">提 交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End: Content -->
+
+    </section>
+</div>
+
+<include file="./APP/Modules/Index/Tpl/default/Public/footer.html" />
+
+
+
+

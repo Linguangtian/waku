@@ -1,0 +1,314 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+	<div class="listBoxGen">
+        <div class="listBoxTitleGen"><div class="showTitle">定向担保交易</div></div>
+            <div class="listBoxContentGen">
+                
+	            
+<script type="text/javascript"> 
+$(document).ready(function() {
+
+    $("#ctl00_ContentPlaceHolder1_Panel2").hide();
+
+    $("#ctl00_ContentPlaceHolder1_txtBuyUserName").blur(function () { if (checkBuyUserName()) { checkBuyUserNameOK(); } });
+    $("#ctl00_ContentPlaceHolder1_txtSalePrice").blur(function () { checkSalePrice(); });
+    $("#ctl00_ContentPlaceHolder1_txtUserPass2").blur(function() { if(checkUserPass2()){checkUserPass2OK();} });
+
+    $("#ctl00_ContentPlaceHolder1_Button1").click(function() {
+        return checkInput();
+    });
+
+    $("#ctl00_ContentPlaceHolder1_Button2").click(function() {
+        return checkInput2();
+    });
+});
+
+//下一步
+function checkInput() {
+
+    //验证接收会员
+    if (!checkBuyUserName()) {
+        alert("对方会员编号不能为空！");
+        $("#ctl00_ContentPlaceHolder1_txtBuyUserName").focus(); return false;
+    } else {
+        if (!isUserName) {
+            alert("您输入的会员编号不存在！");
+            $("#ctl00_ContentPlaceHolder1_txtBuyUserName").focus();
+            hintMessage("lblBuyUserName", "error", "您输入的会员编号不存在！");
+            return false;
+        }
+    }
+    if (!checkSalePrice()) { alert("请检查是否正确输入卖出金额！"); $("#ctl00_ContentPlaceHolder1_txtSalePrice").focus(); return false; }
+    if (!checkUserPayment()) { alert("请选择一个收款帐号！"); $("#ctl00_ContentPlaceHolder1_dropUserPayment").focus(); return false; }
+
+    $("#ctl00_ContentPlaceHolder1_Button1").hide();
+    //$("#showText").html('<img src=/Images/loading.gif> 正在提交中…');
+    $("#ctl00_ContentPlaceHolder1_Panel1").hide();
+    $("#ctl00_ContentPlaceHolder1_Panel2").show();
+    $('#ctl00_ContentPlaceHolder1_lblBuyUserName2').text($('#ctl00_ContentPlaceHolder1_txtBuyUserName').val());
+    $('#ctl00_ContentPlaceHolder1_lblSalePrice2').text($('#ctl00_ContentPlaceHolder1_txtSalePrice').val());
+    $('#ctl00_ContentPlaceHolder1_dropUserPayment2').text($('#ctl00_ContentPlaceHolder1_dropUserPayment').find("option:selected").text());
+    $('#ctl00_ContentPlaceHolder1_lblSaleUserBZ2').text($('#ctl00_ContentPlaceHolder1_txtSaleUserBZ').val());
+    return true;
+}
+//确认卖出
+function checkInput2() {
+
+    //验证二级密码
+    if (!checkUserPass2()) {
+        alert("请输入您的二级密码！");
+        $("#ctl00_ContentPlaceHolder1_txtUserPass2").focus(); return false;
+    } else {
+        checkUserPass2OK();
+        if (!isUserPass2) {
+            alert("您输入的二级密码不正确！")
+            $("#ctl00_ContentPlaceHolder1_txtUserPass2").focus();
+            hintMessage("lblUserPass2", "error", "您输入的二级密码不正确！");
+            return false;
+        }
+    }
+
+    if (!confirm("确认信息準确无误了吗？")) {
+        return false;
+    }
+
+    $("#btnback").hide();
+    $("#ctl00_ContentPlaceHolder1_Button2").hide();
+    $("#showText2").html('<img src=/Images/loading.gif> 正在提交中…')
+
+}
+//验证接收会员
+function checkBuyUserName() {
+    if ($("#ctl00_ContentPlaceHolder1_txtBuyUserName").val() == "") {
+        hintMessage("lblBuyUserName", "error", "对方会员编号不能为空！");
+        return false;
+    }
+    if ($("#ctl00_ContentPlaceHolder1_txtBuyUserName").val() == $("#ctl00_ContentPlaceHolder1_UserName").text()) {
+        hintMessage("lblBuyUserName", "error", "不能给自己交易！");
+        return false;
+    }
+    hintMessage("lblBuyUserName", "right", "");
+    return true;
+}
+//验证金额
+function checkSalePrice() {
+    if ($("#ctl00_ContentPlaceHolder1_txtSalePrice").val() == "") {
+        hintMessage("lblSalePrice", "error", "请输入卖出金额！");
+        return false;
+    }
+
+    var value = $("#ctl00_ContentPlaceHolder1_txtSalePrice").val();  
+    if(!(/^(\+|-)?\d+$/.test(value)) || value<=0){
+        hintMessage("lblSalePrice", "error", "卖出金额必须大于0且必须是正整数！");
+        return false;
+    }
+    
+    if (value<100 || value%100!=0)
+    {
+        hintMessage("lblSalePrice", "error", "每次交易必须大于100且必须是100的整数倍！");
+        return false;
+    }
+
+    if (parseFloat($("#ctl00_ContentPlaceHolder1_txtSalePrice").val()) > parseFloat($("#ctl00_ContentPlaceHolder1_Price1").text())) {
+        hintMessage("lblSalePrice", "error", "请检查您是否有足够的金币余额！</a>");
+        return false;
+    }
+    hintMessage("lblSalePrice", "right", "");
+    return true;
+}
+//验证收款帐号
+function checkUserPayment() {
+    if ($("#ctl00_ContentPlaceHolder1_dropUserPayment").val() == "0") {
+        hintMessage("lblBankType", "error", "请选择一个收款帐号！");
+        return false;
+    }
+    hintMessage("lblBankType", "right", "");
+    return true;
+}
+//验证二级密码
+function checkUserPass2() {
+    if ($("#ctl00_ContentPlaceHolder1_txtUserPass2").val() == "") {
+        hintMessage("lblUserPass2", "error", "请输入您的二级密码！");
+        return false;
+    }
+    hintMessage("lblUserPass2", "right", "");
+    return true;
+}
+var isUserName = true;
+var isUserPass2 = true;
+//ajax查询对方会员编号并显示其姓名
+function checkBuyUserNameOK() {
+    $.post("{:U('Index/Financial/checkUsername')}", { Action: "post", CheckType: "GetUserContact", UserName: $("#ctl00_ContentPlaceHolder1_txtBuyUserName").val() }
+    , function(value, textStatus) {
+        if (value.result == "nouser") {
+            hintMessage("lblBuyUserName", "error", "您输入的会员编号不存在！");
+            isUserName = false;
+            return;
+        }else if (value.result != "nouser")  {
+            hintMessage("lblBuyUserName", "right", value.result);
+            $('#ctl00_ContentPlaceHolder1_lblBuyContact').text('昵称：' + value.result);
+            isUserName = true;
+            return;
+        }
+    }, "json");
+}
+//ajax查询二级密码
+function checkUserPass2OK() {
+    $.post("{:U('Index/Financial/checkPass')}", { Action: "post", UserPass2: $("#ctl00_ContentPlaceHolder1_txtUserPass2").val() }
+    , function(value, textStatus) {
+    
+        if (value.result == "error") {
+            hintMessage("lblUserPass2", "error", "您输入的二级密码不正确！");
+            isUserPass2 = false;
+            return;
+        } else if (value.result == "success") {
+            hintMessage("lblUserPass2", "right", "");
+            isUserPass2 = true;
+            return;
+        }
+    }, "json");
+}
+
+function hide1(){
+    $('#ctl00_ContentPlaceHolder1_Panel2').hide();
+    $('#ctl00_ContentPlaceHolder1_Panel1').show();
+    $('#ctl00_ContentPlaceHolder1_Button1').show();
+    $('#ctl00_ContentPlaceHolder1_txtBuyUserName').val('');
+}
+
+
+document.onkeydown = mykeydown;
+function mykeydown() {
+    if (event.keyCode == 116) {
+        window.event.keyCode = 0;
+        return false;
+    }
+} 
+</script>
+<form action="" method="post">
+<div id="ctl00_ContentPlaceHolder1_Panel1">
+	
+
+<fieldset class="fieldset">
+<legend><span class="fieldset_title">担保交易卖出金币【输入信息】</span></legend>
+    <br />
+    <table border="0" cellpadding="3" cellspacing="0" width="100%" class="CommonTb">
+        <tr>
+            <td style="width:100px;" align="right">会员编号：</td>
+            <td><span id="ctl00_ContentPlaceHolder1_UserName" style="color:Red;">{$Think.session.username}</span></td>
+            </tr>
+        <tr>
+            <td align="right">金币余额：</td>
+            <td><span id="ctl00_ContentPlaceHolder1_Price1" class="PriceCss">{$nowmoney}</span></td>
+        </tr>
+        <tr>
+            <td align="right">卖给玩家：</td>
+            <td><input name="buyusername" type="text" maxlength="10" id="ctl00_ContentPlaceHolder1_txtBuyUserName" class="text" style="width:260px;" /> <span id="lblBuyUserName" class="infoTips"></span></td>
+        </tr>
+        <tr>
+            <td align="right">卖出金币：</td>
+            <td><input name="saleqty" type="text" maxlength="20" id="ctl00_ContentPlaceHolder1_txtSalePrice" class="text" onkeyup="value=value.replace(/[^0-9]/g,&#39;&#39;)" style="width:260px;" /> <span id="lblSalePrice" class="infoTips"></span></td>
+        </tr>
+        <tr>
+            <td align="right">收款帐号：</td>
+            <td>
+                <select name="pid" id="ctl00_ContentPlaceHolder1_dropUserPayment" class="FieldTextF">
+		          <option value="0">请选择</option>
+                    <volist name="banklist" id="vo">
+                        <option value="收款方式：{$vo.type} 收款帐号：{$vo.account} 收款姓名：{$vo.name} 开户行：{$vo.address}">收款方式：{$vo.type} 收款帐号：{$vo.account} 收款姓名：{$vo.name} 开户行：{$vo.address}</option>
+                    </volist>
+	            </select>
+                <a href="{:U('Index/PersonalSet/userPayment')}">管理收款帐号</a>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">留言备注：</td>
+            <td><textarea name="desc" rows="2" cols="20" id="ctl00_ContentPlaceHolder1_txtSaleUserBZ" class="text" style="height:60px;width:260px;">
+</textarea></td>
+        </tr>
+    </table> 
+    <div class="CommonTbBtnBox">
+        <input type="button" name="ctl00$ContentPlaceHolder1$Button1" value="下一步" id="ctl00_ContentPlaceHolder1_Button1" class="buttom" />
+        <span id="showText"></span>
+    </div>
+</fieldset>
+
+
+</div>
+
+
+<div id="ctl00_ContentPlaceHolder1_Panel2">
+    
+<fieldset class="fieldset">
+<legend><span class="fieldset_title">担保交易卖出金币【确认信息】</span></legend>
+    <br />
+    <table border="0" cellpadding="3" cellspacing="0" width="100%" class="CommonTb">
+      <tr>
+        <td style="width:100px;" align="right">对方编号：</td>
+        <td>
+            <span id="ctl00_ContentPlaceHolder1_lblBuyUserName2" class="ZZConfirmText"></span> --->
+            <span id="ctl00_ContentPlaceHolder1_lblBuyContact" class="ZZConfirmText2"></span>
+          </td>
+      </tr>
+      <tr>
+        <td align="right">卖出金币：</td>
+        <td><span id="ctl00_ContentPlaceHolder1_lblSalePrice2" class="ZZConfirmText"></span></td>
+      </tr>
+        <tr>
+            <td align="right">收款帐号：</td>
+            <td><span id="ctl00_ContentPlaceHolder1_dropUserPayment2"></span></td>
+        </tr>
+      <tr>
+        <td align="right">留言备注：</td>
+        <td><span id="ctl00_ContentPlaceHolder1_lblSaleUserBZ2"></span></td>
+      </tr>
+        <tr>
+            <td align="right">二级密码：</td>
+            <td>
+                <input name="password2" type="password" maxlength="20" id="ctl00_ContentPlaceHolder1_txtUserPass2" class="text" style="width:260px;" />
+                <span ID="lblUserPass2" class="infoTips"></span>
+            </td>
+        </tr>
+    </table>
+    <div class="CommonTbBtnBox">
+        <input id="btnback" class="buttom" onclick="javascript:hide1();" type="button"value="返回修改" />
+        <input type="submit" name="ctl00$ContentPlaceHolder1$Button2" value="确认提交" id="ctl00_ContentPlaceHolder1_Button2" class="buttom" />
+        <span id="showText2"></span>
+    </div>
+</fieldset>
+
+
+</div>
+</form>
+<div class="CommonTip"></div>
+<br />
+<p style="line-height:24px;padding-left:20px;">
+说明：<br />
+1、交易金币最少100起且须是100的整数倍！<br />
+2、可以通过输入的会员编号自动验证其昵称来判辅助断转帐会员！<br />
+3、交易前请核对準确后提交，提交后不可返回！<br />
+</p>
+
+            </div>
+            <br /><br />
+        </div>
+	</div>
+</div>
+
+<!-- Transparent layer --> 
+<div id="divBox" style="filter:alpha(opacity=40);-moz-opacity:0.3;opacity:0.3;background-color:#000;width:100%;height:100%;z-index:1000;position: absolute;left:0;top:0;display:none;overflow: hidden;">
+</div>
+<!-- message layer --> 
+<div id="divMsg" style="border:solid 5px #339999;background:#fff;padding:10px;width:780px;z-index:1001; position: absolute; display:none;top:50%; left:50%;margin:-200px 0 0 -400px;"> 
+    <div style="padding:3px 15px 3px 15px;text-align:left;vertical-align:middle;" > 
+        <div class="IndexShowMsg"> 
+            <div id="divShowMsg"></div>
+            
+        </div> 
+        <br/>
+        <div id="showbtnCancel" style="text-align:right;"> 
+            <input id="btnCancel" type="button" class="buttom" value=" 关闭 " onclick="ShowNo()" /> 
+        </div> 
+    </div> 
+</div> 
+</body>
+</html>

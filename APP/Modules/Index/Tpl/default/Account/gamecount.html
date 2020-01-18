@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><title>
+</title><link href="/Public/style/floatStyle.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/js/jquery.js"></script>
+<script type="text/javascript" src="/Public/js/ValidateCommon.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#Button1").click(function() {
+            return checkInput();
+        });
+    });
+
+    //单击提交按钮
+    function checkInput() {
+
+        //验证安全码
+        if ($("#yzm").val() == "") {
+            alert("请输入安全码！");
+            $("#yzm").focus(); return false;
+        }
+
+        $("#Button1").hide();
+        $("#btnClose").hide();
+        $("#showText").html('<img src=/Images/loading.gif> 正在查询中…')
+
+        return true;
+    }
+    
+    function checkyzm() {
+        if ($("#yzm").val() == "") {
+            return false;
+        }
+        hintMessage("lblyzm", "right", "");
+        return true;
+    }
+
+    document.onkeydown = mykeydown;
+    function mykeydown() {
+        if (event.keyCode == 116) {
+            window.event.keyCode = 0;
+            return false;
+        }
+    }
+    function isEnter(ev) {
+        var ev = ev || window.event;
+        var keycode;
+        if (window.event) keycode = ev.keyCode;
+        else keycode = ev.which;
+        if (keycode == 10 || keycode == 13) return true;
+        else return false;
+    }
+</script>
+</head>
+<body onContextMenu="return false" onSelectStart="return false">
+    <form name="form1" method="post" action="" id="form1">
+    <div>
+    <b>查询游戏帐号信息</b>
+<hr />
+<div style="line-height:300%;">
+    输入右侧安全码：<input name="yzm" type="text" value="" maxlength="5" id="yzm" class="input" style="width:80px;" />
+        <img id="Image1" title="Click to change verification" src="{:U('Index/Login/verify')}" style="border-width:0px;" />
+        <input type="submit" name="Button1" value="查询" id="Button1" class="buttom" />
+        <input id="btnClose" type="button" value="关闭" class="buttom" onclick="javascript:parent.ShowNo()" />
+        <span id="showText"></span>
+        <br />
+        <font color=blue>您当前直属帐号為<font color=red>{$parentcount}</font>、游戏帐号总数為<font color=red>{$gamecount}</font>、游戏帐号有效数為<font color=red>{$validgamecount}</font>、您可享受<font color=red>{$validgamecount}</font>帐号领导奖</font>
+</div>
+        
+    </div>
+    </form>
+</body>
+</html>

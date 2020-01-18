@@ -1,0 +1,119 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+
+<body>
+	<!--顶部开始-->
+	<div class="header">
+		<span class="header_l"><a href="javascript:history.go(-1);"><i class="fa fa-chevron-left"></i></a></span>
+		<span class="header_c">个人中心</span>
+		<span style="position: absolute;right: 10%;top: 0px;text-align:center;width:20%;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;font-size: 12px; ">{$memberinfo['username']} </span>
+		<span class="header_r"><a href="{:U(GROUP_NAME .'/personal_set/myInfo')}"><i class="fa fa-user"></i></a></span>
+	</div>
+	<div class="height40"></div>
+	<!--顶部结束-->
+<style>
+	.user_sy li{
+		width: 33.3%;
+	}
+</style>
+	<div style="background-color: #06C1AE ;padding: 20px 0px;  width: 95%;overflow: hidden;color: #FFFFFF;font-size:1.5em;padding-right:5%">
+		<a href="{:U('Index/Index/logout')}" style="position:absolute;top:45px;left:19px;width:100px;height:50px;line-height:50px;text-align:center;color:#fff;font-size:12px">安全退出</a>
+		<div style="width: 95%;float: right;text-align: center;overflow: hidden;text-align:right;"><p style="font-size:12px">可用SUBY:</p><p style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-size:30px">{$minfo.jinbi}</p></div>
+		<div style="width:95%;float: right;text-align: center;overflow: hidden;text-align:right;"><p style="float:right"><span style="font-size:12px;display:inline-block;">冻结SUBY:</span><span style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;float:right;font-size:1em">{$minfo.qjinbi}</span></p></div>
+	</div>
+<div class="weui_grids" style="background-color: #f9f9f9">
+	<a href="{:U('Index/Shop/orderlist')}" class="weui_grid js_grid" data-id="toast">
+		<div class="weui_grid_icon">
+			<i class="iconfont" style="color: #FE9400;display: block;width: 16px;margin:0 auto;font-size: 2em;margin-left: -2px;">&#xe601;</i>
+		</div>
+		<p class="weui_grid_label" style="margin-top: 12px">我的矿机</p>
+	</a>
+	<a href="{:U('Index/Emoney/myjiaoyi')}" class="weui_grid js_grid" data-id="toast">
+		<div class="weui_grid_icon">
+			<i class="iconfont" style="color: #F4403C;display: block;width: 16px;margin:0 auto;font-size: 2em;margin-left: -2px;">&#xe63f;</i>
+		</div>
+		<p class="weui_grid_label" style="margin-top: 12px">我的交易</p>
+	</a>
+	<a href="{:U('Index/Financial/kslist')}" class="weui_grid js_grid" data-id="toast">
+	<div class="weui_grid_icon">
+		<i class="iconfont" style="color: #7E4BE5;display: block;width: 16px;margin:0 auto;font-size: 2em;margin-left: -2px;">&#xe628;</i>
+	</div>
+	<p class="weui_grid_label" style="margin-top: 12px">矿机收益</p>
+</a>
+
+	<a href="{:U('Index/Financial/kglist')}" class="weui_grid js_grid" data-id="toast">
+		<div class="weui_grid_icon">
+			<i class="iconfont" style="color: #FEB900;display: block;width: 16px;margin:0 auto;font-size: 2em;margin-left: -2px;">&#xe603;</i>
+		</div>
+		<p class="weui_grid_label" style="margin-top: 12px">帐户明细</p>
+	</a>
+	
+
+	<a href="{:U('Index/Financial/kzlist')}" class="weui_grid js_grid" data-id="toast">
+		<div class="weui_grid_icon">
+			<i class="iconfont" style="color: #1C91E2;display: block;width: 16px;margin:0 auto;font-size: 2em;margin-left: -2px;">&#xe85d;</i>
+		</div>
+		<p class="weui_grid_label" style="margin-top: 12px">团队收益</p>
+	</a>
+	
+		
+	<a href="{:U('Index/Account/myAccount')}" class="weui_grid js_grid" data-id="toast">
+		<div class="weui_grid_icon">
+			<i class="iconfont" style="color: #e64340;display: block;width: 16px;margin:0 auto;font-size: 2em;margin-left: -2px;">&#xe615;</i>
+		</div>
+		<p class="weui_grid_label" style="margin-top: 12px">公会管理</p>
+	</a>
+
+
+
+	<a href="{:U('Account/tuiguangma')}" class="weui_grid js_grid" data-id="toast">
+		<div class="weui_grid_icon">
+			<i class="iconfont" style="color: #09B9F4;display: block;width: 16px;margin:0 auto;font-size: 2em;margin-left: -2px;">&#xe600;</i>
+		</div>
+		<p class="weui_grid_label" style="margin-top: 12px">推广招募
+</p>
+	</a>
+	<a href="{:U('Index/PersonalSet/myInfo')}" class="weui_grid js_grid" data-id="toast">
+		<div class="weui_grid_icon">
+			<i class="iconfont" style="color: #F63C86;display: block;width: 16px;margin:0 auto;font-size: 2em;margin-left: -2px;">&#xe684;</i>
+		</div>
+		<p class="weui_grid_label" style="margin-top: 12px">个人资料</p>
+	</a>
+	<a href="{:U('Index/PersonalSet/updatePass')}" class="weui_grid js_grid" data-id="toast">
+		<div class="weui_grid_icon">
+			<i class="iconfont" style="color: #A4ABFE;display: block;width: 16px;margin:0 auto;font-size: 2em;margin-left: -2px;">&#xe681;</i>
+		</div>
+		<p class="weui_grid_label" style="margin-top: 12px">密码管理</p>
+	</a>
+	<a href="{:U('Index/msg/addmsg')}" class="weui_grid js_grid" data-id="toast">
+		<div class="weui_grid_icon">
+			<i class="iconfont" style="color: #A4ABFE;display: block;width: 16px;margin:0 auto;font-size: 2em;margin-left: -2px;">&#xe687;</i>
+		</div>
+		<p class="weui_grid_label" style="margin-top: 12px">联系我们</p>
+	</a>
+	<a href="{:U('Index/new/news')}" class="weui_grid js_grid" data-id="toast">
+			<div class="weui_grid_icon">
+				<i class="iconfont" style="color: #15D897;display: block;width: 16px;margin:0 auto;font-size: 2em;margin-left: -2px;">&#xe62e;</i>
+			</div>
+			<p class="weui_grid_label" style="margin-top: 12px">新闻公告</p>
+	</a>
+</div>
+	
+
+
+
+    	<div class="height55"></div>
+
+<!--底部开始-->
+
+<include file="./APP/Modules/Index/Tpl/default/Public/footer.html" />
+
+	<!--底部结束-->
+	<script src="/Public/web/js/jquery-weui.min.js"></script>
+		<p style="display:none;">
+<script src="http://s95.cnzz.com/z_stat.php?id=1261438452&web_id=1261438452" language="JavaScript"></script>
+</p>
+
+</body>
+</html>
+
+

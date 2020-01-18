@@ -1,0 +1,37 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+
+<div class="inner-block">
+<!--mainpage chit-chating-->
+<div class="chit-chat-layer1">
+	<div class="col-md-6 chit-chat-layer1-left">
+               <div class="work-progres" style="text-align: center;">
+                            <div class="chit-chat-heading">
+                                 注册推广
+                            </div>
+                            <div class="table-responsive">
+                               <img src="http://pan.baidu.com/share/qrcode?w=150&h=150&url=http://{$_SERVER['HTTP_HOST']}{:U('Index/Sem/regSem',array('u'=>session('username')))}">
+                           </div>
+             </div>
+      </div>
+	  	<div class="col-md-6 chit-chat-layer1-rit">
+               <div class="work-progres" style="text-align: center;">
+                            <div class="chit-chat-heading">
+                                 任务推广
+                            </div>
+                            <div class="table-responsive">
+                                <img src="http://pan.baidu.com/share/qrcode?w=150&h=150&url=http://{$_SERVER['HTTP_HOST']}{:U('Index/Sem/adSem',array('u'=>session('username')))}">
+                           </div>
+             </div>
+      </div>
+
+     <div class="clearfix"> </div>
+</div>
+
+<!--climate end here-->
+</div>
+<!--inner block end here-->
+<!--copy rights start here-->
+
+
+
+<include file="./APP/Modules/Index/Tpl/default/Public/footer.html" />

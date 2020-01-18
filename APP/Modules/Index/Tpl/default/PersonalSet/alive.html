@@ -1,0 +1,58 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+
+<div class="inner-block">
+    <div class="inbox">
+    		 
+    	 	<div class="col-md-8 compose-right">
+					<div class="inbox-details-default">
+					
+					
+						
+						
+						<div class="grid_3 grid_4">
+			<div class="page-header">
+	       	<h3>会员激活</h3>
+	      </div>  
+	     <div class="bs-example">
+		 <form action="" method="post">
+		    <table class="table">
+		      <tbody>
+		      <tr>
+		          <td><h4 id="h4-bootstrap-heading">会员编号：{$Think.session.username}</h4></td>
+		      </tr>
+			  <tr>
+		          <td><h4 id="h4-bootstrap-heading">账户余额：{$info.jinbi}</h4></td>
+		      </tr>
+			  <tr>
+		          <td><h4 id="h4-bootstrap-heading">当前等级：{$info.group}</h4></td>
+		      </tr>			  
+			  <tr>
+		          <td><h4 id="h4-bootstrap-heading">有效期剩余：{$info.youxiaoqi}天  </h4></td>
+		      </tr>
+			  <tr>
+		          <td><h4 id="h4-bootstrap-heading">激活金额：{$info.xufei}元</h4></td>
+		      </tr>
+			  <tr>
+		          <td><h4 id="h4-bootstrap-heading"><input type="submit" onclick="if(confirm('操作后不可恢復！您确定要激活吗?')==false)return false;" value="确认提交" id="ctl00_ContentPlaceHolder1_Button1" class="buttom" /></h4></td>
+		      </tr>
+				
+				 </tbody>
+		    </table>
+			</form>
+	     </div>
+	  </div>
+
+
+						
+					</div>
+				</div>
+    	
+          <div class="clearfix"> </div>     
+   </div>
+</div>
+		
+		
+<include file="./APP/Modules/Index/Tpl/default/Public/footer.html" />
+
+
+

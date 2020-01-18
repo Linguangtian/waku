@@ -1,0 +1,83 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+	<div class="listBoxGen">
+        <div class="listBoxTitleGen"><div class="showTitle">帐号安全</div></div>
+            <div class="listBoxContentGen">
+                
+	            
+<fieldset class="fieldset">
+<legend><span class="fieldset_title">帐号安全检测</span>！</legend>
+<div class="safeDIV">是否修改默认密码：<img  src="/Public/images/ok.gif" style="border-width:0px;" /> 
+    <span>已修改</span> <a ></a> <br /><br />
+    
+    <if condition="$member.question1 neq ''">
+        是否设置或陞级二代密保：<img  src="/Public/images/ok.gif" style="border-width:0px;" /><span>已设置</span>
+        <a href="{:U('Index/PersonalSet/pwdProtection')}">[更新]</a><br /><br />
+    <else/>
+         是否设置或陞级二代密保：<img src="/Public/images/nook.gif" style="border-width:0px;" /> 
+         <span >未设置</span> 
+         <a href="{:U('Index/PersonalSet/pwdProtection')}">[立即设置]</a> <br /><br />
+    </if>
+    
+    <if condition="$member.email neq ''">
+        是否绑定安全邮箱：<img  src="/Public/images/ok.gif" style="border-width:0px;" /> <span>{$member.email}</span><br /><br />
+    <else/>
+        是否绑定安全邮箱：<img src="/Public/images/nook.gif" style="border-width:0px;" /> <span>未绑定</span>
+        <a href="{:U('Index/PersonalSet/bindEmail')}">[立即绑定]</a><br /><br />
+    </if>
+    
+    
+    是否绑定身份信息：
+    <if condition="$member['truename']">
+        <img src="/Public/images/ok.gif" style="border-width:0px;" />   <span>已绑定</span> 
+    <else />
+        <img src="/Public/images/nook.gif" style="border-width:0px;" /> <span>未绑定</span>
+        <a href="{:U('Index/PersonalSet/bindInfo')}">[立即绑定身份信息]</a>
+    </if>
+    
+    
+    <a></a> <br /><br />
+    
+    上次登陆时间：<span>{$member.prelogintime|date='Y-m-d H:i:s',###}</span> <br /><br />
+    
+    上次登陆IP：<span>{$member.preloginip}</span> <span>【{$member.preloginaddress}】</span> <br /><br />
+    
+    本次登陆时间：<span>{$member.logintime|date='Y-m-d H:i:s',###}</span><br /><br />
+    
+    本次登陆IP：<span>{$member.loginip}</span> <span>【{$member.loginaddress}】</span> <br /><br />
+    
+    登陆总次数：<span>{$member.logincount}</span> <br /><br />
+    
+</div>
+</fieldset>
+<p style="line-height:24px;padding-left:15px; padding-top:20px;">
+说明：<br />
+1、为了确保您的帐号安全，请根据以上安全提示进行相应操作。<br />
+2、请根据上面提示您上次登陆时间及IP，如发现有异常，请及时修改密码。<br />
+</p>
+
+            </div>
+            <br /><br />
+        </div>
+	</div>
+</div>
+
+<!-- Transparent layer --> 
+<div id="divBox" style="filter:alpha(opacity=40);-moz-opacity:0.3;opacity:0.3;background-color:#000;width:100%;height:100%;z-index:1000;position: absolute;left:0;top:0;display:none;overflow: hidden;">
+</div>
+<!-- message layer --> 
+<div id="divMsg" style="border:solid 5px #339999;background:#fff;padding:10px;width:780px;z-index:1001; position: absolute; display:none;top:50%; left:50%;margin:-200px 0 0 -400px;"> 
+    <div style="padding:3px 15px 3px 15px;text-align:left;vertical-align:middle;" > 
+        <div class="IndexShowMsg"> 
+            <div id="divShowMsg"></div>
+            
+        </div> 
+        <br/>
+        <div id="showbtnCancel" style="text-align:right;"> 
+            <input id="btnCancel" type="button" class="buttom" value=" 关闭 " onclick="ShowNo()" /> 
+        </div> 
+    </div> 
+</div> 
+
+    </form>
+</body>
+</html>

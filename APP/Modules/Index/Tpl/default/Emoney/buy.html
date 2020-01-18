@@ -1,0 +1,105 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+<header id="topbar" class="affix">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="crumb-active">
+                <a href="/">Member</a>
+            </li>
+            <li class="crumb-icon">
+                <a href="/">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </li>
+            <li class="crumb-trail">
+                <a href="#">
+                   交易中心
+                </a>
+            </li>
+            <li class="crumb-trail">
+                我要买入
+            </li>
+
+        </ol>
+    </div>
+</header>
+	
+
+<div id="content">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-heading br-b-n">
+                    <div class="panel-title hidden-xs">
+                        <span class="glyphicon glyphicon-tasks"></span>我要买入
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" method="post" >
+						 <div class="form-group">
+                            <label for="email" class="col-lg-3 control-label">买入股份</label>
+                            <div class="col-lg-4"> <label class="control-label text-info-light">{$info.jinzhongzi}股</label></div>
+                           
+                        </div>						
+					
+
+						  <div class="form-group">
+                            <label for="email" class="col-lg-3 control-label">需要支付金额</label>
+                             <div class="col-lg-4"> <label class="control-label text-info-light">¥{$info.jinbi}</label></div>
+                        
+                        </div>
+
+								
+                        <div class="form-group">
+                            <label for="telphone" class="col-lg-3 control-label">二级密码</label>
+                            <div class="col-lg-4">
+                                <input class="form-control" name="password2" type="password"  class="form-control" autocomplete="off" /> 
+                            </div>
+                           
+                        </div>
+						
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label"></label>
+                            <div class="col-lg-8">
+                                   
+                                <button type="submit" class="btn btn-primary btn-submit">提 交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End: Content -->
+
+    </section>
+</div>
+ <script type="text/javascript">
+        $(".grow-menu").on('click', function() {
+            window.location.href = this.dataset.url;
+        });
+    </script>
+
+
+    
+    <script type="text/javascript">
+        var path = "";
+        var href = 'javascript:void(0);';
+        var onClick = 'javascript:void(0);';
+    </script>
+    
+        
+    
+    <script type="text/javascript">
+        $(".head-icon-left").on("click", function () {
+            window.history.go(-1);
+        });
+
+        if (path != undefined && path.length > 0) {
+            document.write("<div id='dd' class='float-icon'><a href='"+href+"' onclick='"+onClick+"' /><img src='" + path + "'  class='float-icon-img'></a></div>");
+        }
+    </script>
+
+<include file="./APP/Modules/Index/Tpl/default/Public/footer.html" />
+

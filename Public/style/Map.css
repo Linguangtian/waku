@@ -1,0 +1,57 @@
+.MapTable{
+	BORDER-RIGHT: #667a9d 1px solid;
+	BORDER-TOP: #667a9d 1px solid;
+	BORDER-LEFT: #667a9d 1px solid;
+	BORDER-BOTTOM: #667a9d 1px solid;
+	width:150px;
+	HEIGHT: 20px;
+	margin-left:10px;
+	margin-right:10px;
+	background-color: #FFFFFF;
+}
+.MapTable a.L1{color:#000000}
+.MapTable a.L2{color:#ffffff}
+/* 表格头 */
+.MapTable td.Title0{height: 20px;background-color: #144387;color:#000;font-weight:bold;text-align: center;line-height: 20px;}/* 未注册 */
+.MapTable td.TitleX{height: 20px;background-color: #FF0000;color:#000;font-weight:bold;text-align: center;line-height: 20px;}/* 未开通 */
+.MapTable td.Title11{height: 20px;background-color: #40C140;color:#000;font-weight:bold;text-align: center;line-height: 20px;}/* VIP0 background-color: #ABA211 */
+.MapTable td.Title1{height: 20px;background-color: #CC6600;color:#000;font-weight:bold;text-align: center;line-height: 20px;}/* VIP1 */ 
+.MapTable td.Title2{height: 20px;background-color: #CC0066;color:#000;font-weight:bold;text-align: center;line-height: 20px;}/* VIP2 */
+.MapTable td.Title3{height: 20px;background-color: #FFFF00;color:#000;font-weight:bold;text-align: center;line-height: 20px;}/* VIP3 */
+.MapTable td.Title4{height: 20px;background-color: #009900;color:#000;font-weight:bold;text-align: center;line-height: 20px;}/* VIP4 */
+
+/* 单元格 */
+.MapTable tr.TR0 td{width:51px;height:20px;line-height: 20px;background-color: #c9e2f8;text-align: center;}/* 未注册 */
+.MapTable tr.TR1 td{width:51px;height:20px;line-height: 20px;background-color: #ff0000;text-align: center;}/* 未开通 */
+.MapTable tr.TR2 td{width:51px;height:20px;line-height: 20px;background-color: #0099FF;text-align: center;}/* 已开通 */
+
+/* 底部单元格 */
+.MapTable tr.BottomTR0 td{height:20px;line-height: 20px;background-color: #c9e2f8;text-align: center;}/* 未注册 */
+.MapTable tr.BottomTR1 td{height:20px;line-height: 20px;background-color: #ff0000;text-align: center;}/* 未开通 */
+.MapTable tr.BottomTR2 td{height:20px;line-height: 20px;background-color: #0099FF;text-align: center;}/* 已开通 */
+
+/* 连接线 */
+.JoinLine{
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: none;
+	border-left-style: solid;
+	border-top-color: #3366CC;
+	border-right-color: #3366CC;
+	border-bottom-color: #3366CC;
+	border-left-color: #3366CC;
+}
+
+/* 底部色块说明区域 */
+.BottomColorBarBox{
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.BottomColorBarBox table {margin:0 auto;text-align: center;}

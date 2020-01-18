@@ -1,0 +1,145 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+<header id="topbar" class="affix">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="crumb-active">
+                <a href="/">Member</a>
+            </li>
+            <li class="crumb-icon">
+                <a href="/">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </li>
+            <li class="crumb-trail">
+                <a href="#">
+                   交易中心
+                </a>
+            </li>
+            <li class="crumb-trail">
+                交易大厅
+            </li>
+
+        </ol>
+    </div>
+</header>
+
+<!-- Begin: Content -->
+<section id="content" class="table-layout " style="padding-top: 50px;">
+    <div class="row" style="padding: 10px 0px 40px !important;">
+        <div class="col-md-12" style="padding: 0px 8px !important;">
+            <div class="panel panel-visible">
+                <div class="panel-heading br-b-n">
+                    <div class="panel-title hidden-xs">
+                        <span class="glyphicon glyphicon-tasks"></span>交易大厅
+                    </div>
+                </div>
+                <div class="panel-body pn">
+                    <div class="dataTables_wrapper form-inline dt-bootstrap no-footer admin-form" id="datatable_wrapper">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+<table style="width: 100%;" aria-describedby="datatable_info" role="grid"
+                                       class="table table-striped table-bordered table-hover dataTable no-footer text-center"
+                                       id="datatable" cellspacing="0" width="100%">
+                                    <thead>
+                                    <tr>
+                                        <td class="w200">挂单会员</td>
+										<td class="w200">卖出股份</td>
+                                        <td class="w200">卖出总价</td>
+                                        <td class="w200">单价</td>
+                                        <td class="w200">发布时间</td>
+									    <td class="w200">操作</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+<if condition="$list">
+
+<volist name="list" id="vo">
+                                    <tr>   
+                                            <td><span>{$vo.selluser}</span></td>
+											<td><span>{$vo.jinzhongzi}股</span></td>
+											<td><span>¥{$vo.jinbi}</span></td>
+											<td><span>¥{$vo.unit}</td>
+											<td><span>{$vo.selltime|date='Y-m-d H:i',###}</span></td>
+                                            <td><span>
+											
+											<if condition="$username neq $vo[selluser]">	
+                                               <a href="{:U('Index/Emoney/buy',array('id'=>$vo['id']))}"><font color=red>购买</font></a>											
+											</if>
+											</span></td>										 
+                                   </tr>
+										
+</volist>  
+									 
+ <tbody>		
+ 
+<else/>
+     
+								<div align=center style="line-height:100px;">暂无信息</div>
+                         
+</if>
+
+
+										
+                                </table>
+								
+			<div class="row">
+	              <div class="col-sm-12 text-center">
+                                <div class='dataTables_paginate'>
+							  	    <ul class='pagination'>{$page}</ul>
+								</div>                            
+			    </div>
+             </div>
+                            </div>
+                        </div>
+						
+			
+
+						
+
+
+</div>
+
+		
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- End: Content -->
+
+
+</div>
+
+ <script type="text/javascript">
+        $(".grow-menu").on('click', function() {
+            window.location.href = this.dataset.url;
+        });
+    </script>
+
+
+    
+    <script type="text/javascript">
+        var path = "";
+        var href = 'javascript:void(0);';
+        var onClick = 'javascript:void(0);';
+    </script>
+    
+        
+    
+    <script type="text/javascript">
+        $(".head-icon-left").on("click", function () {
+            window.history.go(-1);
+        });
+
+        if (path != undefined && path.length > 0) {
+            document.write("<div id='dd' class='float-icon'><a href='"+href+"' onclick='"+onClick+"' /><img src='" + path + "'  class='float-icon-img'></a></div>");
+        }
+    </script>
+
+
+<include file="./APP/Modules/Index/Tpl/default/Public/footer.html" />
+

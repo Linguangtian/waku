@@ -1,0 +1,153 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+
+	<div class="inner-block">
+    <div class="inbox">
+    		 
+    	
+	            
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#ctl00_ContentPlaceHolder1_txtMobile").blur(function() { checkMobile(); });
+        $("#ctl00_ContentPlaceHolder1_txtQQ").blur(function() { checkQQ(); });
+
+        //check from changes--step1
+        var dataformInit = $("#aspnetForm").serializeArray();
+        var jsonTextInit = JSON.stringify({ dataform: dataformInit });
+
+        $("#ctl00_ContentPlaceHolder1_Button1").click(function() {
+
+            //check from changes--step2
+            //To verify whether the form changes
+            var dataform = $("#aspnetForm").serializeArray();
+            var jsonText = JSON.stringify({ dataform: dataform });
+            if (jsonTextInit == jsonText) {
+                //alert("no Change！");
+                //return false;
+                $("#ctl00_ContentPlaceHolder1_HiddenUpdateKey").val("0");
+            }
+            else {
+                //alert("Change！");
+                //return false;
+                $("#ctl00_ContentPlaceHolder1_HiddenUpdateKey").val("1");
+            }
+            
+            return checkInput();
+        });
+
+    });
+
+//单击提交按钮时
+function checkInput() {
+    if (!checkMobile()) { alert("请输入正确的手机号码！");$("#ctl00_ContentPlaceHolder1_txtMobile").focus(); return false; }
+    if (!checkQQ()) { alert("请输入联系QQ！");$("#ctl00_ContentPlaceHolder1_txtQQ").focus(); return false; }
+    $("#ctl00_ContentPlaceHolder1_Button1").hide();
+    $("#showText").html('<img src=/Images/loading.gif> 正在提交中…')
+    return true;
+}
+//验证手机号码
+function checkMobile() {
+    if ($("#ctl00_ContentPlaceHolder1_txtMobile").val() == "") {
+        hintMessage("lblMobile", "error", "请输入您的手机号码");
+        return false;
+    }
+    if ($("#ctl00_ContentPlaceHolder1_txtMobile").val().length != 11) {
+        hintMessage("lblMobile", "error", "请输入正确的手机号码");
+        return false;
+    }
+    hintMessage("lblMobile", "right", "");
+    return true;
+}
+//验证QQ
+function checkQQ() {
+    if ($.trim($("#ctl00_ContentPlaceHolder1_txtQQ").val()) != "") {
+        var reg = /^\d*$/;
+        if (!reg.test($.trim($("#txtQQ").val()))) {
+            hintMessage("lblQQ", "error", "格式不正确");
+            return false;
+        }
+        hintMessage("lblQQ", "right", "");
+    }
+    else {
+        hintMessage("lblQQ", "error", "请输入QQ号码");
+        return false;
+    }
+    return true;
+}
+
+document.onkeydown = mykeydown;
+function mykeydown() {
+    if (event.keyCode == 116) {
+        window.event.keyCode = 0;
+        return false;
+    }
+}
+</script>
+
+
+
+
+    	 	<div class="col-md-8 compose-right">
+					<div class="inbox-details-default">
+					
+					
+						
+						
+						<div class="grid_3 grid_4">
+			<div class="page-header">
+	       	<h3>修改身份信息</h3>
+	      </div>  
+		  
+		  
+<form action="" method="post">
+
+
+    <table border="0" align="center" cellpadding="0" cellspacing="0" class="CommonTb">
+    <tr>
+        <td class="TbText" style="width:150px;">会员编号：</td>
+        <td class="TbContent"><font id="ctl00_ContentPlaceHolder1_UserName">{$Think.session.username}</font></td>
+    </tr>
+        <tr>
+            <td class="TbText">真实姓名：</td>
+            <td class="TbContent">{$name}**</td>
+        </tr>
+        
+    <tr>
+        <td class="TbText">手机：</td>
+        <td class="TbContent"><input name="mobile" type="text" value="{$mobile}" maxlength="11" id="ctl00_ContentPlaceHolder1_txtMobile" class="text" style="width:120px;" /> <span id="lblMobile" class="infoTips"></span></td>
+    </tr>
+    <tr>
+        <td class="TbText">QQ/MSN：</td>
+        <td class="TbContent"><input name="qq" type="text" value="{$qq}" maxlength="20" id="ctl00_ContentPlaceHolder1_txtQQ" class="text" style="width:120px;" /> <span id="lblQQ" class="infoTips"></span></td>
+    </tr>
+    </table> 
+<div class="CommonTbBtnBox">
+    <input type="submit" value="提 交" id="ctl00_ContentPlaceHolder1_Button1" class="buttom" />
+    <span id="showText"></span>
+</div>
+</fieldset>
+
+<br />
+<p style="line-height:24px; padding-left:20px;">
+说明：<br />
+1、准确填写以上信息是确保您帐号安全的重要保障。<br />
+2、姓名与证件号码一经填写将不可修改。<br />
+
+</p>
+
+           </div>
+
+					</div>
+				</div>
+    	
+          <div class="clearfix"> </div>     
+   </div>
+</div>
+
+
+		
+<include file="./APP/Modules/Index/Tpl/default/Public/footer.html" />
+
+
+
+
+

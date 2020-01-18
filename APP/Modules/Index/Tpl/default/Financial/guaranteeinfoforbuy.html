@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>担保交易买家操作</title>
+    <link href="/Public/style/floatStyle.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/Public/js/jquery.js"></script>
+    <script type="text/javascript" src="/Public/js/ValidateCommon.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Button2").click(function () {
+                return checkInput();
+            });
+        });
+
+        function checkInput() {
+            if (!checkBuyUserBZ()) { alert("付款后请在留言中备注您的付款帐号信息，方便卖家查帐！"); $("#txtBuyUserBZ").focus(); return false; }
+
+            if (!confirm("确认已付款吗？")) {
+                return false;
+            }
+
+            $("#Button1").hide();
+            $("#Button2").hide();
+            $("#btnClose").hide();
+            $("#showText").html('<img src=/Images/loading.gif> 正在提交中…')
+
+            return true;
+        }
+        function checkBuyUserBZ() {
+            if ($("#txtBuyUserBZ").val() == "") {
+                //hintMessage("lblBuyUserBZTip", "error", "付款后请在留言中备注您的付款帐号信息，方便卖家查帐！");
+                return false;
+            }
+            hintMessage("lblBuyUserBZTip", "right", "");
+            return true;
+        }
+
+        document.onkeydown = mykeydown;
+        function mykeydown() {
+            if (event.keyCode == 116) {
+                window.event.keyCode = 0;
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="form1" method="post" action="">
+    <div>
+        <b>定向担保交易操作</b>
+        <hr />
+<div class="stepTitle">记录信息----我是买家</div>
+<table border="0" cellpadding="3" cellspacing="0" class="CommonTb">
+   <tr>
+        <td style="width:120px;" align="right">发起时间：</td>
+        <td>
+            <span id="lblAddTime1">{$info.addtime|date='Y-m-d H:i:s',###}</span>
+        </td>
+    </tr>
+   <tr>
+        <td style="width:120px;" align="right">交易金币：</td>
+        <td><span id="lblSalePayPrice" class="CompanytenPayNo" style="color:Red;">{$info.qty}</span> 【付款金额】</td>
+    </tr>
+   <tr>
+        <td style="width:120px;" align="right">卖家编号：</td>
+        <td><span id="lblSaleUserName">{$info.seller}</span></td>
+    </tr>
+   <tr>
+        <td align="right">卖家收款帐号：</td>
+        <td><span id="lblSaleSkInfo" class="CompanytenPayNo" style="color:Red;">
+                <if condition="$info['status'] == '买家已接受交易付款中' || $info['status'] == '等待卖家确认收款'">
+                    {$info.receivableid}    
+                <else />
+                    接受交易后显示对方收款帐号
+                </if>
+            </span> </td>
+    </tr>
+   <tr>
+        <td align="right">&nbsp;</td>
+        <td><font color=blue>↑系统提示：接受交易后付款切记付款到上面帐号！不管什麼理由都不要付款到其它任何帐号！</font></td>
+    </tr>
+   <tr>
+        <td align="right">卖家留言：</td>
+        <td><span id="lblSaleUserBZ">{$info.sellmsg}</span></td>
+    </tr>
+   <tr>
+        <td align="right">买家编号：</td>
+        <td><span id="lblBuyUserName">{$info.buyer}</span></td>
+    </tr>
+   <tr>
+        <td align="right">买家留言：</td>
+        <td><span id="lblBuyUserBZ">{$info.buymsg}</span></td>
+    </tr>
+   <tr>
+        <td align="right">记录状态：</td>
+        <td><span id="lblKey1">{$info.status}</span></td>
+    </tr>
+    <tr>
+        <td align="right">操作安全码：</td>
+        <td><input name="yzm" type="text" maxlength="5" id="yzm" class="input" style="width:80px;" />
+            <input type="hidden" name="id" value="{$info.id}" />
+        <img id="Image1" src="{:U('Index/Financial/verify')}" style="border-width:0px;" /></td>
+    </tr>
+</table>
+<br />
+<if condition="$info['status'] == '买家已接受交易付款中'">
+    <span id="Label1" style="color:Red;"><b>特别提醒：</b>付款时一定要按照上面卖家收款帐号付款，否则将不受保护！如果对方叫您付款到其它帐号，那一定要注意防止被骗！如果您已付款请在下面填写您的付款帐号信息再点击确认已付款，以便卖家及时查帐。</span><br />
+    <textarea name="buymsg" rows="2" cols="20" id="txtBuyUserBZ" style="height:80px;width:400px;"></textarea>
+</if>
+
+<span id="lblBuyUserBZTip" class="infoTips"></span>
+<br />
+
+<input type="submit" value="确认接受交易" <if condition="$info['status'] == '买家已接受交易付款中' || $info['status'] == '等待卖家确认收款' ">disabled="disabled"</if> onclick="return confirm(&#39;接受交易后则需要按提示付款给对方，如果接受交易后又不付款，那麼将影响您的信用指数！确认接受交易吗？&#39;);" id="Button1" class="buttom" />
+
+<input type="submit" value="确认已付款" <if condition="$info['status'] == '等待买家接受交易' || $info['status'] == '等待卖家确认收款'">disabled="disabled"</if> id="Button2"  class="buttom" />
+
+
+<input id="btnClose" value="关闭" class="buttom" onclick="javascript:parent.ShowNo()" />
+<div class="CommonTip"></div>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+<div class="listBoxGen">
+        <div class="listBoxTitleGen"><div class="showTitle">卖出记录</div></div>
+            <div class="listBoxContentGen">   
+<div style="padding-top:10px; padding-bottom:10px; line-height:150%;">
+说明：1、会员提交金币卖出，针对不同收款方式审核处理时间也有所不同，不过一般都会在24小时内到帐！推荐使用财付通收款，更快到帐！<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="red">2、如果您提交的记录提示已卖出在24小时却未到帐，请仔细检查您的收款信息是否正确！如果正确可以打印银行流水提交留言给我们进行查询！
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3、交易系统24小时开放，玩家可以在任何时侯提交记录，系统处理程序将在每日上午9:00-晚上21:00期间统一自动处理
+</font>
+</div>
+
+<if condition="$list">
+    <div>
+    <table cellspacing="0" cellpadding="4" border="1" align="Center" style="width:100%;border-collapse:collapse;" id="ctl00_ContentPlaceHolder1_GridView1" rules="all" class="GridViewStyle">
+        <tbody><tr style="font-weight:bold;" class="HeaderStyle">
+            <th scope="col">卖出时间</th>
+            <th scope="col">买家编号</th>
+            <th scope="col">收款账号</th>
+            <th scope="col">金额 </th>
+            <th scope="col">支付时间</th>
+            <th scope="col">状态</th>
+            <th scope="col">操作</th>
+        </tr>
+        <volist name="list" id="vo">
+        <tr class="RowStyle">
+            <td align="center">{$vo.addtime|date='Y-m-d H:i:s',###}</td>
+            <td align="center">{$vo.buyer}</td>
+            <td align="center">{$vo.receivableid}</td>
+            <td align="center">{$vo.qty}</td>
+            <td align="center">{$vo.paytime}</td>
+            <td align="center"><font color="red">{$vo.status}</font></td>
+            <td align="center">
+                <if condition="$vo.status eq '销售中'">
+                    <a style="color:Blue;" href="{:U('cancleSell',array('id'=>$vo['id']))}" onclick="if(!confirm('确认取消卖出吗？')){return false;}" class="CursorLink" >取消卖出</a>
+                </if>
+                
+                <if condition="$vo.status eq '买家已付款，等待卖家确认!'">
+                    <a style="color:Blue;" href="{:U('kingSellConfirm',array('id'=>$vo['id']))}" onclick="if(!confirm('确认已收到款吗,一旦确认，您的电子币将转入买家账号中.')){return false;}" class="CursorLink" >确认收款</a>
+                </if>
+            </td>
+            </tr>
+            </volist>
+            </tbody></table>
+            <div>
+                <div class="ZLPagerCss">
+                    {$page}         
+                </div>
+            </div>
+</div>
+<else/>
+    <div>
+    <table class="GridViewStyle" cellspacing="0" cellpadding="4" align="Center" rules="all" border="1" id="ctl00_ContentPlaceHolder1_GridView1" style="width:100%;border-collapse:collapse;">
+        <tr class="EmptyRowStyle">
+            <td colspan="11">
+    <span id="ctl00_ContentPlaceHolder1_GridView1_ctl01_emptyInfo" class="FieldTextM">无相关记录！</span>
+</td>
+        </tr>
+    </table>
+</div>
+</if>
+
+
+        
+
+            </div>
+            <br /><br />
+        </div>
+	</div>
+</div>
+
+<!-- Transparent layer --> 
+<div id="divBox" style="filter:alpha(opacity=40);-moz-opacity:0.3;opacity:0.3;background-color:#000;width:100%;height:100%;z-index:1000;position: absolute;left:0;top:0;display:none;overflow: hidden;">
+</div>
+<!-- message layer --> 
+<div id="divMsg" style="border:solid 5px #339999;background:#fff;padding:10px;width:780px;z-index:1001; position: absolute; display:none;top:50%; left:50%;margin:-200px 0 0 -400px;"> 
+    <div style="padding:3px 15px 3px 15px;text-align:left;vertical-align:middle;" > 
+        <div class="IndexShowMsg"> 
+            <div id="divShowMsg"></div>
+            
+        </div> 
+        <br/>
+        <div id="showbtnCancel" style="text-align:right;"> 
+            <input id="btnCancel" type="button" class="buttom" value=" 关闭 " onclick="ShowNo()" /> 
+        </div> 
+    </div> 
+</div> 
+
+    </form>
+</body>
+</html>

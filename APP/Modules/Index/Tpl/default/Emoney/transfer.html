@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="imagetoolbar" content="no" />
+<title>EFD</title>
+<meta http-equiv="x-ua-compatible" content="ie=7" />
+<link media="screen" rel="stylesheet" type="text/css" href="__PUBLIC__/css/general.css"  />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.css"  />
+<link href="__PUBLIC__/css/bootstrap-responsive.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="__PUBLIC__/css/font-awesome.min.css" />
+<link rel="stylesheet" href="__PUBLIC__/css/custom.css" />
+
+<style type="text/css">
+	#view {
+	/* SET THE WIDTH OF THE MODAL 设置Modal的宽度*/
+	width: 900px;
+	/* CHANGE MARGINS TO ACCOMODATE THE NEW WIDTH (original = margin: -250px 0 0 -280px;) */
+	margin: -250px 0 0 -450px;
+	}
+</style>
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!--[if lte IE 6]><link media="screen" rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin-ie.css" /><![endif]-->
+
+<script src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
+<script src="__PUBLIC__/js/jquery.dataTables.min.js"></script>
+<script src="__PUBLIC__/js/bootstrap.js"></script>
+<script src="__PUBLIC__/js/jquery.dataTables.bootstrap.js"></script>
+<script src="__PUBLIC__/js/custom.js"></script>
+<script src="__PUBLIC__/js/jquery.validate.js"></script>
+<script type="text/javascript">
+	$(function() {		
+		var method = '{$Think.server.path_info}';
+		var end = method.split('/')[3];
+		$('a[sid]').removeClass('selected');
+		$('a[sid*='+ end +']').attr('class','selected');
+		$('a[sid*='+ end +']').click();
+
+		//异步获取会员姓名
+		$('#receive_account').blur(function(){
+			$.post("{:U(GROUP_NAME.'/Emoney/ajaxGetNickName')}", {account:$(this).val()}, function (data, textStatus){
+					if (data != '') {
+						$('#nickname').html('<font color="green">对方呢称：' + data + '</font>');
+					}else{
+						$('#nickname').html('');
+					}
+			});
+		});
+
+		//表单验证
+		$('#transferform').validate({
+			//默认为lable
+			errorElement : 'span',
+			//失败时先移除成功的class
+			validClass : 'success',
+			//指定成功的样式
+			success : function(span){
+				span.addClass('success');
+			},
+        	"onfocusout": function(e) { $(e).valid(); },
+			rules:{
+				money:{
+					required : true,
+					min : 1
+				},
+				receive_account : {
+					required : true
+				},
+				receive_accounted : {
+					required : true,
+					equalTo : "#receive_account"
+				},
+				password2:{
+					required : true,
+					remote : {
+						url : "{:U(GROUP_NAME.'/Emoney/ajaxCheckPassword2')}",
+						type : 'post',
+						dataType : 'json',
+						data : {
+							password2:function(){
+								return $('#password2').val();
+							}
+						}
+					}
+				}	
+			},
+			messages:{
+				money:{
+					required : '提现金额不能为空',
+					min : '提现金额必须大于0'
+				},
+				receive_account:{
+					required : '转入编号不能为空'
+				},
+				receive_accounted:{
+					required : '转入编号确认不能为空',
+					equalTo : '两次转入编号不一致'
+				},
+				password2:{
+					required : '二级密码不能为空',
+					remote : '您输入的二级密码错误'
+				}
+			}
+
+		});
+	});
+</script>
+
+<!--[if lte IE 6]><link media="screen" rel="stylesheet" type="text/css" href="css/admin-ie.css" /><![endif]-->
+
+</head>
+ 
+<body>
+	<!--[if !IE]>start wrapper<![endif]-->
+	<div id="wrapper">
+		<!--[if !IE]>start head<![endif]-->
+		<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+		<!--[if !IE]>end head<![endif]-->
+		
+		<!--[if !IE]>start content<![endif]-->
+		<div id="content">
+			<div id="page">
+				<div class="inner">
+								
+					<!--[if !IE]>start section<![endif]-->	
+					<div class="section table_section">
+						<!--[if !IE]>start title wrapper<![endif]-->
+						<div class="title_wrapper">
+							<h2>电子货币转账</h2>
+							<span class="title_wrapper_left"></span>
+							<span class="title_wrapper_right"></span>
+						</div>
+						<!--[if !IE]>end title wrapper<![endif]-->
+						<!--[if !IE]>start section content<![endif]-->
+						<div class="section_content">
+							<!--[if !IE]>start section content top<![endif]-->
+							<div class="sct">
+								<div class="sct_left">
+									<div class="sct_right">
+										<div class="sct_left">
+											<div class="sct_right">
+												<!--[if !IE]>start table_wrapper<![endif]-->
+												<form class="form-horizontal" id="transferform" method="post" action="{:U(GROUP_NAME.'/Emoney/transferHandle')}">
+													<div class="control-group">
+														<label class="control-label">电子币余额</label>
+
+														<div class="controls">
+															<span class="text-success">{:getMemberField('emoney')}</span>
+														</div>
+													</div>
+													<div class="control-group">
+														<label class="control-label">手续费</label>
+
+														<div class="controls">
+															 <input disabled="disabled" class="span1" value="0" type="text">
+														</div>
+													</div>
+													<div class="control-group">
+														<label for="money" class="control-label">转账金额</label>
+
+														<div class="controls">
+															 <input name="money" id="money" class="span1" type="text">
+														</div>
+													</div>
+													<div class="control-group">
+														<label for="receive_account" class="control-label">转入编号</label>
+
+														<div class="controls">
+															<input class="span2" value="" name="receive_account" type="text" id="receive_account"><span id="nickname"></span>
+														</div>
+													</div>
+													<div class="control-group">
+														<label for="receive_accounted" class="control-label">转入编号确认</label>
+
+														<div class="controls">
+															<input class="span2" value="" name="receive_accounted" type="text" id="receive_accounted">
+														</div>
+													</div>
+													<div class="control-group">
+														<label for="password2" class="control-label">二级密码</label>
+
+														<div class="controls">
+															<input class="span2" value="" name="password2" type="password" id="password2">
+														</div>
+													</div>
+
+													<div class="form-actions">
+														<button type="submit" class="btn btn-info">
+															<i class="icon-ok bigger-110"></i>
+															确认转账
+														</button>
+													</div>
+												</form>
+												<!--[if !IE]>end table_wrapper<![endif]-->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--[if !IE]>end section content top<![endif]-->
+							<!--[if !IE]>start section content bottom<![endif]-->
+							<span class="scb"><span class="scb_left"></span><span class="scb_right"></span></span>
+							<!--[if !IE]>end section content bottom<![endif]-->
+							
+						</div>
+						<!--[if !IE]>end section content<![endif]-->
+					</div>
+					<!--[if !IE]>end section<![endif]-->				
+				</div>
+			</div>
+			<include file="./APP/Modules/Index/Tpl/default/Public/left.html" />
+		</div>
+
+		<!--[if !IE]>end content<![endif]-->
+		
+	</div>
+
+	<!--模式窗口-->
+	<div class="modal hide fade" id="view">
+	    <div class="modal-header">
+			<a href="#" class="close" data-dismiss="modal">×</a>
+			<h4 id="anntitle"></h4>
+	    </div>
+	    <div class="modal-body" id="anncontent">
+			
+	    </div>
+	    <div class="modal-footer">
+	    	<button type="button" class="close" data-dismiss="modal">关闭</button>
+	    </div>
+  	</div>
+  <!--模式窗口-->
+	<!--[if !IE]>end wrapper<![endif]-->
+	
+	<!--[if !IE]>start footer<![endif]-->
+	<include file="./APP/Modules/Index/Tpl/default/Public/footer.html" />
+	<!--[if !IE]>end footer<![endif]-->
+</body>
+</html>

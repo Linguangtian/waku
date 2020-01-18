@@ -1,0 +1,87 @@
+<include file="./APP/Modules/Index/Tpl/default/Public/header.html" />
+
+
+<!-- Start: Topbar -->
+<header id="topbar" class="affix">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="crumb-active">
+                <a href="/">Member</a>
+            </li>
+            <li class="crumb-icon">
+                <a href="/">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </li>
+            <li class="crumb-trail">
+                <a href="#">
+                   我的团队
+                </a>
+            </li>
+            <li class="crumb-trail">
+                团队排位图
+            </li>
+
+        </ol>
+    </div>
+</header>
+<!-- End: Topbar -->
+
+<!-- Begin: Content -->
+<section id="content" class="table-layout " style="padding-top: 50px;">
+    <div class="row" style="padding: 10px 0px 40px !important;">
+        <div class="col-md-12" style="padding: 0px 8px !important;">
+            <div class="panel panel-visible">
+                <div class="panel-heading br-b-n">
+                    <div class="panel-title hidden-xs">
+                        <span class="glyphicon glyphicon-tasks"></span>团队排位图
+                    </div>
+                </div>
+                <div class="panel-body pn">
+                    <div class="dataTables_wrapper form-inline dt-bootstrap no-footer admin-form" id="datatable_wrapper">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+<form method="get" action="">
+<div class="boxManage">搜索会员 <input name="cs" type="text" maxlength="10" class="form-control" />
+                <input type="submit" value="搜 索" id="ctl00_ContentPlaceHolder1_btnSearch" class="btn btn-primary" />
+                <input type="button" name="btnRedirect" value="返 回" class="btn btn-primary" onclick="window.location='{:U('Index/Account/pw_list')}'" />
+                
+    <font id="ctl00_ContentPlaceHolder1_lblShowText"></font>
+    
+</div>
+<br><br><br>
+</form>
+
+
+ <div style="position:relative;height: 700px;">{$html}</div>
+							
+                            </div>
+                        </div>
+						
+
+
+						
+
+
+</div>
+
+		
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- End: Content -->
+
+
+</div>
+
+
+
+
+<include file="./APP/Modules/Index/Tpl/default/Public/footer.html" />
+

@@ -1,0 +1,173 @@
+* {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+body {
+	font-family:"微软雅黑";
+	font-size:13px;
+	margin: 0px;
+	padding: 0px;
+	background-color: #ffffff;
+	background-repeat: repeat-x;
+	background-position: 0px top;
+	text-align: center;
+}
+body,td,th {
+	font-size: 14px;
+}
+a {
+	color:#0066CC;
+	text-decoration:none;
+}
+ul,li{
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+input, select, textarea {
+	font-size:12px;
+	padding:2px;
+}
+span{
+	font-size:12px;
+	padding:2px;
+}
+#header{
+	height: 80px;
+	width: 100%;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CBD8DE;
+	margin: 0px;
+	padding: 0px;
+	background-image: url(../Images/headbg.jpg);
+	background-repeat: repeat-x;
+	background-position: 0px top;
+}
+#wrap{
+	width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+}
+#wrapMB{
+	width: 800px;
+	text-align: left;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 0px;
+	padding: 0px;
+	margin-top: 0px;
+}
+#nav{
+	background-color: #E6F3FB;
+	margin-bottom: 10px;
+	line-height: 24px;
+	text-indent: 10px;
+	height: 24px;
+}
+.tb{}
+.tb td{
+	line-height: 30px;
+	height: 30px;
+}
+/* fieldset */
+.fieldset{
+	width:100%;
+	border: 1px solid #B1D4E9;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 5px;
+	padding-bottom: 10px;
+	padding-left: 15px;
+}
+legend
+{
+	color:#333333;
+	font-weight:100;
+	text-align:center;
+	font-size:14px;
+	padding: 5px;
+}
+.fieldset_title{
+	color: #000000;
+	font-size: 13px;
+}
+/* 通用绿色按钮 */
+.buttom{
+	font-size: 13px;
+	text-align: center;
+	height: 30px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	color: #FFFFFF;
+	background-color: #009900;
+	font-weight: bold;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.buttom:hover{
+	font-size: 13px;
+	text-align: center;
+	height: 30px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	/*cursor:hand;*/
+	cursor: pointer;/* 兼容各种浏览器 */
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #00CC00;/*#EE4F22*/
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.buttomThis{
+	font-size: 13px;
+	text-align: center;
+	height: 30px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #00CC00;/*#EE4F22*/
+	padding-right: 10px;
+	padding-left: 10px;
+}
+/* 文本框样式 */
+.text {
+	color: #333;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	background-color: #f8f8f8;
+	padding-left: 8px;
+	height: 26px;
+	line-height: 26px;
+}
+.text:focus {
+	border-bottom-color: #92afed;
+	border-top-color: #92afed;
+	outline-style: none;
+	outline-color: invert;
+	outline-width: medium;
+	border-right-color: #92afed;
+	border-left-color: #92afed;
+}
+/* 注册成功提示 */
+.submitok{
+	color: #006600;
+	font-size: 22px;
+	background-image: url(../App_Themes/new2014/Images/resultok.png);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	text-indent: 70px;
+	height: 60px;
+	line-height: 60px;
+	font-family: "微软雅黑";
+	margin-bottom: 10px;
+}
