@@ -454,11 +454,11 @@
 						exit;		
 					}
 				}
-				
-				
-		        
-				
-				
+
+
+
+
+
 				
 				
 				
@@ -487,8 +487,8 @@
 				
 		
 		
-				$list=	M('ppdd')->where($map)->order('zt asc, danjia asc')->select();
-			
+				$list=	M('ppdd')->where($map)->order(' danjia desc ,zt asc')->select();
+
 				$c='0';
 				$d= '1';
 				$map1['datatype']='cslkb';
@@ -500,7 +500,7 @@
 				
 				
 				
-			$lists=	M('ppdd')->where($map1)->order('zt asc, danjia asc')->select();
+			$lists=	M('ppdd')->where($map1)->order(' danjia asc ,zt asc')->select();
 
 
 

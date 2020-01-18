@@ -13,12 +13,12 @@ Class  ShopAction extends CommonAction{
 				$where = "1=1";
 			}		   
 		     $where.=" and is_on = 0" ;   
-		     $where.=" and stock > 0" ;
+		  /*   $where.=" and stock > 0" ;*/
 
 			   
 			     import('ORG.Util.Page');
                 $map=array();
-                $map['stock']=['gt','0'];
+            /*    $map['stock']=['gt','0'];*/
 				$count = $product -> where($map)->count();
 				$Page  = new Page($count,14);
 				$show = $Page -> show();
@@ -77,6 +77,13 @@ Class  ShopAction extends CommonAction{
 		  $id =  I('get.id',0,'intval');
 		  //查询矿机信息
 		  $data = $product -> find($id);
+
+
+        if($data['stock']<=0){
+                alert('该矿级库存不足，请选择其他购买！',U('Shop/plist'));
+        }
+
+
 		  if(empty($data)){
 			  alert('信息不存在',U('Shop/plist'));
 		  }		

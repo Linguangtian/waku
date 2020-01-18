@@ -165,7 +165,7 @@
 		<thead>
 			<tr style="width:100%;">
 				<th style="padding:10px 0">会员</th>
-				<th style="padding:10px 0">级别</th>
+				<th style="padding:10px 0">单价</th>
 				<th style="padding:10px 0;width:20%">数量</th>
 				<th style="padding:10px 0;">总价(￥)</th>
 				<th style="padding:10px 0">状态</th>
@@ -173,8 +173,8 @@
 		</thead>
 		<tbody>
 		<?php if(is_array($list)): foreach($list as $key=>$v): ?><tr style="margin-bottom:100px">
-				<td class="name" style="padding:10px 0;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;"><?php echo (yc_phone($v["p_user"])); ?></td>
-				<td class="range iconfont" style="padding:10px 0;text-align:center;font-size:12px;"><?php echo group($v[p_level]);?></td>
+				<td class="name" style="padding:10px 0;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;"><!--<?php echo (yc_phone($v["p_user"])); ?>-->******</td>
+				<td class="range iconfont" style="padding:10px 0;text-align:center;font-size:12px;"><?php echo ($v["danjia"]); ?></td>
 				<td class="lkMoney" style="padding:10px 0;text-align:center;"><?php echo ($v["lkb"]); ?></td>
 				<td style="padding:10px 0;text-align:center;"><span  class="money" ><?php echo ($v["jb"]); ?></span></td>
 				<?php if($v["zt"] == 0): ?><td style="padding:5px 0;text-align:center;"><input class="ppid" type="hidden" value="<?php echo ($v["id"]); ?>">
@@ -211,7 +211,7 @@
 			<thead>
 			<tr style="width:100%;">
 				<th style="padding:10px 0">会员</th>
-				<th style="padding:10px 0">级别</th>
+				<th style="padding:10px 0">单价</th>
 				<th style="padding:10px 0;width:20%">数量</th>
 				<th style="padding:10px 0;">总价($)</th>
 				<th style="padding:10px 0">状态</th>
@@ -219,8 +219,8 @@
 			</thead>
 			<tbody>
 			<?php if(is_array($lists)): foreach($lists as $key=>$v): ?><tr style="margin-bottom:100px">
-					<td class="name" style="padding:10px 0;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;"><?php echo (yc_phone($v["p_user"])); ?></td>
-					<td class="range iconfont" style="padding:10px 0;text-align:center;font-size:12px"><?php echo group($v[p_level]);?></td>
+					<td class="name" style="padding:10px 0;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;"><!--<?php echo (yc_phone($v["p_user"])); ?>-->******</td>
+					<td class="range iconfont" style="padding:10px 0;text-align:center;font-size:12px"><!--<?php echo group($v[p_level]);?>--><?php echo ($v["danjia"]); ?></td>
 					<td class="lkMoney" style="padding:10px 0;text-align:center;"><?php echo ($v["lkb"]); ?></td>
 					<td class="money" style="padding:10px 0;text-align:center;"><?php echo ($v["jb"]); ?></td>
 					<?php if($v["zt"] == 0): ?><td style="padding:5px 0;text-align:center;"><input class="ppid" type="hidden" value="<?php echo ($v["id"]); ?>">
