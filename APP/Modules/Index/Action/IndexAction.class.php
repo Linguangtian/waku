@@ -14,14 +14,20 @@
 
 
             $yesterday=date('Y-m-d',strtotime('-1 day'));
-            $yesterday=date('Y-m-d',time());
+            //$yesterday=date('Y-m-d',time());
             $todate_team_money = M('todate_team_money')->where(array('date'=>$yesterday,'username'=>$username))->find();
             $this->assign('team_money_yesterday',$todate_team_money['todate_money']);
 
 
 
+            $max_total = M('order')->where(array('member'=>$username,'zt'=>1))->field('sumprice')->count();
+            $td_limit=C('td_limit');
+            $max_day_sl=$max_total*$td_limit/100;
+            $this->assign('max_day_sl',$max_day_sl);
 
-			$this->assign('minfo',$minfo);
+
+
+            $this->assign('minfo',$minfo);
 			$ann = M('announce')->where(array('tid'=>3))->order('addtime desc')->limit(12)->select();
 			$this->assign('ann',$ann);
          

@@ -791,7 +791,14 @@ a.active{ color:#C30 !important; font-size:18px;}
 												</div>
 
 
+												<div class="control-group" >
+													<label class="control-label" for="tjj">团队加成上限</label>
 
+													<div class="controls">
+														<input type="text" id="td_limit" name="td_limit" value="<?php echo ($config["td_limit"]); ?>" style=" width: 100px;" class="span3"/>%&nbsp;&nbsp;
+														<small>当前账号正在运行矿机的总值的%</small>
+													</div>
+												</div>
 
 
 

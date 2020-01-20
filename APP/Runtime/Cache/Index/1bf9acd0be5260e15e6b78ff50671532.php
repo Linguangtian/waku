@@ -42,8 +42,9 @@
 			<li style="height: 30px;line-height: 30px;margin-top: 5px;width:100%">会员等级：&nbsp;&nbsp;&nbsp;<?php echo group($memmber['level']);?></li>	
             <!-- <li style="height: 30px;line-height: 30px;margin-top: 5px;width:100%">会员编号：&nbsp;&nbsp;&nbsp;<?php echo ($memmber['id']); ?></li> -->
             <li style="height: 30px;line-height: 30px;margin-top: 5px;width:100%">手机号码：&nbsp;&nbsp;&nbsp;<?php echo ($memmber['mobile']); ?></li>
-	<span style="font-size:14px;text-align:center;color:red;margin-left:0%">温馨提示：&nbsp;&nbsp;&nbsp;支付宝账户名即为你支付宝实名认证的真实姓名，如果审核发现支付宝没有实名认证或者姓名不对应将无法通过认证！</span>
-		
+<!--	<span style="font-size:14px;text-align:center;color:red;margin-left:0%">温馨提示：&nbsp;&nbsp;&nbsp;支付宝账户名即为你支付宝实名认证的真实姓名，如果审核发现支付宝没有实名认证或者姓名不对应将无法通过认证！</span>-->
+	<span style="font-size:14px;text-align:center;color:red;margin-left:0%">温馨提示：一旦提交无法修改！</span>
+
 			<li style="height: 30px;line-height: 30px;margin-top: 5px;width:100%">真实姓名：&nbsp;&nbsp;&nbsp;</span>
             	 
                  <?php if($memmber['checkstatus'] == 2): ?><input name="truename" type="text" value="<?php echo ($memmber['truename']); ?>" style="height: 30px;line-height: 30px;width: 59%;border-radius: 5px;border: 1px solid #eeeeee;padding-left: 5px"  autocomplete="off" placeholder="支付宝账户名"/>
@@ -56,41 +57,123 @@
                  
             	 
 			</li>
-			
-           
-            
-			<li style="height: 30px;line-height: 30px;margin-top: 5px;width:100%">支&nbsp;&nbsp;付&nbsp;宝：&nbsp;&nbsp;&nbsp;</span>
+
+
+
+
+
+
+            <li style="height: 30px;line-height: 30px;margin-top: 5px;width:100%">银行卡账号：&nbsp;&nbsp;&nbsp;</span>
+              <input name="brank_num" type="text" value="<?php echo ($memmber['brank_num']); ?>" style="height: 30px;line-height: 30px;width: 59%;border-radius: 5px;border: 1px solid #eeeeee;padding-left: 5px"  autocomplete="off" placeholder="银行卡账号"/>
+            </li>
+
+            <li style="height: 30px;line-height: 30px;margin-top: 5px;width:100%">属于银行：&nbsp;&nbsp;&nbsp;</span>
+                <select name="brank_name" id="sktype" class="form-control">
+                    <?php if($memmber['brank_name'] == null): ?><option value="">选择银行</option>
+                   <?php else: ?>
+                        <option value=""><?php echo ($memmber['brank_name']); ?></option><?php endif; ?>>
+                    <option value="工商银行">工商银行</option>
+                    <option value="农业银行">农业银行</option>
+                    <option value="建设银行">建设银行</option>
+                    <option value="光大银行">光大银行</option>
+                    <option value="平安银行">平安银行</option>
+                    <option value="兴业银行">兴业银行</option>
+                    <option value="招商银行">招商银行</option>
+                    <option value="民生银行">民生银行</option>
+                    <option value="浦发银行">浦发银行</option>
+                    <option value="中国银行">中国银行</option>
+                    <option value="农村信用社">农村信用社</option>
+                    <option value="广发银行">广发银行</option>
+                    <option value="邮政储蓄">邮政储蓄</option>
+                    <option value="交通银行">交通银行</option>
+
+                </select>
+            </li>
+             <li style="height: 30px;line-height: 30px;margin-top: 5px;width:100%">户名：&nbsp;&nbsp;&nbsp;</span>
+              <input name="brank_user_name" type="text" value="<?php echo ($memmber['brank_user_name']); ?>" style="height: 30px;line-height: 30px;width: 59%;border-radius: 5px;border: 1px solid #eeeeee;padding-left: 5px"  autocomplete="off" placeholder="银行卡户名"/>
+            </li>
+
+
+
+
+
+
+
+            <li style="height: 30px;line-height: 30px;margin-top: 5px;width:100%">支&nbsp;&nbsp;付&nbsp;宝：&nbsp;&nbsp;&nbsp;</span>
             
             	<?php if($memmber['checkstatus'] == 2): ?><input type="text" id="zhifubao" name="zhifubao"  value="<?php echo ($memmber['zhifubao']); ?>" placeholder="请输入你的支付宝账号" style="height: 30px;line-height: 30px;width: 59%;border-radius: 5px;border: 1px solid #eeeeee;padding-left: 5px" />
                 <?php else: ?>
                 	 <?php if(!empty($memmber['zhifubao'])): echo ($memmber['zhifubao']); ?>
                		 <?php else: ?>
                 		<input type="text" id="zhifubao" name="zhifubao"  value="<?php echo ($memmber['zhifubao']); ?>" placeholder="请输入你的支付宝账号" style="height: 30px;line-height: 30px;width: 59%;border-radius: 5px;border: 1px solid #eeeeee;padding-left: 5px" /><?php endif; endif; ?> 
-               
-           	 
-            
-            
            </li>
-			
-			
-           
-           
-           	<li style="height: 30px;line-height: 30px;margin-top: 5px;width:100%">微&nbsp;&nbsp;信&nbsp;号：&nbsp;&nbsp;&nbsp;</span>
+            <li style="height: 30px;line-height: 30px;margin-top: 5px;width:100%">户名：&nbsp;&nbsp;&nbsp;</span>
+                <input name="alipay_user_name" type="text" value="<?php echo ($memmber['alipay_user_name']); ?>" style="height: 30px;line-height: 30px;width: 59%;border-radius: 5px;border: 1px solid #eeeeee;padding-left: 5px"  autocomplete="off" placeholder="支付宝账户名"/>
+            </li>
+
+
+
+            <li style="font-size:14px;">支付宝收款码：&nbsp;&nbsp;&nbsp;</li>
+
+            <li>
+                <?php if(!empty($memmber['alipay_code_img'])): ?><img src="<?php echo ($memmber['alipay_code_img']); ?>" width="120" height="120" />
+                    <?php else: ?>
+                    <span class="sima1"><img src="<?php echo empty($memmber['alipay_code_img'])? '/Public/gec/web/img/aa4.jpg': $memmber['alipay_code_img'];?>" onclick="document.getElementById('upfile').click()" id="clickimg" width="120" height="120"></span>
+
+
+                    <!-- <li style="margin-top: 5px;width:100%">认证教程：&nbsp;&nbsp;&nbsp;</span><a href="http://www.cvcoin.cc/index.php/index/new/newsdetails/news_id/117" target="_blank" style="font-size:14px; color:#0000FF;">点此查看教程</a></li>	 -->
+                    <!--<span style="font-size:14px;text-align:center;color:red;margin-left:0%">查看参考：&nbsp;&nbsp;&nbsp;
+                      </li><img src="/Public/gec/web/img/zzpz.jpg" width="120" height="120" id="imgshow"></span></li>-->
+                    <input type="file" style=" opacity:0;filter:alpha(opacity=80);cursor:pointer;" name="photoimg" id="upfile"/>
+                    <input type="hidden" name="alipay_code_img" value="" id="alipay_voucher"><?php endif; ?>
+
+            </li>
+
+
+
+
+
+
+
+
+
+
+            <li style="height: 30px;line-height: 30px;margin-top: 5px;width:100%">微&nbsp;&nbsp;信&nbsp;号：&nbsp;&nbsp;&nbsp;</span>
             
             	<?php if(!empty($memmber['weixin'])): echo ($memmber['weixin']); ?>
                 <?php else: ?>
                 	<input type="text" id="weixin" name="weixin"  value="<?php echo ($memmber['weixin']); ?>" placeholder="请输入你的微信号" style="height: 30px;line-height: 30px;width: 59%;border-radius: 5px;border: 1px solid #eeeeee;padding-left: 5px" /><?php endif; ?> 
 
 			</li>
-         
+            <li style="height: 30px;line-height: 30px;margin-top: 5px;width:100%">户名：&nbsp;&nbsp;&nbsp;</span>
+                <input name="wechat_user_name" type="text" value="<?php echo ($memmber['wechat_user_name']); ?>" style="height: 30px;line-height: 30px;width: 59%;border-radius: 5px;border: 1px solid #eeeeee;padding-left: 5px"  autocomplete="off" placeholder="微信户名"/>
+            </li>
+
+            <li style="font-size:14px;">请上传微信收款码：&nbsp;&nbsp;&nbsp;</li>
+
+            <li>
+                <?php if(!empty($memmber['wechat_code_img']) ): ?><img src="<?php echo ($memmber['wechat_code_img']); ?>" width="120" height="120" />
+
+                    <?php else: ?>
+                    <span class="sima2">
+
+                    	<img src="<?php echo empty($memmber['wechat_code_img'])? '/Public/gec/web/img/aa4.jpg': $memmber['wechat_code_img'];?>" onclick="document.getElementById('upfile2').click()" id="clickimg2" width="120" height="120">
+
+                    </span>
+                    <input type="file" style=" opacity:0;filter:alpha(opacity=80);cursor:pointer;" name="photoimg" id="upfile2"/>
+                    <input type="hidden" name="wechat_code_img" value="" id="cardpic"><?php endif; ?>
+
+            </li>
 
 
-           <!--<span style="font-size:14px;text-align:center;color:red;margin-left:0%">认证提示：&nbsp;&nbsp;&nbsp;请使用你注册填写的支付宝向：打款请备注编号!并在下方上传转账凭证等待认证审核，谢谢！</span></li>-->
+
+
+            <!--<span style="font-size:14px;text-align:center;color:red;margin-left:0%">认证提示：&nbsp;&nbsp;&nbsp;请使用你注册填写的支付宝向：打款请备注编号!并在下方上传转账凭证等待认证审核，谢谢！</span></li>-->
 		
 
           
            
-           <li style="font-size:14px;">上传支付宝个人信息页面截图：&nbsp;&nbsp;&nbsp;</li>
+       <!--    <li style="font-size:14px;">上传支付宝个人信息页面截图：&nbsp;&nbsp;&nbsp;</li>
 		
 		  <li>
             	<?php if(!empty($memmber['alipay_voucher']) and $memmber['checkstatus'] != 2): ?><img src="<?php echo ($memmber['alipay_voucher']); ?>" width="120" height="120" />
@@ -98,31 +181,16 @@
                <span class="sima1"><img src="<?php echo empty($memmber['cardpic'])? '/Public/gec/web/img/aa4.jpg': $memmber['alipay_voucher'];?>" onclick="document.getElementById('upfile').click()" id="clickimg" width="120" height="120"></span>
                
              
-                <!-- <li style="margin-top: 5px;width:100%">认证教程：&nbsp;&nbsp;&nbsp;</span><a href="http://www.cvcoin.cc/index.php/index/new/newsdetails/news_id/117" target="_blank" style="font-size:14px; color:#0000FF;">点此查看教程</a></li>	 -->
-                 <!--<span style="font-size:14px;text-align:center;color:red;margin-left:0%">查看参考：&nbsp;&nbsp;&nbsp;
-                   </li><img src="/Public/gec/web/img/zzpz.jpg" width="120" height="120" id="imgshow"></span></li>-->
+                &lt;!&ndash; <li style="margin-top: 5px;width:100%">认证教程：&nbsp;&nbsp;&nbsp;</span><a href="http://www.cvcoin.cc/index.php/index/new/newsdetails/news_id/117" target="_blank" style="font-size:14px; color:#0000FF;">点此查看教程</a></li>	 &ndash;&gt;
+                 &lt;!&ndash;<span style="font-size:14px;text-align:center;color:red;margin-left:0%">查看参考：&nbsp;&nbsp;&nbsp;
+                   </li><img src="/Public/gec/web/img/zzpz.jpg" width="120" height="120" id="imgshow"></span></li>&ndash;&gt;
 				 <input type="file" style=" opacity:0;filter:alpha(opacity=80);cursor:pointer;" name="photoimg" id="upfile"/>
             	 <input type="hidden" name="alipay_voucher" value="" id="alipay_voucher"><?php endif; ?>         
             
            </li>
+           -->
            
-           
-           <li style="font-size:14px;">请上传身份证正面照片：&nbsp;&nbsp;&nbsp;</li>
-           	
-            <li>
-            <?php if(!empty($memmber['cardpic']) and $memmber['checkstatus'] != 2): ?><img src="<?php echo ($memmber['cardpic']); ?>" width="120" height="120" />
-                    
-             <?php else: ?>
-           			<span class="sima2">
-                    
-                    	<img src="<?php echo empty($memmber['cardpic'])? '/Public/gec/web/img/aa4.jpg': $memmber['cardpic'];?>" onclick="document.getElementById('upfile2').click()" id="clickimg2" width="120" height="120">
-                    
-                    </span>
-            	  <input type="file" style=" opacity:0;filter:alpha(opacity=80);cursor:pointer;" name="photoimg" id="upfile2"/>
-            	  <input type="hidden" name="cardpic" value="" id="cardpic"><?php endif; ?>    
-           
-           </li>
-           
+
            
            
            

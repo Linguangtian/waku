@@ -71,7 +71,7 @@
 		<?php
  if(C('recharge_is') ==1){ ?>
 		   <div style=" width:100%; height:15px; "></div>
-		<div style="width:80%;text-align: center; border-radius:4px; margin:0 auto;"><a href="<?php echo U('Index/Index/recharge');?>" style="width:70%;padding:6px 5px; color:#ffffff; background:#FA8072; display:inline-block; border-radius:4px; text-align:center; font-size:14px;">小型矿机限时抢购</a></div>
+<!--		<div style="width:80%;text-align: center; border-radius:4px; margin:0 auto;"><a href="<?php echo U('Index/Index/recharge');?>" style="width:70%;padding:6px 5px; color:#ffffff; background:#FA8072; display:inline-block; border-radius:4px; text-align:center; font-size:14px;">小型矿机限时抢购</a></div>-->
 		 <?php }else{?>
 		 
 		 	<div style=" width:100%; height:35px;"></div>

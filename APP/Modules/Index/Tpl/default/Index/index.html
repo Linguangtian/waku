@@ -45,11 +45,15 @@
 
 
 </div>
-	<if condition = "$minfo.team_sl gt 0">
-	<div style="background: #FFFFFF;padding:0 5px;"><span>团队加成总计：{$minfo.team_sl} </span>
-		<if condition = "$team_money_yesterday gt 0"><span style="float: right">昨日加成：{$team_money_yesterday}</span>	</if>
-
+	<if condition = "$minfo.team_sl gt 0"><!--{$minfo.team_sl}-->
+	<div style="background: #FFFFFF;padding:0 5px;" ><span>团队最高可达：{$max_day_sl}/天</span>
+		<if condition="$team_money_yesterday "><span style="float: right">目前加成：{$team_money_yesterday}</span></if>
 	</div>
+		<if condition="$team_money_yesterday ">
+		<div style="background: #FFFFFF;padding:0 5px;border-top:1px solid #c5c5c5 ">
+			今日团队算力加成收益为{$team_money_yesterday}，已经自动转入账号余额
+		</div>
+		</if>
 	</if>
 
 

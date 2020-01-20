@@ -1,5 +1,22 @@
 <?php  
-	
+
+function cancel_order($id){
+    $oob = M('ppdd')->where(array('id'=>$id))->find();
+   /* if($oob['p_user']!=$_SESSION['username']){
+      return false;
+    }*/
+    $oobs = M('member')->where(array('username'=>$oob['p_user']))->find();
+
+     M('member') -> where(array('username'=>$oob['p_user']))->setInc('jinbi',$oobs['qjinbi']);
+    account_log($_SESSION['username'],$oobs['qjinbi'],'订单撤销返还',1);
+
+    M('member') -> where(array('username'=>$oob['p_user']))->setDec('qjinbi',$oobs['qjinbi']);
+    account_log4($_SESSION['username'],$oobs['qjinbi'],'订单撤销扣除',0);
+
+    $result=M('ppdd')->where(array('id'=>$id))->delete();
+    return $result;
+}
+
 	/**
 	 * 电子货币控制器
 	 */
@@ -19,8 +36,9 @@
 	//买入取消 退钱给g_id
 	
 	public function qxdd(){
-		
-		
+
+        echo json_encode(array('result'=>0,'msg'=>'正在交易无法取消'));
+        exit;
 		
 		$id= I("post.id",0,"intval");
 		$ppddinfo = M('ppdd')->where(array('id'=>$id,'zt'=>'1','p_user'=>$_SESSION['username']))->find();
@@ -90,21 +108,8 @@
 	
 	public function del(){
 		$id= I("get.id",0,"intval");
-		
-		$oob = M('ppdd')->where(array('id'=>$id))->find();
-		if($oob['p_user']!=$_SESSION['username']){
-			die("<script>alert('操作失败！');history.back(-1);</script>");
-		}			
-		$oobs = M('member')->where(array('username'=>$oob['p_user']))->find();
-	
-		$inc = M('member') -> where(array('username'=>$oob['p_user']))->setInc('jinbi',$oobs['qjinbi']);
-	    account_log($_SESSION['username'],$oobs['qjinbi'],'订单撤销返还',1);	
-		
-		$dec = M('member') -> where(array('username'=>$oob['p_user']))->setDec('qjinbi',$oobs['qjinbi']);
-	    account_log4($_SESSION['username'],$oobs['qjinbi'],'订单撤销扣除',0);	
-		
-		$result=M('ppdd')->where(array('id'=>$id))->delete();
-		if($result && $inc && $dec){
+        $result= cancel_order($id);
+		if($result){
 			 alert('取消成功！',U('Emoney/myjiaoyi'));		   
 		}else{
 			alert('取消失败！',U('Emoney/myjiaoyi'));		   
@@ -438,8 +443,20 @@
 	
 	public function index(){
 				//判断师傅开启
-				$jy_open=C('jy_open');
-				$jy_time=C('jy_time');
+				$jy_open        =   C('jy_open');
+                $jy_time        =   C('jy_time');
+
+
+                $min_danjia     =   C('min_danjia');
+				$max_danjia     =   C('max_danjia');
+
+
+
+                $zhidao_price   =   round( ($min_danjia+$max_danjia)/2,2);
+
+                $this->assign('zhidao_price',$zhidao_price);
+
+
 				if(empty($jy_open)){
 					alert('交易中心未开放！',U('Index/index/index'));
 					exit;		
@@ -449,7 +466,14 @@
 					$jy_time_arr=explode('-',$jy_time);
 					$s_time=strtotime(date("Y-m-d ".$jy_time_arr[0]));
 					$o_time=strtotime(date("Y-m-d ".$jy_time_arr[1]));
-					if(time() < $s_time || time() > $o_time){
+
+
+                    if(time() < $s_time || time() > $o_time){
+                        $unshiping  =  M('ppdd')->where(array('zt'=>0))->select();
+                        foreach ($unshiping as $li ){
+                            cancel_order($li['id']);
+                        }
+
 						alert('交易中心开放时间为'.$jy_time,U('Index/index/index'));
 						exit;		
 					}
@@ -487,7 +511,7 @@
 				
 		
 		
-				$list=	M('ppdd')->where($map)->order(' danjia desc ,zt asc')->select();
+				$list=	M('ppdd')->where($map)->order(' danjia desc ,zt asc')->limit(10)->select();
 
 				$c='0';
 				$d= '1';
@@ -500,7 +524,7 @@
 				
 				
 				
-			$lists=	M('ppdd')->where($map1)->order(' danjia asc ,zt asc')->select();
+			$lists=	M('ppdd')->where($map1)->order(' danjia asc ,zt asc')->limit(10)->select();
 
 
 

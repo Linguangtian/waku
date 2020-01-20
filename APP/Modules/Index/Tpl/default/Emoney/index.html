@@ -119,7 +119,7 @@
 						 <p>最高:&nbsp;{$gao}</p>
                         <p>最低:&nbsp;{$di}</p>
                     </div>
-					  <div>￥:{$zuihou}</div>
+					  <div>{$zhidao_price}￥</div>
                 </div>
                 <div id="chartNav"></div>
 				<div id="mynav">
@@ -139,8 +139,11 @@
 		<p id="qiugou_list"onclick='showhidediv("qiugou")'style="float: left;width: 50%;text-align: center;background-color:#87CEEB;height: 30px;line-height: 30px;color:#fff;border-bottom-left-radius: 5px;border-top-left-radius: 5px">买入CHT</p>
 		<p id="chushou_list" onclick='showhidediv("chushou")'style="float: left;width: 50%;text-align: center;background-color: #fff;height: 30px;line-height: 30px;border-top-right-radius: 5px;border-bottom-right-radius: 5px">卖出CHT</p>
 	</div>
+
+
 	<div id="qiugou" style="padding-bottom:50px;background-color:#fff;margin-top:0px;width:100%;margin-left:0%">
-	<form  id="qiugou" class="mmform" style="margin-top: 25px" action="/Index.php/Home/Info/myjiaoyis" method= "POST" onsubmit="return false" >
+		<div style="color:red;line-height: 30px;font-size: 15px; height: 30px;text-align: center">只显示单价最高10张单</div>
+		<form  id="qiugou" class="mmform" style="margin-top: 0px" action="/Index.php/Home/Info/myjiaoyis" method= "POST" onsubmit="return false" >
 		<input type="text" name="lkb" id="gmsl" placeholder="请输入要购买数量" onpaste="this.value=this.value.replace(/[^\d]/g,'')" onkeyup="this.value=this.value.replace(/[^\d]/g,'')"
  style="width:60%"/>
 		<input type="text" name="price" id="mmp" placeholder="请输入购买单价"style="width:60%" />
@@ -162,7 +165,9 @@
        </div>
 
 	<table class="jyzx_list" style="margin-top:20px;margin-bottom:80px;border-collapse:collapse;table-layout: fixed">
+
 		<thead>
+
 			<tr style="width:100%;">
 				<th style="padding:10px 0">会员</th>
 				<th style="padding:10px 0">单价</th>
@@ -199,8 +204,10 @@
 		</tbody>
 	</table>
 	</div>
+	<div style="color:red;line-height: 30px;font-size: 15px; height: 30px;text-align: center">只显示单价最低10张单</div>
+
 	<div id="chushou" style="display: none; padding-bottom:50px;background-color:#fff; position:relative;" >
-	<form id="qiugou" class="nnform" style="margin-top: 25px" action="/Index.php/Home/Info/cslkb" method= "POST" onsubmit="return false">
+	<form id="qiugou" class="nnform" style="margin-top: 0px" action="/Index.php/Home/Info/cslkb" method= "POST" onsubmit="return false">
 		<input type="text" name="lkb" id="mcsl" placeholder="请输入要卖出数量"  onpaste="this.value=this.value.replace(/[^\d]/g,'')" onkeyup="this.value=this.value.replace(/[^\d]/g,'')" style="width:60%"/>
 		<input type="text" name="price" id="mcpic" placeholder="请输入卖出单价"style="width:60%"/>
        <!-- <input type="text" name="password_n" id="password_n" placeholder="请输入手机验证码"style="width:60%"/> -->

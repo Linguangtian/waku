@@ -77,6 +77,9 @@
             $config['sljc_3']      = I('post.sljc_3',0,'floatval');
 
 
+            $config['td_limit']      = I('post.td_limit',0,'floatval');
+
+
 			
 			$config['jy_open']      = I('post.jy_open',0,'intval');
 			$config['jy_time']      = I('post.jy_time','','trim');

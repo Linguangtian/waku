@@ -24,8 +24,8 @@ return array (
   'WITHDRAW_TAX_MAX' => 0,
   'WITHDRAW_MIN' => 100,
   'WITHDRAW_INT' => 100,
-  'min_danjia' => 0.017000000000000001,
-  'max_danjia' => 0.17000000000000001,
+  'min_danjia' => 0,
+  'max_danjia' => 1000,
   'jiaoyi_shouxu' => 0,
   'rmb_hl' => 7,
   'btc_hl' => 0,
@@ -59,7 +59,7 @@ return array (
   'recharge_note' => '点击确认后，跳转支付二维码页面，长按二维码保存至相册，通过微信扫码支付，支付时请务必备注当前绑定手机的后四位尾号，支付成功后，矿机实时到账。',
   'recharge_is' => 1,
   'jy_open' => 1,
-  'jy_time' => '01:00-23:59',
+  'jy_time' => '00:00-23:59',
   'max_qglkb' => 100000,
   'max_cslkb' => 1000,
   'tousu_time' => 12,
@@ -70,7 +70,7 @@ return array (
   'sms_type' => '2',
   'everyday_rose' => 0,
   'everyday_drop' => 0,
-  'everyday_last_time' => 1579363911,
+  'everyday_last_time' => 1579537034,
   'recharge_type' => 2,
   'adurl' => '今日上线，注册实名送3台矿机，产币随时出售，市场供不应求，邀请一人送50CHT并享受6代佣金，更有超级矿机赠送，总价值达5万元！！10000台免费矿机先到先得，送完即止！推广好友购买矿机，拿30%以上佣金奖励！！
 注册链接：[adurl]',
@@ -85,5 +85,6 @@ return array (
   'sljc_1' => 0.10000000000000001,
   'sljc_2' => 0.029999999999999999,
   'sljc_3' => 0.01,
+  'td_limit' => 1,
 );
 ?>

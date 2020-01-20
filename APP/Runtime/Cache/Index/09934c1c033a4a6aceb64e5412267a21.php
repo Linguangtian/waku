@@ -65,10 +65,13 @@
 
 
 </div>
-	<?php if($minfo["team_sl"] > 0): ?><div style="background: #FFFFFF;padding:0 5px;"><span>团队加成总计：<?php echo ($minfo["team_sl"]); ?> </span>
-		<?php if($team_money_yesterday > 0): ?><span style="float: right">昨日加成：<?php echo ($team_money_yesterday); ?></span><?php endif; ?>
-
-	</div><?php endif; ?>
+	<?php if($minfo["team_sl"] > 0): ?><!--<?php echo ($minfo["team_sl"]); ?>-->
+	<div style="background: #FFFFFF;padding:0 5px;" ><span>团队最高可达：<?php echo ($max_day_sl); ?>/天</span>
+		<?php if($team_money_yesterday ): ?><span style="float: right">目前加成：<?php echo ($team_money_yesterday); ?></span><?php endif; ?>
+	</div>
+		<?php if($team_money_yesterday ): ?><div style="background: #FFFFFF;padding:0 5px;border-top:1px solid #c5c5c5 ">
+			今日团队算力加成收益为<?php echo ($team_money_yesterday); ?>，已经自动转入账号余额
+		</div><?php endif; endif; ?>
 
 
 

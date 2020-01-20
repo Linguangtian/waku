@@ -90,10 +90,22 @@ Class PersonalSetAction extends CommonAction{
 				
             }		*/
 										
-           $data['truename']     = I('post.truename','','htmlspecialchars');
+           $data['truename']      = I('post.truename','','htmlspecialchars');
+           $data['brank_num']     = I('post.brank_num','','htmlspecialchars');
+           $data['brank_name']     = I('post.brank_name','','htmlspecialchars');
+           $data['brank_user_name']     = I('post.brank_user_name','','htmlspecialchars');
+
+
+           $data['alipay_user_name']     = I('post.alipay_user_name','','htmlspecialchars');
+           $data['alipay_code_img']     = I('post.alipay_code_img','','htmlspecialchars');
+
+           $data['wechat_user_name']     = I('post.wechat_user_name','','htmlspecialchars');
+           $data['wechat_code_img']     = I('post.wechat_code_img','','htmlspecialchars');
+
+
             if (empty($data['truename'])) {
 				//$this->ajaxReturn(array('info'=>'请填写支付宝账户名!'));
-				$this->error('请填写支付宝账户名');
+				$this->error('真实姓名');
             }	
 			//$data['zhifubao']     = I('post.zhifubao','','htmlspecialchars');
 			//$mobile = M('member')->where(array('username'=>session('username')))->getField("mobile");
@@ -105,7 +117,11 @@ Class PersonalSetAction extends CommonAction{
 				//$this->ajaxReturn(array('info'=>'支付宝需与手机号码一致!'));
 				$this->error('支付宝需与手机号码一致');
 			}*/
-			
+
+
+
+
+
 			if(isset($_POST['weixin'])){
 					$data['weixin']     = I('post.weixin','','htmlspecialchars');
 					 if (empty($data['weixin'])) {
@@ -114,7 +130,7 @@ Class PersonalSetAction extends CommonAction{
 			}
 			
 			
-			if(isset($_POST['alipay_voucher'])){
+		/*	if(isset($_POST['alipay_voucher'])){
 					$data['alipay_voucher']     = I('post.alipay_voucher','','htmlspecialchars');
 					 if (empty($data['alipay_voucher'])) {
 						$this->error('请上传转账凭证');
@@ -128,7 +144,7 @@ Class PersonalSetAction extends CommonAction{
            			 }	
 			}
 			
-			
+			*/
 			
 			
 			

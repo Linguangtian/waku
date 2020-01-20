@@ -20,7 +20,9 @@
 </head>
 <body>
 <style>
-
+    .weui_dialog, .weui_toast{
+        top :1%!important;
+    }
 
 
 </style>
@@ -293,9 +295,13 @@
 
           </foreach>
     </div>
-	 <div style="width:90%;margin-left:5%;padding-top:30px;font-size:12px">
+	 <div style="width:90%;margin-left:5%;padding-top:30px;font-size:14px">
 		<P>交易提示：</P>
-		<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为保护您的资金安全，请使用您个人资料内绑定的支付方式向对方绑定的收款账号内付款，付款后请上传付款凭证图片，如使用绑定账户以外的账户交易，系统无法监管，会检测为虚假交易。</P>
+		<P>
+           <span style="color: red"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请买家在30分钟内完成付款并上传截图，卖家在收到款后30分钟内完成交易。否则对方可以投诉，有过错一方将会受到冻结余额或者封号处罚。
+           </span>
+               <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为保护您的资金安全，请使用您个人资料内绑定的支付方式向对方绑定的收款账号内付款，付款后请上传付款凭证图片，如使用绑定账户以外的账户交易，系统无法监管，会检测为虚假交易。</P>
 	</div>
 </div>
 <div id="ywcjy"style="display: none;margin-bottom:80px;margin-top:-50px">
@@ -599,15 +605,29 @@
         if(oid==""){
             $.alert("请选择要操作的订单");
         }else {
+
+
+
             $.ajax({
                 url:"{:U('Emoney/mjxx')}",
                 type: "get",
                 data: {id: oid, txt: $("#weui-prompt-input").val()},
                 success: function (data) {
 				console.log(data);
+                    var pay_method="<br>支付宝户名："+data.alipay_user_name+"<br/>";
+                    pay_method +=  "<br>支付宝收款码：<img width='60' height='60' src='"+data.alipay_code_img+"'<br/>";
+
+                    pay_method +="<br>微信号："+data.weixin+"<br/>";
+                    pay_method +="<br>微信号户名："+data.wechat_user_name+"<br/>";
+                    pay_method +=  "<br>支付宝收款码：<img width='60' height='60' src='"+data.wechat_code_img+"'<br/>";
+
+                    pay_method +="<br>银行卡号："+data.brank_num+"<br/>";
+                    pay_method +="<br>属于银行："+data.brank_name+"<br/>";
+                    pay_method +="<br>户主名："+data.brank_user_name+"<br/>";
+
                     $.modal({
                         title: data.name,
-                        text: "<div style='text-align:left'><i class='fa fa-usd' style='color: #00FF00;width: 12px;margin:0 auto;font-size: 1.2em;margin-left: -2px;'></i>："+data.meiyuan+"&nbsp;&nbsp;美金<br/>"+"<i class='fa fa-jpy' style='color: #FF0000;width: 12px;margin:0 auto;font-size: 1.2em;margin-left: -2px;'></i>："+data.rmb+"&nbsp;&nbsp;元人民币<br>"+"手机号："+data.mobile+"<a href='tel:"+data.mobile+"'><input type='button' value='拨打电话' style='margin-left:5px; padding:3px 7px; border:0px; border-radius:4px; color:#ffffff; background:#09F;'></a><br>"+"姓名："+data.truename+"<br>支付宝账号："+data.zhifubao+"<br/><font style='color:#F00;'>友情提示：请认真核对交易信息，或者电话沟通确认交易！！</font></div>",
+                        text: "<div style='text-align:left'><i class='fa fa-usd' style='color: #00FF00;width: 12px;margin:0 auto;font-size: 1.2em;margin-left: -2px;'></i>："+data.meiyuan+"<br/>"+"<i class='fa fa-jpy' style='color: #FF0000;width: 12px;margin:0 auto;font-size: 1.2em;margin-left: -2px;'></i>："+data.rmb+"<br>"+"手机号："+data.mobile+"<a href='tel:"+data.mobile+"'><input type='button' value='拨打电话' style='margin-left:5px; padding:3px 7px; border:0px; border-radius:4px; color:#ffffff; background:#09F;'></a><br>"+"姓名："+data.truename+"<br>支付宝账号："+data.zhifubao+"<br/>"+pay_method+"<font style='color:#F00;'>友情提示：请认真核对交易信息，或者电话沟通确认交易！！</font></div>",
                         buttons:[
                             { text: "确定", className: "default", onClick: function(){ } },
                         ]
@@ -640,7 +660,8 @@
 				console.log(data);
                     $.modal({
                         title: data.name,
-                        text: "<div style='text-align:left'><i class='fa fa-usd' style='color: #00FF00;width: 12px;margin:0 auto;font-size: 1.2em;margin-left: -2px;'></i>："+data.meiyuan+"&nbsp;&nbsp;美金<br/>"+"<i class='fa fa-jpy' style='color: #FF0000;width: 12px;margin:0 auto;font-size: 1.2em;margin-left: -2px;'></i>："+data.rmb+"&nbsp;&nbsp;元人民币<br>"+"手机号："+data.mobile+"<a href='tel:"+data.mobile+"'><input type='button' value='拨打电话' style='margin-left:5px; padding:3px 7px; border:0px; border-radius:4px; color:#ffffff; background:#09F;'></a><br>"+"姓名："+data.truename+"<br>支付宝账号："+data.zhifubao+"<br/><font style='color:#F00;'>友情提示：请认真核对交易信息，或者电话沟通确认交易！！</font></div>",
+                        text: "<div style='text-align:left'><i class='fa fa-usd' style='color: #00FF00;width: 12px;margin:0 auto;font-size: 1.2em;margin-left: -2px;'></i>："+data.meiyuan+"&nbsp;&nbsp;<br/>"+"<i class='fa fa-jpy' style='color: #FF0000;width: 12px;margin:0 auto;font-size: 1.2em;margin-left: -2px;'></i>："+data.rmb+"&nbsp;&nbsp;<br>"+"手机号："+data.mobile+"<a href='tel:"+data.mobile+"'><input type='button' value='拨打电话' style='margin-left:5px; padding:3px 7px; border:0px; border-radius:4px; color:#ffffff; background:#09F;'></a><br>"+"姓名："+data.truename+"<br>" +
+                        "<font style='color:#F00;'>友情提示：请认真核对交易信息，或者电话沟通确认交易！！</font></div>",
 
                         buttons:[
                             { text: "确定", className: "default", onClick: function(){ } },

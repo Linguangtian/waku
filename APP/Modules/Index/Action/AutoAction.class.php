@@ -95,8 +95,11 @@
                $todate=date('Y-m-d');
 
 
+
+
                $max_total = M('order')->where(array('member'=>$li['username'],'zt'=>1))->field('sumprice')->count();
-               $max_total=$max_total/100;
+               $td_limit=C('td_limit');
+               $max_total=$max_total*$td_limit/100;
                $count_sl_today=$this->count_cost($li['id'],$max_total);
 
                 if($count_sl_today<=0)continue;

@@ -617,6 +617,33 @@ a.active{ color:#C30 !important; font-size:18px;}
 									</div>
 								</div>
 
+								<div class="control-group">
+									<label class="control-label" for="truename">
+										银行卡号：</label>
+									<div class="controls">
+										<input type="text" value="<?php echo ($member["truename"]); ?>" disabled />
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="truename">
+										属于银行：</label>
+									<div class="controls">
+										<input type="text" value="<?php echo ($member["brank_name"]); ?>" disabled />
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="truename">
+										户名：</label>
+									<div class="controls">
+										<input type="text" value="<?php echo ($member["brank_user_name"]); ?>"  disabled />
+									</div>
+								</div>
+
+
+
+
+
+
 					 <!--<div class="control-group">
                             <label class="control-label" for="nickname">银行名称</label>
                           <div class="controls">
@@ -650,16 +677,57 @@ a.active{ color:#C30 !important; font-size:18px;}
                             <span class="" onclick="jsCopy()" style="cursor:pointer; padding:5px 10px; color:#ffffff; background:#06F; border-radius:4px;">复制</span>
                             </div>
              
-                        </div>		
-						<div class="control-group">
+                        </div>
+
+								<div class="control-group">
+									<label class="control-label" for="truename">
+										支付宝户名：</label>
+									<div class="controls">
+										<input type="text" value="<?php echo ($member["alipay_user_name"]); ?>"  disabled />
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label" >支付宝收款码</label>
+									<div class="controls">
+										<img src="<?php echo ($member['alipay_code_img']); ?>" width="100" />
+									</div>
+
+								</div>
+
+
+
+
+								<div class="control-group">
                            <label class="control-label" for="weixin">微信</label>
                             <div class="controls">
                             <input name="weixin" type="text" value="<?php echo ($member['weixin']); ?>"  class="form-control" disabled autocomplete="off" />
                             <a href="<?php echo U(GROUP_NAME.'/Member/chekuser',array('id'=>$next_id));?>" style="cursor:pointer; padding:6px 15px; color:#ffffff; background:#06F; border-radius:4px;">下一个</a>
                            
                             </div>
-             
-                        </div>		
+
+
+								</div>
+
+
+									<div class="control-group">
+										<label class="control-label" for="truename">
+											微信户名：</label>
+										<div class="controls">
+											<input type="text" value="<?php echo ($member["wechat_user_name"]); ?>"  disabled />
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" >支付宝收款码</label>
+										<div class="controls">
+											<img src="<?php echo ($member['wechat_code_img']); ?>" width="100" />
+										</div>
+
+									</div>
+
+
+
 					<!--			
                         <div class="control-group">
 								<label class="control-label" for="nickname">身份证正面</label>
@@ -685,7 +753,7 @@ a.active{ color:#C30 !important; font-size:18px;}
 									</div>
 						</div>
 							
-                           <div class="control-group">
+                       <!--    <div class="control-group">
 								<label class="control-label" for="nickname">转账凭证</label>
 								<div class="controls">
 									<a href="<?php echo ($member['alipay_voucher']); ?>" target="_blank"><img src="<?php echo ($member['alipay_voucher']); ?>" width="400" /></a>
@@ -701,7 +769,7 @@ a.active{ color:#C30 !important; font-size:18px;}
 									<a href="<?php echo ($member['cardpic']); ?>" target="_blank"><img src="<?php echo ($member['cardpic']); ?>" width="400" /></a>
 								</div>
 					 
-						</div>	
+						</div>	-->
                         
                         
                       <div class="control-group">
