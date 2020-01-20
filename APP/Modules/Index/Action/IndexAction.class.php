@@ -13,6 +13,7 @@
 			$endtime = $starttime + 86400;
 
 
+
             $yesterday=date('Y-m-d',strtotime('-1 day'));
             //$yesterday=date('Y-m-d',time());
             $todate_team_money = M('todate_team_money')->where(array('date'=>$yesterday,'username'=>$username))->find();

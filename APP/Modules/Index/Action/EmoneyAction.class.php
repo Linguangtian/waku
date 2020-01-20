@@ -511,7 +511,7 @@ function cancel_order($id){
 				
 		
 		
-				$list=	M('ppdd')->where($map)->order(' danjia desc ,zt asc')->limit(10)->select();
+				$list=	M('ppdd')->where($map)->order(' danjia desc ,zt asc')->limit(0,10)->select();
 
 				$c='0';
 				$d= '1';
@@ -524,7 +524,7 @@ function cancel_order($id){
 				
 				
 				
-			$lists=	M('ppdd')->where($map1)->order(' danjia asc ,zt asc')->limit(10)->select();
+			$lists=	M('ppdd')->where($map1)->order(' danjia asc ,zt asc')->limit(0,10)->select();
 
 
 
