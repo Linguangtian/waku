@@ -15,7 +15,7 @@
     <link href="/Public/gec/web/css/font-awesome.min.css" rel="stylesheet">
     <link href="/Public/gec/web/fonts/iconfont.css" rel="stylesheet">
     <link rel="stylesheet" href="/Public/gec/web/css/style.css"/>
-	
+
 	<script src="/Public/gec/web/js/ajaxUplod.js"></script>
 </head>
 <body>
@@ -46,7 +46,7 @@
             <li style="width: 18%">编号</li>
             <li style="width: 24%">数量</li>
             <li style="width: 20%">价格($)</li>
-
+            <li style="width: 20%">是否取消</li>
             <li style="width: 18%">状态</li>
         </ul>
     <div>
@@ -54,12 +54,23 @@
             <li style="width: 18%;height: 30px;overflow: hidden;display: inline-block"><?php echo ($v["p_user"]); ?></li>
             <li style="width: 24%;"><?php echo ($v["lkb"]); ?></li>
             <li style="width: 20%;"class="money"><?php echo ($v["jb"]); ?></li>
+            <li style="width: 20%;">
+
+                <?php if($v["zt"] == 0): ?><a href="<?php echo U('Emoney/del',array('id'=>$v['id']));?>" style="width: 90%;margin-left: 5%;display: block;height: 30px;line-height: 30px;text-align: center;background-color: #87CEEB;border-radius: 5px;color: #FFFFFF">取消</a>
+
+                <?php else: ?>
+                    <a style="width: 90%;margin-left: 5%;display: block;height: 30px;line-height: 30px;text-align: center;background-color: #87CEEB;border-radius: 5px;color: #FFFFFF"></a><?php endif; ?>
+
+
+            </li>
+
+
             <li style="width: 18%;">
                 <?php if($v["zt"] == 0): ?><a href="#" style="width: 90%;margin-left: 5%;display: block;height: 30px;line-height: 30px;text-align: center;background-color: #87CEEB;border-radius: 5px;color: #FFFFFF">未交易</a><?php endif; ?>
                 <?php if($v["zt"] == 1): ?><a href="#" style="width: 90%;margin-left: 5%;display: block;height: 30px;line-height: 30px;text-align: center;background-color: #87CEEB;border-radius: 5px;color: #FFFFFF">交易中</a><?php endif; ?>
                 <?php if($v["zt"] == 2): ?><a href="#" style="width: 90%;margin-left: 5%;display: block;height: 30px;line-height: 30px;text-align: center;background-color: #87CEEB;border-radius: 5px;color: #FFFFFF">交易完成</a><?php endif; ?>
             </li>
-        </ul><?php endforeach; endif; ?>	
+        </ul><?php endforeach; endif; ?>
     </div>
  </div>
 <div id="chushou" style="-left: 5%;margin-bottom:80px;margin-top:30px;display: none;width: 90%; margin-left: 5%;">
@@ -86,7 +97,7 @@
 </div>
 <div id="zzjy" style="display:none;margin-bottom:80px;">
     <div>
-	
+
         <ul class="myjy_head"style="font-weight: 700">
             <li style="width: 20%">操作</li>
             <li style="width: 20%">卖家</li>
@@ -94,32 +105,32 @@
             <li style="width: 20%">数量</li>
             <li style="width: 20%">总价($)</li>
         </ul>
-		
+
     </div>
     <div class="myjiaoyi_list">
 	<?php if(is_array($lists)): foreach($lists as $key=>$v): ?><ul class="myjy_body">
             <li style="width: 20%;"><input type="radio" <?php if($key == 0): ?>checked="checked"<?php endif; ?> name="xz" class="xz redio_all" value="<?php echo ($v["id"]); ?>" for="xxx"/></li>
-            
+
            <?php
- if($v['datatype']=='qglkb'){ ?> 
-            	
+ if($v['datatype']=='qglkb'){ ?>
+
                  <li style="width: 20%;height: 30px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;"><?php echo ($v["g_user"]); ?></li>
             	 <li style="width: 20%"><?php echo ($v["p_user"]); ?></li>
-                
-                
+
+
             <?php }else{ ?>
             	 <li style="width: 20%;height: 30px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;"><?php echo ($v["p_user"]); ?></li>
             	 <li style="width: 20%"><?php echo ($v["g_user"]); ?></li>
-            
+
             <?php } ?>
-            
-           
-            
-            
+
+
+
+
             <li style="width: 20%"><?php echo ($v["lkb"]); ?></li>
             <li style="width: 20%" class="money"><?php echo ($v["jb"]); ?></li>
         </ul><?php endforeach; endif; ?>
-	
+
             <?php if(is_array($lists)): foreach($lists as $key=>$v): ?><!-- 求购莱肯币菜单显示 -->
                 <?php
  if($v['datatype']=='qglkb'){ ?>
@@ -128,91 +139,91 @@
                    	 <div class="pic_show single">
                                     <?php if(empty($v['imagepath'])): ?><button type="button" name="IconPath" class="upload_one<?php echo ($v["id"]); ?> fl" onclick="document.getElementById('upfileid_<?php echo ($v["id"]); ?>').click()" id="photo_other"style="font-size:14px; width: 95%;height: 30px;border:0px;border-radius: 5px;background-color: #87CEEB;display: block;line-height: 30px;color: #000000;">上传图片</button>
                                     <input  type="file" style=" opacity:0;filter:alpha(opacity=80);cursor:pointer;" name="photoimg" class="upfile" id="upfileid_<?php echo ($v["id"]); ?>"  jtype="qglkb"/>
-                                    
-                                    
+
+
                                      <?php else: ?>
                                      <!--<button type="button" name="IconPath"  id="photo_other"style="font-size:14px; width: 95%;height: 30px;border:0px;border-radius: 5px;background-color: #87CEEB;display: block;line-height: 30px;color: #000000;">已经上传</button>-->
-                                     
+
                                       <button type="button" name="IconPath" class="upload_one<?php echo ($v["id"]); ?> fl" onclick="document.getElementById('upfileid_<?php echo ($v["id"]); ?>').click()" id="photo_other"style="font-size:14px; width: 95%;height: 30px;border:0px;border-radius: 5px;background-color: #87CEEB;display: block;line-height: 30px;color: #000000;">已经上传</button>
                                     <input  type="file" style=" opacity:0;filter:alpha(opacity=80);cursor:pointer;" name="photoimg" class="upfile" id="upfileid_<?php echo ($v["id"]); ?>"  jtype="qglkb"/><?php endif; ?>
                                   <div class="show_box fr single">
-        
+
                                         <ul id="lst_photo_other">
-        
+
                                             <li>
-        
+
                                             </li>
-        
+
                                         </ul>
-        
+
                                     </div>
-        
+
                                 </div>
-                        
+
                      </li><?php endif; ?>
-                
+
                     <?php if($v["g_user"] == $_SESSION['username']): ?><li><input type="button" class="ckpicture" value="查看图片" data-pic="请输入图片地址" style="font-size:14px; width: 95%;height: 30px;border:0px;border-radius: 5px;background-color: #87CEEB;display: block;line-height: 30px;color: #000000;  -webkit-appearance: none;"/></li><?php endif; ?>
                     <?php if($v["p_user"] == $_SESSION['username']): ?><li class="bl2"<a><button class="btnmaijia"style=" width: 95%;height: 30px;border:0px;border-radius: 5px;background-color: #87CEEB;display: block;line-height: 30px;color: #000000;font-size:14px;">对方信息</button></a></li><?php endif; ?>
                     <?php if($v["g_user"] == $_SESSION['username']): ?><li class="bl2"><a><button class="btnmai"style=" width: 100%;height: 30px;border:0px;border-radius: 5px;background-color: #87CEEB;display: block;line-height: 30px;color: #000000;font-size:14px;">对方信息</button></a></li><?php endif; ?>
                     <?php if($ts == 0): ?><li class="bl2">
                      <button class="btntoushu"style=" width: 95%;height: 30px;border:0px;border-radius: 5px;background-color: #87CEEB;display: block;line-height: 30px;color: #000000;font-size:14px;">投诉<input class="tsid" type="hidden" value="1"/></button>
                     </li><?php endif; ?>
-                    
+
                     <?php if($v["p_user"] == $_SESSION['username']): ?><li class="bl3" style="background-color:#87CEEB"><a href="#" class="quxiao" style="background-color:#87CEEB">取消交易</a></li><?php endif; ?>
-                    
-                    
+
+
                     <?php if($v["g_user"] == $_SESSION['username']): ?><li class="bl3" style="background-color:#87CEEB"><a href="#" class="wancheng" style="background-color:#87CEEB">完成交易</a></li><?php endif; ?>
-                    
+
                 </ul>
                 <?php }?>
-                
+
                 <!-- 出售莱肯币显示菜单 -->
                 <?php
  if($v['datatype']=='cslkb'){ ?>
                 <ul class="myjy_tj clode_<?php echo ($v["id"]); ?>";style="margin-bottom:80px">
-                
+
                     <li style="position: relative;">
                     <div class="pic_show single">
                                 <?php if($v["g_user"] == $_SESSION['username']): if(empty($v['imagepath'])): ?><button type="button" name="IconPath" class="upload_one<?php echo ($v["id"]); ?> fl" onclick="document.getElementById('upfileid_<?php echo ($v["id"]); ?>').click()" id="photo_other"style="font-size:14px; width: 95%;height: 30px;border:0px;border-radius: 5px;background-color: #87CEEB;display: block;line-height: 30px;color: #000000;">上传图片</button>
                                     <input   type="file" style=" opacity:0;filter:alpha(opacity=80);cursor:pointer;" name="photoimg" class="upfile" id="upfileid_<?php echo ($v["id"]); ?>" jtype="cslkb"/>
-                                    
-                                   
-                                   
+
+
+
                                    <?php else: ?>
                                      <!--<button type="button" name="IconPath"  id="photo_other"style="font-size:14px; width: 95%;height: 30px;border:0px;border-radius: 5px;background-color: #87CEEB;display: block;line-height: 30px;color: #000000;">已经上传</button>-->
                                       <button type="button" name="IconPath" class="upload_one<?php echo ($v["id"]); ?> fl" onclick="document.getElementById('upfileid_<?php echo ($v["id"]); ?>').click()" id="photo_other"style="font-size:14px; width: 95%;height: 30px;border:0px;border-radius: 5px;background-color: #87CEEB;display: block;line-height: 30px;color: #000000;">已经上传</button>
-                                    <input   type="file" style=" opacity:0;filter:alpha(opacity=80);cursor:pointer;" name="photoimg" class="upfile" id="upfileid_<?php echo ($v["id"]); ?>" jtype="cslkb"/><?php endif; endif; ?>	
+                                    <input   type="file" style=" opacity:0;filter:alpha(opacity=80);cursor:pointer;" name="photoimg" class="upfile" id="upfileid_<?php echo ($v["id"]); ?>" jtype="cslkb"/><?php endif; endif; ?>
                                   <div class="show_box fr single">
-        
+
                                         <ul id="lst_photo_other">
-        
+
                                             <li>
-        
+
                                             </li>
-        
+
                                         </ul>
-        
+
                                     </div>
-        
+
                                 </div>
-                        
+
                         </li>
-        
-                <?php if($v["p_user"] == $_SESSION['username']): ?><li><input type="button" class="ckpicture" value="查看图片" data-pic="请输入图片地址" style="font-size:14px; width: 95%;height: 30px;border:0px;border-radius: 5px;background-color: #87CEEB;display: block;line-height: 30px;color: #000000;  -webkit-appearance: none;"/></li><?php endif; ?>   
-                
-                <?php if($v["g_user"] == $_SESSION['username']): ?><li class="bl2"<a><button class="btnmai"style=" width: 95%;height: 30px;border:0px;border-radius: 5px;background-color: #87CEEB;display: block;line-height: 30px;color: #000000;font-size:14px;">对方信息</button></a></li><?php endif; ?> 	
-                <?php if($v["p_user"] == $_SESSION['username']): ?><li class="bl2"><a><button class="btnmaijia"style=" width: 100%;height: 30px;border:0px;border-radius: 5px;background-color: #87CEEB;display: block;line-height: 30px;color: #000000;font-size:14px;">对方信息</button></a></li><?php endif; ?> 	
-                    
+
+                <?php if($v["p_user"] == $_SESSION['username']): ?><li><input type="button" class="ckpicture" value="查看图片" data-pic="请输入图片地址" style="font-size:14px; width: 95%;height: 30px;border:0px;border-radius: 5px;background-color: #87CEEB;display: block;line-height: 30px;color: #000000;  -webkit-appearance: none;"/></li><?php endif; ?>
+
+                <?php if($v["g_user"] == $_SESSION['username']): ?><li class="bl2"<a><button class="btnmai"style=" width: 95%;height: 30px;border:0px;border-radius: 5px;background-color: #87CEEB;display: block;line-height: 30px;color: #000000;font-size:14px;">对方信息</button></a></li><?php endif; ?>
+                <?php if($v["p_user"] == $_SESSION['username']): ?><li class="bl2"><a><button class="btnmaijia"style=" width: 100%;height: 30px;border:0px;border-radius: 5px;background-color: #87CEEB;display: block;line-height: 30px;color: #000000;font-size:14px;">对方信息</button></a></li><?php endif; ?>
+
                     <li class="bl2">
                      <button class="btntoushu"style=" width: 95%;height: 30px;border:0px;border-radius: 5px;background-color: #87CEEB;display: block;line-height: 30px;color: #000000;font-size:14px;">投诉<input class="tsid" type="hidden" value="1"/></button>
                     </li>
-                
+
                 <?php if($v["g_user"] == $_SESSION['username']): ?><li class="bl3" style="background-color:#87CEEB"><a href="#" class="csquxiao" style="background-color:#87CEEB">取消</a></li><?php endif; ?>
-                
+
                 <?php if($v["p_user"] == $_SESSION['username']): ?><li class="bl3" style="background-color:#87CEEB"><a href="#" class="cswancheng" style="background-color:#87CEEB">完成交易</a></li><?php endif; ?>
-                    
+
                 </ul>
-                
+
                <?php } endforeach; endif; ?>
     </div>
 	 <div style="width:90%;margin-left:5%;padding-top:30px;font-size:12px">
@@ -229,7 +240,7 @@
             <th style="padding:10px 0">买家</th>
             <th style="padding:10px 0">数量</th>
             <th style="padding:10px 0">总价($)</th>
-          
+
         </tr>
         </thead>
         <tbody >
@@ -239,37 +250,37 @@
             <?php if($s['datatype'] == 'qglkb'): ?>买入
             <?php else: ?>
             	卖出<?php endif; ?>
-           
-            
-            
+
+
+
             </td>-->
-            
-            
-            
+
+
+
               <?php
- if($s['datatype']=='qglkb'){ ?> 
-            	
+ if($s['datatype']=='qglkb'){ ?>
+
             <td style="height:30px;line-height:30px;text-align:center;"><?php echo ($s["g_user"]); ?></td>
             <td style="height:30px;line-height:30px;text-align:center;"><?php echo ($s["p_user"]); ?></td>
-                
-                
+
+
             <?php }else{ ?>
             	<td style="height:30px;line-height:30px;text-align:center;"><?php echo ($s["p_user"]); ?></td>
                 <td style="height:30px;line-height:30px;text-align:center;"><?php echo ($s["g_user"]); ?></td>
-            
+
             <?php } ?>
-            
-            
+
+
             <td style="height:30px;line-height:30px;text-align:center;"><?php echo ($s["lkb"]); ?></td>
             <td style="height:30px;line-height:30px;text-align:center;" ><?php echo ($s["jb"]); ?></td>
-            
+
         </tr><?php endforeach; endif; ?>
 
         </tbody>
     </table>
-    
-    
- <div id="pages"><?php echo ($page); ?></div>   
+
+
+ <div id="pages"><?php echo ($page); ?></div>
 </div>
 <!--底部开始-->
 <!--底部开始-->
@@ -280,7 +291,7 @@
 </style>
 	<div class="footer">
     <ul>
-        
+
        <li><a href="<?php echo U('Index/Shop/plist');?>" class="block"><i class="fa fa-university" style="color:#FF9224;"></i>矿机商城</a></li>
        		<li><a href="<?php echo U('Index/Shop/orderlist');?>" class="block"><i class="fa fa-cart-arrow-down" style="color:#483D8B;"></i>我的矿机</a></li>
        		<li><a href="<?php echo U('Index/Emoney/index');?>" class="block"><i class="fa fa-line-chart" style="color:#228B22;"></i>交易中心</a></li>
@@ -288,12 +299,12 @@
     </ul>
 </div>
 	<!--底部结束-->
-<script src="/Public/gec/web/js/jquery-weui.min.js"></script>	
+<script src="/Public/gec/web/js/jquery-weui.min.js"></script>
 
 
 
 
-	
+
 <script>
 
 
@@ -416,7 +427,7 @@
                 chushoubg.style.color = "#fff";
                 }
     }
-	
+
 	//showhidediv("ywcjy");
 </script>
 <?php if(isset($_GET['p']) && !empty($_GET['p'])){?>
@@ -498,7 +509,7 @@
                     console.log("网络错误");
                 },complete:function(){
                     $.hideLoading();
-                }    
+                }
             });
         }
     })
@@ -618,7 +629,7 @@
                     data: {id: oid},
 					dataType:"json",
                     success: function (json) {
-						
+
                        if(json.result==1){
 							 $.alert(json.msg, function () {
                                 location.href ="<?php echo U('Emoney/myjiaoyi');?>";
@@ -626,7 +637,7 @@
 						}else{
 							 $.alert(json.msg);
 						}
-						
+
                     },
                     error: function () {
                         $.alert("网络错误请重试");
@@ -653,7 +664,7 @@
                     data: {id: oid},
 					dataType:"json",
                     success: function (json) {
-						
+
 						if(json.result==1){
 							 $.alert(json.msg, function () {
                                 location.href ="<?php echo U('Emoney/myjiaoyi');?>";
@@ -661,8 +672,8 @@
 						}else{
 							 $.alert(json.msg);
 						}
-						
-						
+
+
                     },
                     error: function () {
                         $.alert("网络错误请重试");
@@ -671,8 +682,8 @@
             })
         }
     })
-	
-	
+
+
     $(".wancheng").bind("click",function() {
         var oid="";
         $(".xz").map(function(index,item){
@@ -709,8 +720,8 @@
             })
         }
     })
-	
-	
+
+
 	//出售订单完成
 	$(".cswancheng").bind("click",function() {
         var oid="";
@@ -763,9 +774,9 @@
 		$(".myjy_tj").hide();
 		var order_id_a = $("input[name='xz']:checked").val();
 		$(".clode_"+order_id_a).show();
-		
+
 	})
-	
+
 
 </script>
 
@@ -777,73 +788,73 @@
 
 
 <script type="text/javascript">
- 
+
 $(function(){
-	 
-	
-	$(".upfile").wrap("<form action='' method='post' enctype='multipart/form-data'></form>"); 
-	
+
+
+	$(".upfile").wrap("<form action='' method='post' enctype='multipart/form-data'></form>");
+
 	$(".upfile").off().on('change',function(){
-		
+
 		var order_id = $("input[name='xz']:checked").val();
 		if(order_id==""){
 			$.alert("请选中需要操作的订单！");
 			return false;
-				
+
 		}
-		
+
 		var jtype=$(this).attr("jtype");
-		
-		
-		
+
+
+
 		var objform = $(this).parents();
 			objform.attr("action","/index.php/index/emoney/uploadsmax/id/"+order_id+"/jtype/"+jtype);
-			
-			
-			
+
+
+
 		    objform.ajaxSubmit({
 			dataType:  'json',
-			//target: '#preview', 
+			//target: '#preview',
 			//beforeSubmit:function(){
 				//status.show();
 				//btn.hide();
-			//}, 
+			//},
 			success:function(data){
 				layer.msg(data.msg);
-				
+
 				if(data.result==1){
-					
+
 					$(".upload_one"+order_id).html(data.msg);
 					//window.location.reload();
-					
+
 					$("#upfileid_"+order_id).attr("disabled","disabled");
-					
+
 				}else{
-					
+
 					$(".upload_one"+order_id).html('<font style="color:red;">'+data.msg+'</font>')
-					
+
 				}
-			}, 
+			},
 			error:function(){
 				//status.hide();
 				//btn.show();
-			} 
+			}
 		});
-		
-		
-		
+
+
+
 	});
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
    });
 
 
- 
+
  </script>
 
 

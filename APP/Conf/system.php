@@ -70,7 +70,7 @@ return array (
   'sms_type' => '2',
   'everyday_rose' => 0,
   'everyday_drop' => 0,
-  'everyday_last_time' => 2020,
+  'everyday_last_time' => 1579363911,
   'recharge_type' => 2,
   'adurl' => '今日上线，注册实名送3台矿机，产币随时出售，市场供不应求，邀请一人送50CHT并享受6代佣金，更有超级矿机赠送，总价值达5万元！！10000台免费矿机先到先得，送完即止！推广好友购买矿机，拿30%以上佣金奖励！！
 注册链接：[adurl]',
