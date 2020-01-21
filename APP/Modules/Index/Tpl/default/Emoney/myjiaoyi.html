@@ -627,7 +627,7 @@
 
                     $.modal({
                         title: data.name,
-                        text: "<div style='text-align:left'><i class='fa fa-usd' style='color: #00FF00;width: 12px;margin:0 auto;font-size: 1.2em;margin-left: -2px;'></i>："+data.meiyuan+"<br/>"+"<i class='fa fa-jpy' style='color: #FF0000;width: 12px;margin:0 auto;font-size: 1.2em;margin-left: -2px;'></i>："+data.rmb+"<br>"+"手机号："+data.mobile+"<a href='tel:"+data.mobile+"'><input type='button' value='拨打电话' style='margin-left:5px; padding:3px 7px; border:0px; border-radius:4px; color:#ffffff; background:#09F;'></a><br>"+"姓名："+data.truename+"<br>支付宝账号："+data.zhifubao+"<br/>"+pay_method+"<font style='color:#F00;'>友情提示：请认真核对交易信息，或者电话沟通确认交易！！</font></div>",
+                        text: "<div style='text-align:left'>"+"<br/>"+"<i class='fa fa-jpy' style='color: #FF0000;width: 12px;margin:0 auto;font-size: 1.2em;margin-left: -2px;'></i>："+data.rmb+"<br>"+"手机号："+data.mobile+"<a href='tel:"+data.mobile+"'><input type='button' value='拨打电话' style='margin-left:5px; padding:3px 7px; border:0px; border-radius:4px; color:#ffffff; background:#09F;'></a><br>"+"姓名："+data.truename+"<br>支付宝账号："+data.zhifubao+"<br/>"+pay_method+"<font style='color:#F00;'>友情提示：请认真核对交易信息，或者电话沟通确认交易！！</font></div>",
                         buttons:[
                             { text: "确定", className: "default", onClick: function(){ } },
                         ]
@@ -657,10 +657,21 @@
                 type: "get",
                 data: {id: oid, txt: $("#weui-prompt-input").val()},
                 success: function (data) {
+                    var pay_method="<br>支付宝户名："+data.alipay_user_name+"<br/>";
+                    pay_method +=  "<br>支付宝收款码：<img width='60' height='60' src='"+data.alipay_code_img+"'<br/>";
+
+                    pay_method +="<br>微信号："+data.weixin+"<br/>";
+                    pay_method +="<br>微信号户名："+data.wechat_user_name+"<br/>";
+                    pay_method +=  "<br>支付宝收款码：<img width='60' height='60' src='"+data.wechat_code_img+"'<br/>";
+
+                    pay_method +="<br>银行卡号："+data.brank_num+"<br/>";
+                    pay_method +="<br>属于银行："+data.brank_name+"<br/>";
+                    pay_method +="<br>户主名："+data.brank_user_name+"<br/>";
+
 				console.log(data);
                     $.modal({
                         title: data.name,
-                        text: "<div style='text-align:left'><i class='fa fa-usd' style='color: #00FF00;width: 12px;margin:0 auto;font-size: 1.2em;margin-left: -2px;'></i>："+data.meiyuan+"&nbsp;&nbsp;<br/>"+"<i class='fa fa-jpy' style='color: #FF0000;width: 12px;margin:0 auto;font-size: 1.2em;margin-left: -2px;'></i>："+data.rmb+"&nbsp;&nbsp;<br>"+"手机号："+data.mobile+"<a href='tel:"+data.mobile+"'><input type='button' value='拨打电话' style='margin-left:5px; padding:3px 7px; border:0px; border-radius:4px; color:#ffffff; background:#09F;'></a><br>"+"姓名："+data.truename+"<br>" +
+                        text: "<div style='text-align:left'>"+"&nbsp;&nbsp;<br/>"+"<i class='fa fa-jpy' style='color: #FF0000;width: 12px;margin:0 auto;font-size: 1.2em;margin-left: -2px;'></i>："+data.rmb+"&nbsp;&nbsp;<br>"+"手机号："+data.mobile+"<a href='tel:"+data.mobile+"'><input type='button' value='拨打电话' style='margin-left:5px; padding:3px 7px; border:0px; border-radius:4px; color:#ffffff; background:#09F;'></a><br>"+"姓名："+data.truename+"<br>" +pay_method+
                         "<font style='color:#F00;'>友情提示：请认真核对交易信息，或者电话沟通确认交易！！</font></div>",
 
                         buttons:[
